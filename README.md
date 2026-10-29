@@ -10,7 +10,7 @@ build.py              fills the template: index.html (English) and <lang>/index.
 privacy/index.html    the privacy policy (English only)
 404.html              shown by GitHub Pages for any missing page
 CNAME                 ilovebookworm.com
-assets/               icons, worms, portrait, the cover used in the widget mock-ups, og-image.jpg
+assets/               icons, worms, portrait, the cover used in the widget mock-ups, og-share-v2.jpg
 assets/badges/        Apple's official "Download on the App Store" badges, one per language
 assets/shots/<theme>/ App Store 4.0 screenshots cropped for the web: light, dark, retro, marginalia
 ```
