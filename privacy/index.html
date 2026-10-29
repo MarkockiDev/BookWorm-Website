@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Privacy Policy · BookWorm</title>
+<meta name="description" content="Privacy Policy for BookWorm — the cozy reading tracker for iOS. No account, no ads, no cross-app tracking. Your reading data stays yours.">
+<meta name="theme-color" content="#FDFAF5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Privacy Policy · BookWorm">
+<meta property="og:description" content="No account, no ads, no cross-app tracking. Your reading data stays on your device and in your own iCloud.">
+<meta property="og:image" content="https://ilovebookworm.com/assets/icon.png">
+<link rel="canonical" href="https://ilovebookworm.com/privacy/">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/icon.png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<style>
+  /* ============================================================
+     BookWorm Design System — web adaptation
+     §2 Color · §3 Typography (AS-BUILT: SF system font) · §4 Spacing
+     §5 Radius · §6 Shadow · §17 As-shipped component vocabulary
+     ============================================================ */
+
+  :root {
+    /* ---- Light mode (primary) — §2 ---- */
+    --bg-primary:        #FDFAF5;
+    --bg-secondary:      #F5F0E8;
+    --bg-tertiary:       #EDE7D9;
+
+    --brand-green:       #4CAF72;
+    --green-ink:         #2F7A4C;   /* accessible green for text and links */
+    --green-press:       #3A8F5A;
+    --brand-brown:       #8B5E3C;
+
+    --accent-coral:      #E2593A;
+    --accent-lavender:   #7C5CBF;
+    --accent-sky:        #1F86B0;
+    --accent-gold:       #C98A1E;
+
+    --text-primary:      #2C1810;
+    --text-secondary:    #6B4E3D;
+    --text-tertiary:     #9C8274;
+
+    --on-green:          #FFFFFF;
+
+    --hairline:          #E6D6C2;
+    --hairline-soft:     #EFE3D3;
+    --card-bg:           #F7F2EA;
+    --card-bg-2:         #FBF7F0;
+    --chip-bg:           #FFFFFF;
+    --dot-leader:        #CDBAA3;
+    --glass:             rgba(253, 250, 245, 0.78);
+
+    /* §6 Shadows — warm-tinted, never cool grey */
+    --shadow-card:   0 4px 14px rgba(139, 94, 60, 0.07);
+    --shadow-float:  0 10px 28px rgba(139, 94, 60, 0.16);
+    --shadow-subtle: 0 2px 6px  rgba(139, 94, 60, 0.05);
+    --shadow-icon:   0 14px 36px rgba(139, 94, 60, 0.26);
+
+    /* §5 Radius */
+    --r-sm: 8px;  --r-md: 14px;  --r-lg: 20px;  --r-xl: 28px;  --r-pill: 999px;
+
+    /* §4 Spacing (8pt grid) */
+    --s-4: 4px;   --s-8: 8px;   --s-12: 12px;  --s-16: 16px;
+    --s-20: 20px; --s-24: 24px; --s-32: 32px;  --s-48: 48px;
+
+    --header-h: 60px;
+
+    /* §3 AS-BUILT — SF system font everywhere */
+    --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-round: ui-rounded, "SF Pro Rounded", "Hiragino Maru Gothic ProN", var(--font-ui);
+  }
+
+  /* ---- Dark mode — AS-BUILT: neutral iOS grey, NOT warm brown.
+          Warmth comes from accent tints, gold glow and the mascot. ---- */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary:        #000000;
+      --bg-secondary:      #1C1C1E;
+      --bg-tertiary:       #2C2C2E;
+
+      --brand-green:       #5DC882;
+      --green-ink:         #6FD693;
+      --green-press:       #4AAF6E;
+      --brand-brown:       #C49A70;
+
+      --accent-coral:      #FF8A65;
+      --accent-lavender:   #B39DDB;
+      --accent-sky:        #64C7EB;
+      --accent-gold:       #F0B44C;
+
+      --text-primary:      #F2F2F7;
+      --text-secondary:    #A8A8AD;
+      --text-tertiary:     #8A8A8F;
+
+      --on-green:          #06140C;
+
+      --hairline:          #303032;
+      --hairline-soft:     #262628;
+      --card-bg:           #131315;
+      --card-bg-2:         #1C1C1E;
+      --chip-bg:           #1C1C1E;
+      --dot-leader:        #4A4A50;
+      --glass:             rgba(0, 0, 0, 0.72);
+
+      --shadow-card:   0 4px 16px rgba(0, 0, 0, 0.6);
+      --shadow-float:  0 12px 30px rgba(0, 0, 0, 0.7);
+      --shadow-subtle: 0 2px 8px  rgba(0, 0, 0, 0.5);
+      --shadow-icon:   0 16px 44px rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 20px);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-ui);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  a { color: var(--green-ink); text-decoration: none; font-weight: 500; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2.5px solid var(--brand-green); outline-offset: 3px; border-radius: var(--r-sm); }
+  em { font-style: italic; }
+  strong { color: var(--text-primary); font-weight: 600; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
+
+  /* ============================================================
+     Reading progress — the app's progress-bar language (§7.4)
+     ============================================================ */
+  .progress {
+    position: fixed; inset: 0 auto auto 0;
+    height: 3px; width: 100%;
+    transform: scaleX(0); transform-origin: 0 50%;
+    background: var(--brand-green);
+    z-index: 60;
+    will-change: transform;
+  }
+
+  /* ============================================================
+     Sticky glass header — §7.11 nav bar treatment
+     ============================================================ */
+  .topbar {
+    position: fixed; inset: 0 0 auto 0;
+    height: var(--header-h);
+    z-index: 50;
+    display: flex; align-items: center;
+    padding: 0 var(--s-20);
+    background: var(--glass);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+  }
+  .topbar.stuck { border-bottom-color: var(--hairline); }
+  .topbar-inner {
+    width: 100%; max-width: 1040px; margin: 0 auto;
+    display: flex; align-items: center; gap: var(--s-12);
+  }
+  .topbar .mark { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .skip-link {
+    position: fixed;
+    left: 16px;
+    top: 12px;
+    z-index: 80;
+    transform: translateY(-140%);
+    padding: 10px 14px;
+    border-radius: var(--r-pill);
+    background: var(--brand-green);
+    color: var(--on-green);
+    box-shadow: var(--shadow-float);
+    transition: transform 0.2s ease;
+  }
+  .skip-link:focus { transform: translateY(0); text-decoration: none; }
+  .topbar .mark img, .topbar .mark .fallback {
+    width: 42px; height: 42px; flex: 0 0 42px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-subtle);
+  }
+  .wordmark {
+    font-size: 18px; font-weight: 700; letter-spacing: -0.015em;
+    color: var(--text-primary);
+  }
+  .topbar .doc-label {
+    margin-left: auto;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-tertiary);
+    white-space: nowrap;
+  }
+
+  /* ============================================================
+     App icon — pixel art kept crisp, iOS squircle, §17.5 glow
+     ============================================================ */
+  .app-icon, .fallback {
+    display: block;
+    object-fit: cover;
+    border-radius: 22.37%;             /* iOS squircle approximation */
+    background: var(--bg-tertiary);
+    /* Smooth scaling: the icon is a high-resolution render of the pixel art,
+       so it is always being scaled DOWN here — nearest-neighbour would alias
+       it badly. Switch to `pixelated` only if you swap in a true low-res PNG. */
+  }
+  /* Shown only if icon.png is missing, so the page never breaks */
+  .fallback {
+    display: grid; place-items: center;
+    font-size: 0.52em; line-height: 1;
+    image-rendering: auto;
+    background: linear-gradient(158deg,
+      color-mix(in srgb, var(--brand-green) 30%, var(--bg-secondary)),
+      color-mix(in srgb, var(--brand-brown) 26%, var(--bg-secondary)));
+  }
+
+  /* ============================================================
+     Hero — App Store product-header energy
+     ============================================================ */
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: calc(var(--header-h) + 56px) var(--s-20) var(--s-48);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero::before {                       /* §17.5 gold-glow hero */
+    content: "";
+    position: absolute; left: 50%; top: 40px;
+    width: 640px; height: 460px; margin-left: -320px;
+    z-index: -1;
+    background: radial-gradient(closest-side,
+      color-mix(in srgb, var(--accent-gold) 24%, transparent),
+      transparent 72%);
+    filter: blur(10px);
+    pointer-events: none;
+  }
+  .hero::after {                        /* soft green counter-light */
+    content: "";
+    position: absolute; left: 50%; top: 150px;
+    width: 520px; height: 320px; margin-left: -260px;
+    z-index: -1;
+    background: radial-gradient(closest-side,
+      color-mix(in srgb, var(--brand-green) 13%, transparent), transparent 70%);
+    filter: blur(16px);
+    pointer-events: none;
+  }
+
+  .hero-icon {
+    width: clamp(136px, 18vw, 188px); height: clamp(136px, 18vw, 188px);
+    margin: 0 auto var(--s-24);
+    box-shadow: var(--shadow-icon);
+    animation: float 5s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0)    rotate(-0.6deg); }
+    50%      { transform: translateY(-8px) rotate(0.6deg);  }
+  }
+
+  .eyebrow {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: var(--s-12);
+  }
+  .hero h1 {
+    font-size: clamp(42px, 9vw, 68px);
+    font-weight: 700; letter-spacing: -0.025em; line-height: 1.05;
+    margin-bottom: var(--s-16);
+  }
+  .hero h1 .accent { color: var(--green-ink); }
+  .lede {
+    color: var(--text-secondary);
+    font-size: clamp(17px, 2.2vw, 21px); line-height: 1.55;
+    max-width: 48ch; margin: 0 auto;
+    text-wrap: balance;
+  }
+
+  .badges {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: var(--s-8); margin-top: var(--s-24);
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 7px 14px;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--chip-bg);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-pill);
+    box-shadow: var(--shadow-subtle);
+  }
+  .badge svg { width: 14px; height: 14px; color: var(--tint, var(--brand-green)); }
+  .badge time { font-family: var(--font-round); font-variant-numeric: tabular-nums; }
+
+  /* ============================================================
+     Layout — sticky rail on wide screens
+     ============================================================ */
+  .shell { max-width: 1040px; margin: 0 auto; padding: 0 var(--s-20) var(--s-48); }
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-32); }
+  .content { max-width: 720px; width: 100%; margin: 0 auto; min-width: 0; }
+  .rail { display: none; }
+
+  @media (min-width: 1060px) {
+    .layout { grid-template-columns: 232px minmax(0, 1fr); gap: var(--s-48); align-items: start; }
+    .rail { position: sticky; top: calc(var(--header-h) + var(--s-24)); display: block; }
+    .content { margin: 0; }
+    .contents-inline { display: none; }
+  }
+
+  /* ============================================================
+     §17.1 Warm card — the canonical container
+     ============================================================ */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--hairline-soft);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-card);
+  }
+  .row-divider {                        /* §17.1 inset rowDivider */
+    height: 1px; border: 0;
+    background: var(--hairline-soft);
+    margin-left: 68px;
+  }
+
+  /* ============================================================
+     §17.2 Icon medallion
+     ============================================================ */
+  .medallion {
+    flex: 0 0 40px; width: 40px; height: 40px;
+    border-radius: var(--r-pill);
+    display: grid; place-items: center;
+    background: var(--bg-tertiary);
+    background: color-mix(in srgb, var(--tint) 15%, transparent);
+    color: var(--tint);
+  }
+  .medallion svg { width: 19px; height: 19px; }
+
+  .t-green    { --tint: var(--brand-green); }
+  .t-brown    { --tint: var(--brand-brown); }
+  .t-gold     { --tint: var(--accent-gold); }
+  .t-lavender { --tint: var(--accent-lavender); }
+  .t-sky      { --tint: var(--accent-sky); }
+  .t-coral    { --tint: var(--accent-coral); }
+
+  /* ============================================================
+     §17.3 Café-menu section header
+     ============================================================ */
+  .menu-head {
+    display: flex; align-items: center; gap: var(--s-16);
+    margin: var(--s-48) 0 var(--s-20);
+  }
+  .menu-head::before, .menu-head::after {
+    content: ""; flex: 1 1 auto; height: 1px; background: var(--hairline);
+  }
+  .menu-head span {
+    flex: 0 0 auto;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .menu-head:first-child { margin-top: var(--s-8); }
+
+  /* ============================================================
+     At a glance
+     ============================================================ */
+  .glance { display: grid; grid-template-columns: repeat(auto-fit, minmax(196px, 1fr)); gap: var(--s-12); }
+  .glance .card { padding: var(--s-20) 18px; background: var(--card-bg-2); }
+  .glance .medallion { margin-bottom: var(--s-12); }
+  .glance h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 3px; }
+  .glance p { font-size: 14px; line-height: 1.5; color: var(--text-secondary); }
+
+  /* ============================================================
+     §17.4 Dotted leader — contents
+     ============================================================ */
+  .contents { padding: 18px var(--s-20) 12px; }
+  .contents-title {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--text-tertiary);
+    margin-bottom: var(--s-8);
+  }
+  .leader {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 6px 0;
+    font-size: 14.5px; font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+  .leader:hover { text-decoration: none; color: var(--text-primary); }
+  .leader.active { color: var(--green-ink); font-weight: 600; }
+  .leader.active .leader-num { color: var(--green-ink); }
+  .leader-name { flex: 0 1 auto; }
+  .leader-dots {
+    flex: 1 1 auto; height: 2px; min-width: 12px;
+    transform: translateY(-3px);
+    background-image: radial-gradient(circle, var(--dot-leader) 1px, transparent 1.2px);
+    background-size: 6px 2px; background-repeat: repeat-x;
+  }
+  .leader-num {
+    flex: 0 0 auto;
+    font-family: var(--font-round); font-variant-numeric: tabular-nums;
+    font-size: 13px; font-weight: 600; color: var(--text-tertiary);
+  }
+  .rail .contents { padding: var(--s-16) 18px 10px; }
+
+  /* ============================================================
+     Policy sections
+     ============================================================ */
+  .section { padding: var(--s-24); scroll-margin-top: calc(var(--header-h) + 20px); }
+  .section + .section { margin-top: var(--s-16); }
+
+  .section-head { display: flex; align-items: center; gap: 14px; margin-bottom: var(--s-16); }
+  .section-head h2 { font-size: 20.5px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+  .section-index {
+    display: block;
+    font-family: var(--font-round);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    color: var(--text-tertiary); margin-bottom: 2px;
+  }
+
+  .section p { color: var(--text-secondary); font-size: 15.5px; line-height: 1.62; }
+  .section p + p { margin-top: var(--s-12); }
+  /* A paragraph after a bullet list needs the same gap as one after a paragraph.
+     Only `p + p` was spaced, so the closing line of §5 and §10 sat hard against
+     the final bullet and read as part of it. */
+  .section ul + p { margin-top: var(--s-12); }
+  .section h3 {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin: var(--s-24) 0 var(--s-4);
+  }
+
+  .list { list-style: none; margin-top: var(--s-12); }
+  .list li {
+    position: relative; padding-left: 22px; margin-bottom: 10px;
+    color: var(--text-secondary); font-size: 15.5px; line-height: 1.6;
+  }
+  .list li:last-child { margin-bottom: 0; }
+  .list li::before {
+    content: ""; position: absolute; left: 3px; top: 9px;
+    width: 6px; height: 6px; border-radius: var(--r-pill);
+    background: var(--brand-green);
+  }
+
+  .callout {
+    display: flex; gap: 14px;
+    background: color-mix(in srgb, var(--brand-green) 11%, transparent);
+    border: 1px solid color-mix(in srgb, var(--brand-green) 24%, transparent);
+    border-radius: var(--r-md);
+    padding: var(--s-16);
+  }
+  .callout svg { flex: 0 0 20px; width: 20px; height: 20px; color: var(--brand-green); margin-top: 3px; }
+  .callout p { color: var(--text-primary); font-size: 15.5px; }
+  /* When a callout follows body copy inside a section, it needs the same
+     rhythm as a paragraph would. */
+  .section p + .callout, .section ul + .callout { margin-top: var(--s-16); }
+
+  /* Feature / service rows */
+  .rows { margin-top: var(--s-12); }
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; }
+  .row-body { min-width: 0; }
+  .row-title { font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-primary); }
+  .row-sub { font-size: 14.5px; line-height: 1.55; color: var(--text-secondary); margin-top: 2px; }
+  .row-meta { font-size: 13.5px; line-height: 1.5; color: var(--text-tertiary); margin-top: 7px; }
+  .row-meta b {
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--text-tertiary); margin-right: 7px;
+  }
+
+  /* "What we never do" */
+  .never { display: grid; gap: var(--s-8); margin-top: var(--s-12); list-style: none; }
+  .never li {
+    display: flex; align-items: center; gap: 14px;
+    padding: 11px 14px;
+    background: color-mix(in srgb, var(--accent-coral) 7%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-coral) 16%, transparent);
+    border-radius: var(--r-md);
+  }
+  .never .medallion { flex-basis: 30px; width: 30px; height: 30px; }
+  .never .medallion svg { width: 15px; height: 15px; }
+  .never span { font-size: 15px; color: var(--text-secondary); }
+
+  /* ============================================================
+     Contact — §17.5 glow + §7.1 primary pill button
+     ============================================================ */
+  .contact {
+    position: relative; overflow: hidden;
+    text-align: center;
+    padding: var(--s-32) var(--s-24);
+    margin-top: var(--s-32);
+    border-radius: var(--r-xl);
+  }
+  .contact::before {
+    content: "";
+    position: absolute; left: 50%; top: -60px;
+    width: 320px; height: 320px; margin-left: -160px;
+    border-radius: var(--r-pill);
+    background: radial-gradient(closest-side,
+      color-mix(in srgb, var(--accent-gold) 24%, transparent), transparent 70%);
+    filter: blur(10px); pointer-events: none;
+  }
+  .contact > * { position: relative; }
+  .contact .contact-icon { width: 60px; height: 60px; margin: 0 auto var(--s-16); box-shadow: var(--shadow-float); }
+  .contact h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--s-8); }
+  .contact p { color: var(--text-secondary); font-size: 15.5px; max-width: 38ch; margin: 0 auto var(--s-20); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: var(--s-8);
+    height: 52px; padding: 0 var(--s-24);
+    background: var(--brand-green); color: var(--on-green);
+    font-size: 16px; font-weight: 600;
+    border-radius: var(--r-pill);
+    box-shadow: var(--shadow-float);
+    /* §17.6 BouncyButtonStyle */
+    transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1.3), background-color 0.18s ease;
+  }
+  .btn:hover { background: var(--green-press); text-decoration: none; }
+  .btn:active { transform: scale(0.96); }
+  .btn svg { width: 19px; height: 19px; }
+  .contact .mail { display: block; margin-top: var(--s-16); font-size: 14px; color: var(--text-tertiary); }
+  .contact .mail a { color: var(--text-secondary); font-weight: 500; }
+
+  /* ============================================================
+     Footer
+     ============================================================ */
+  footer {
+    border-top: 1px solid var(--hairline-soft);
+    text-align: center;
+    padding: var(--s-32) var(--s-20) calc(var(--s-48) + env(safe-area-inset-bottom));
+    color: var(--text-tertiary); font-size: 13px; line-height: 1.7;
+  }
+  footer .foot-icon { width: 40px; height: 40px; margin: 0 auto var(--s-12); box-shadow: var(--shadow-subtle); }
+  footer a { color: var(--text-secondary); font-weight: 500; }
+
+  /* §17.8 Adaptive circular icon button */
+  .to-top {
+    position: fixed; right: var(--s-20);
+    bottom: calc(var(--s-20) + env(safe-area-inset-bottom));
+    width: 46px; height: 46px; z-index: 40;
+    display: grid; place-items: center;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-pill);
+    background: var(--chip-bg); color: var(--brand-green);
+    box-shadow: var(--shadow-float); cursor: pointer;
+    opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.9);
+    transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.3), visibility 0.25s;
+  }
+  .to-top.show { opacity: 1; visibility: visible; transform: none; }
+  .to-top:active { transform: scale(0.92); }
+  .to-top svg { width: 20px; height: 20px; }
+
+  /* §17.7 Staggered rise-in — never leaves content invisible without JS */
+  .js .rise { opacity: 0; transform: translateY(14px); }
+  .js .rise.in {
+    opacity: 1; transform: none;
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.25, 1);
+    transition-delay: var(--d, 0s);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero-icon { animation: none; }
+    .js .rise { opacity: 1; transform: none; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  @media (max-width: 560px) {
+    .hero { padding: calc(var(--header-h) + 40px) var(--s-20) var(--s-32); }
+    .hero-icon { width: 120px; height: 120px; }
+    .section { padding: var(--s-20) var(--s-16); }
+    .row-divider { margin-left: 54px; }
+    .menu-head { margin: var(--s-32) 0 var(--s-16); }
+    .topbar .doc-label { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#policy">Skip to policy</a>
+
+<div class="progress" role="presentation"></div>
+
+<!-- SF-Symbol-style icon set (§10) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="10" width="16" height="11" rx="3.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-eyeslash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 3l18 18"/><path d="M10.6 6.3A9.6 9.6 0 0 1 12 6.2c5 0 9 5.8 9 5.8a17 17 0 0 1-3.2 3.8"/><path d="M6.3 8.2A17 17 0 0 0 3 12s4 5.8 9 5.8a9 9 0 0 0 3.4-.7"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="8" r="3.6"/><path d="M4.8 20a7.2 7.2 0 0 1 14.4 0"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4.5h5.5A2.5 2.5 0 0 1 12 7v13a2.2 2.2 0 0 0-2.2-2.2H4z"/><path d="M20 4.5h-5.5A2.5 2.5 0 0 0 12 7v13a2.2 2.2 0 0 1 2.2-2.2H20z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20s-7.5-4.6-7.5-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-iphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6" y="2.6" width="12" height="18.8" rx="3"/><path d="M10.5 5.4h3"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 18a4 4 0 0 1-.4-8A5.3 5.3 0 0 1 17 10.6 3.7 3.7 0 0 1 16.6 18z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 20h16"/><path d="M7 20v-6"/><path d="M12 20V6"/><path d="M17 20v-9"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 13.8a4 4 0 0 0 5.7 0l2.6-2.6a4 4 0 0 0-5.7-5.7l-1.3 1.3"/><path d="M14 10.2a4 4 0 0 0-5.7 0l-2.6 2.6a4 4 0 0 0 5.7 5.7l1.3-1.3"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.5" y="9.5" width="17" height="11" rx="2.2"/><path d="M3.5 13.5h17M12 9.5v11"/><path d="M12 9.5S10.6 4 8.2 4a2.2 2.2 0 0 0 0 5.5zM12 9.5S13.4 4 15.8 4a2.2 2.2 0 0 1 0 5.5z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 16.5V11a6 6 0 1 0-12 0v5.5L4.5 18.4h15z"/><path d="M10 21.2a2.3 2.3 0 0 0 4 0"/></symbol>
+  <symbol id="i-slash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.4"/><path d="M6.5 6.5l11 11"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.5 6.8h15M9.5 6.8V4.6h5v2.2"/><path d="M6.6 6.8l.9 12.1a1.8 1.8 0 0 0 1.8 1.6h5.4a1.8 1.8 0 0 0 1.8-1.6l.9-12.1"/></symbol>
+  <symbol id="i-scales" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 4.2v16M6 20.2h12M12 6.8l-6 1.6M12 6.8l6 1.6"/><path d="M3.2 14.2a2.8 2.8 0 0 0 5.6 0L6 8.4zM15.2 14.2a2.8 2.8 0 0 0 5.6 0L18 8.4z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3.4l7 2.6v5.4c0 4.3-2.9 7.7-7 9.2-4.1-1.5-7-4.9-7-9.2V6z"/><path d="M9.2 12.2l2 2 3.6-3.9"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.4"/><path d="M3.6 12h16.8"/><path d="M12 3.6a13 13 0 0 1 0 16.8 13 13 0 0 1 0-16.8z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.4"/><path d="M12 7.2V12l3.2 2"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9z"/><path d="M18.5 16.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+  <symbol id="i-envelope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="5.5" width="18" height="13" rx="2.6"/><path d="M3.8 7.2l7.1 5a2 2 0 0 0 2.2 0l7.1-5"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5.6"/><path d="M6.2 11.4L12 5.6l5.8 5.8"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15.6 12.4c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.15-2.8.85-3.5.85s-1.8-.83-3-.8c-1.5.02-2.9.9-3.7 2.25-1.6 2.75-.4 6.8 1.1 9 .75 1.1 1.6 2.3 2.8 2.25 1.1-.05 1.55-.72 2.9-.72s1.75.72 2.95.7c1.2-.02 2-1.1 2.75-2.2a9 9 0 0 0 1.2-2.5c-.03-.01-2.1-.8-2.1-3.5z"/><path d="M13.4 5.3c.6-.75 1-1.8.9-2.8-.87.04-1.9.58-2.55 1.3-.55.65-1.05 1.7-.9 2.7.97.08 1.95-.5 2.55-1.2z"/></symbol>
+</defs></svg>
+
+<!-- ---------- Sticky header ---------- -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="mark" href="#top" aria-label="BookWorm — back to top">
+      <img class="app-icon" src="../assets/icon.png" alt="" width="42" height="42" data-icon>
+      <span class="wordmark">BookWorm</span>
+    </a>
+    <span class="doc-label">Privacy Policy</span>
+  </div>
+</header>
+
+<!-- ---------- Hero ---------- -->
+<div id="top"></div>
+<section class="hero">
+  <img class="app-icon hero-icon" src="../assets/icon.png"
+       alt="The BookWorm app icon — a bookworm reading in a lamp-lit burrow"
+       width="188" height="188" data-icon data-fallback-emoji="🐛">
+  <p class="eyebrow">BookWorm for iOS</p>
+  <h1>Privacy <span class="accent">Policy</span></h1>
+  <p class="lede">Your reading life is personal. Here is exactly what BookWorm does — and never does — with your data.</p>
+  <div class="badges">
+    <span class="badge" style="--tint:var(--accent-gold)">
+      <svg aria-hidden="true"><use href="#i-clock"/></svg>
+      Updated <time datetime="2026-10-26">26 October 2026</time>
+    </span>
+    <span class="badge">
+      <svg aria-hidden="true"><use href="#i-apple"/></svg>
+      iOS
+    </span>
+    <span class="badge" style="--tint:var(--accent-lavender)">
+      <svg aria-hidden="true"><use href="#i-shield"/></svg>
+      No account needed
+    </span>
+  </div>
+</section>
+
+<div class="shell">
+  <div class="layout">
+
+    <!-- ---------- Sticky rail (wide screens) ---------- -->
+    <aside class="rail">
+      <nav class="card contents" aria-label="Sections">
+        <p class="contents-title">Contents</p>
+        <a class="leader" href="#s1"><span class="leader-name">Who we are</span><span class="leader-dots"></span><span class="leader-num">01</span></a>
+        <a class="leader" href="#s2"><span class="leader-name">Our principle</span><span class="leader-dots"></span><span class="leader-num">02</span></a>
+        <a class="leader" href="#s3"><span class="leader-name">On your device</span><span class="leader-dots"></span><span class="leader-num">03</span></a>
+        <a class="leader" href="#s4"><span class="leader-name">iCloud sync</span><span class="leader-dots"></span><span class="leader-num">04</span></a>
+        <a class="leader" href="#s5"><span class="leader-name">Analytics</span><span class="leader-dots"></span><span class="leader-num">05</span></a>
+        <a class="leader" href="#s6"><span class="leader-name">Third parties</span><span class="leader-dots"></span><span class="leader-num">06</span></a>
+        <a class="leader" href="#s7"><span class="leader-name">Tips</span><span class="leader-dots"></span><span class="leader-num">07</span></a>
+        <a class="leader" href="#s8"><span class="leader-name">Notifications</span><span class="leader-dots"></span><span class="leader-num">08</span></a>
+        <a class="leader" href="#s9"><span class="leader-name">What we never do</span><span class="leader-dots"></span><span class="leader-num">09</span></a>
+        <a class="leader" href="#s10"><span class="leader-name">Deletion</span><span class="leader-dots"></span><span class="leader-num">10</span></a>
+        <a class="leader" href="#s11"><span class="leader-name">Your rights</span><span class="leader-dots"></span><span class="leader-num">11</span></a>
+        <a class="leader" href="#s12"><span class="leader-name">Children</span><span class="leader-dots"></span><span class="leader-num">12</span></a>
+        <a class="leader" href="#s13"><span class="leader-name">Security</span><span class="leader-dots"></span><span class="leader-num">13</span></a>
+        <a class="leader" href="#s14"><span class="leader-name">Transfers</span><span class="leader-dots"></span><span class="leader-num">14</span></a>
+        <a class="leader" href="#s15"><span class="leader-name">Changes</span><span class="leader-dots"></span><span class="leader-num">15</span></a>
+      </nav>
+    </aside>
+
+    <main class="content" id="policy">
+
+      <!-- ---------- At a glance ---------- -->
+      <h2 class="menu-head rise"><span>Privacy at a glance</span></h2>
+      <div class="glance">
+        <div class="card rise" style="--d:.05s">
+          <div class="medallion t-green"><svg aria-hidden="true"><use href="#i-lock"/></svg></div>
+          <h3>Stays on your device</h3>
+          <p>Your books and reading history live on your iPhone and in your own private iCloud.</p>
+        </div>
+        <div class="card rise" style="--d:.1s">
+          <div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-eyeslash"/></svg></div>
+          <h3>No tracking, no ads</h3>
+          <p>We never track you across apps or websites, and there is no advertising anywhere.</p>
+        </div>
+        <div class="card rise" style="--d:.15s">
+          <div class="medallion t-lavender"><svg aria-hidden="true"><use href="#i-person"/></svg></div>
+          <h3>No account, no selling</h3>
+          <p>No sign-up required. We never sell or share your personal data. Ever.</p>
+        </div>
+      </div>
+
+      <!-- ---------- Inline contents (narrow screens) ---------- -->
+      <div class="contents-inline">
+        <h2 class="menu-head rise"><span>Contents</span></h2>
+        <nav class="card contents rise" aria-label="Table of contents">
+          <p class="contents-title">Jump to a section</p>
+          <a class="leader" href="#s1"><span class="leader-name">Who we are</span><span class="leader-dots"></span><span class="leader-num">01</span></a>
+          <a class="leader" href="#s2"><span class="leader-name">Our privacy principle</span><span class="leader-dots"></span><span class="leader-num">02</span></a>
+          <a class="leader" href="#s3"><span class="leader-name">Information stored on your device</span><span class="leader-dots"></span><span class="leader-num">03</span></a>
+          <a class="leader" href="#s4"><span class="leader-name">iCloud sync</span><span class="leader-dots"></span><span class="leader-num">04</span></a>
+          <a class="leader" href="#s5"><span class="leader-name">Analytics</span><span class="leader-dots"></span><span class="leader-num">05</span></a>
+          <a class="leader" href="#s6"><span class="leader-name">Third-party services</span><span class="leader-dots"></span><span class="leader-num">06</span></a>
+          <a class="leader" href="#s7"><span class="leader-name">Purchases &amp; tips</span><span class="leader-dots"></span><span class="leader-num">07</span></a>
+          <a class="leader" href="#s8"><span class="leader-name">Notifications</span><span class="leader-dots"></span><span class="leader-num">08</span></a>
+          <a class="leader" href="#s9"><span class="leader-name">What we do not do</span><span class="leader-dots"></span><span class="leader-num">09</span></a>
+          <a class="leader" href="#s10"><span class="leader-name">Data retention &amp; deletion</span><span class="leader-dots"></span><span class="leader-num">10</span></a>
+          <a class="leader" href="#s11"><span class="leader-name">Your privacy rights</span><span class="leader-dots"></span><span class="leader-num">11</span></a>
+          <a class="leader" href="#s12"><span class="leader-name">Children's privacy</span><span class="leader-dots"></span><span class="leader-num">12</span></a>
+          <a class="leader" href="#s13"><span class="leader-name">Data security</span><span class="leader-dots"></span><span class="leader-num">13</span></a>
+          <a class="leader" href="#s14"><span class="leader-name">International data transfers</span><span class="leader-dots"></span><span class="leader-num">14</span></a>
+          <a class="leader" href="#s15"><span class="leader-name">Changes to this policy</span><span class="leader-dots"></span><span class="leader-num">15</span></a>
+        </nav>
+      </div>
+
+      <!-- ================= THE BASICS ================= -->
+      <h2 class="menu-head rise"><span>The basics</span></h2>
+
+      <section class="card section rise" id="s1">
+        <div class="section-head">
+          <div class="medallion t-green"><svg aria-hidden="true"><use href="#i-book"/></svg></div>
+          <h2><span class="section-index">SECTION 01</span>Who we are</h2>
+        </div>
+        <p>BookWorm ("the app", "we", "us", or "our") is a reading tracker for iOS that helps you log books, follow your reading progress, build reading streaks, and organise your personal library. This Privacy Policy explains how we handle information when you use the app.</p>
+        <p>This policy applies to the BookWorm iOS application distributed through the Apple App Store. By using BookWorm, you agree to the practices described here.</p>
+      </section>
+
+      <section class="card section rise" id="s2">
+        <div class="section-head">
+          <div class="medallion t-green"><svg aria-hidden="true"><use href="#i-heart"/></svg></div>
+          <h2><span class="section-index">SECTION 02</span>Our privacy principle</h2>
+        </div>
+        <div class="callout">
+          <svg aria-hidden="true"><use href="#i-shield"/></svg>
+          <p><strong>BookWorm is built to be private by design.</strong> The app works without an account, without a login, and without sending your library to our servers. Your reading data belongs to you — it stays on your device and, if you choose, syncs privately through <em>your own</em> iCloud account.</p>
+        </div>
+      </section>
+
+      <!-- ================= YOUR DATA ================= -->
+      <h2 class="menu-head rise"><span>Your data</span></h2>
+
+      <section class="card section rise" id="s3">
+        <div class="section-head">
+          <div class="medallion t-sky"><svg aria-hidden="true"><use href="#i-iphone"/></svg></div>
+          <h2><span class="section-index">SECTION 03</span>Information stored on your device</h2>
+        </div>
+        <p>Everything you create in BookWorm is stored locally on your device. We do not receive or have access to this content. It includes:</p>
+        <ul class="list">
+          <li><strong>Your library:</strong> book titles, authors, cover images, formats, genres, and reading status.</li>
+          <li><strong>Reading activity:</strong> progress, page and time positions, start and finish dates, reading log, and streaks.</li>
+          <li><strong>Personal touches:</strong> a display name and profile photo you optionally add, reading goals, favourites, and app settings such as language, theme, and notification preferences.</li>
+        </ul>
+
+        <h3>Device features, used only when you choose</h3>
+        <div class="rows">
+          <div class="row">
+            <div class="medallion t-brown"><svg aria-hidden="true"><use href="#i-eyeslash"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">Camera</p>
+              <p class="row-sub">If you scan a book barcode, BookWorm uses your camera to read the ISBN. Scanning happens on your device — no photo or video is stored or uploaded.</p>
+            </div>
+          </div>
+          <hr class="row-divider">
+          <div class="row">
+            <div class="medallion t-lavender"><svg aria-hidden="true"><use href="#i-sparkle"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">Photos</p>
+              <p class="row-sub">When you save a share card, BookWorm asks for add-only photo permission so it can save an image. The app never requests read access to your photo library.</p>
+            </div>
+          </div>
+          <hr class="row-divider">
+          <div class="row">
+            <div class="medallion t-gold"><svg aria-hidden="true"><use href="#i-heart"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">Share cards</p>
+              <p class="row-sub">If you share a finished book, BookWorm creates the image on your device from that book's title, author, cover, and reading dates — then sends it only where you choose to share it.</p>
+            </div>
+          </div>
+          <hr class="row-divider">
+          <div class="row">
+            <div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-chart"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">Widgets</p>
+              <p class="row-sub">If you add a BookWorm widget, the app shares only what the widget needs — current book, progress, streak — through a private on-device App Group container. Lock Screen widgets may be visible to anyone who can see your screen.</p>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:var(--s-16)">This information never leaves your device except through the private iCloud sync described below.</p>
+      </section>
+
+      <section class="card section rise" id="s4">
+        <div class="section-head">
+          <div class="medallion t-sky"><svg aria-hidden="true"><use href="#i-cloud"/></svg></div>
+          <h2><span class="section-index">SECTION 04</span>iCloud sync (CloudKit)</h2>
+        </div>
+        <p>If iCloud is enabled on your device, BookWorm can sync your library across your Apple devices using Apple's <strong>CloudKit private database</strong>. This data is stored in <em>your</em> personal iCloud account, protected by your Apple ID.</p>
+        <ul class="list">
+          <li>The developer of BookWorm <strong>cannot see, access, or read</strong> the contents of your private iCloud database.</li>
+          <li>This sync is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a> and iCloud terms.</li>
+          <li>You can turn iCloud sync off at any time in your device's iCloud settings.</li>
+        </ul>
+      </section>
+
+      <section class="card section rise" id="s5">
+        <div class="section-head">
+          <div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-chart"/></svg></div>
+          <h2><span class="section-index">SECTION 05</span>Analytics</h2>
+        </div>
+        <p>To understand how features are used and to improve the app, BookWorm collects a small amount of <strong>pseudonymous</strong> usage data using <a href="https://posthog.com/privacy" target="_blank" rel="noopener">PostHog</a>. Data is processed on PostHog's <strong>EU-based cloud</strong> for GDPR compliance.</p>
+        <p>This analytics data:</p>
+        <ul class="list">
+          <li><strong>Is not used to track you</strong> across other apps or websites — no IDFA, no cross-app tracking.</li>
+          <li><strong>Contains no personal content.</strong> We never send book titles, author names, your display name, notes, your profile photo, or the text you type into search. For search, we record only query length and result count.</li>
+          <li><strong>Consists of product-interaction events</strong>, such as which screens are opened, which features are used, and onboarding choices, to help us fix problems and prioritise improvements.</li>
+          <li><strong>Includes crash reports.</strong> If the app crashes, a technical report (where in the code it stopped, the app and iOS version, and the device model) is sent the next time you open BookWorm, so we can find and fix the problem. It contains none of your library, notes or other personal content.</li>
+          <li><strong>Is associated with a randomly generated app identifier</strong> and a small usage profile — for example reading goals, app language and theme, notification settings, library size, books finished, audiobook usage, and whether you have set a profile photo (never the photo itself).</li>
+        </ul>
+        <p>This data is <strong>not used for tracking</strong> and is never sold or shared for advertising.</p>
+        <p>Analytics and crash reporting are part of how BookWorm works and <strong>there is no setting in the app to turn them off</strong>. We rely on our legitimate interest in keeping a free app stable and improving it, and we keep the data limited to what is described above. You can object at any time, or ask us to erase the analytics profile for your device, by contacting us using the details below.</p>
+      </section>
+
+      <!-- ================= WHO ELSE IS INVOLVED ================= -->
+      <h2 class="menu-head rise"><span>Who else is involved</span></h2>
+
+      <section class="card section rise" id="s6">
+        <div class="section-head">
+          <div class="medallion t-brown"><svg aria-hidden="true"><use href="#i-link"/></svg></div>
+          <h2><span class="section-index">SECTION 06</span>Third-party services</h2>
+        </div>
+        <p>BookWorm relies on a few external services strictly to make features work. We share only what is technically necessary, and we do not sell data to anyone.</p>
+
+        <div class="rows">
+          <div class="row">
+            <div class="medallion t-sky"><svg aria-hidden="true"><use href="#i-book"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">Apple iTunes Search API</p>
+              <p class="row-sub">Searching for books and looking up covers, titles and authors.</p>
+              <p class="row-meta"><b>Shared</b>Your search terms or a scanned ISBN. No API key or account is used.</p>
+            </div>
+          </div>
+          <hr class="row-divider">
+          <div class="row">
+            <div class="medallion t-brown"><svg aria-hidden="true"><use href="#i-book"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">Open Library</p>
+              <p class="row-sub">Enriching a selected book with its page count.</p>
+              <p class="row-meta"><b>Shared</b>A book's ISBN, or its title and author.</p>
+            </div>
+          </div>
+          <hr class="row-divider">
+          <div class="row">
+            <div class="medallion t-sky"><svg aria-hidden="true"><use href="#i-cloud"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">Apple iCloud / CloudKit</p>
+              <p class="row-sub">Private cross-device sync.</p>
+              <p class="row-meta"><b>Shared</b>Your library, stored in your own iCloud account.</p>
+            </div>
+          </div>
+          <hr class="row-divider">
+          <div class="row">
+            <div class="medallion t-gold"><svg aria-hidden="true"><use href="#i-gift"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">Apple App Store &amp; StoreKit</p>
+              <p class="row-sub">Processing optional one-time tips.</p>
+              <p class="row-meta"><b>Shared</b>Purchases are handled entirely by Apple. We never see your payment details.</p>
+            </div>
+          </div>
+          <hr class="row-divider">
+          <div class="row">
+            <div class="medallion t-gold"><svg aria-hidden="true"><use href="#i-shield"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">RevenueCat</p>
+              <p class="row-sub">Processing and validating optional tips, and remembering that you tipped.</p>
+              <p class="row-meta"><b>Shared</b>An app-generated anonymous user ID and Apple's purchase receipt. Never your payment details.</p>
+            </div>
+          </div>
+          <hr class="row-divider">
+          <div class="row">
+            <div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-chart"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">PostHog (EU)</p>
+              <p class="row-sub">Pseudonymous usage analytics.</p>
+              <p class="row-meta"><b>Shared</b>Product-interaction events and app-level usage properties tied to a random app identifier.</p>
+            </div>
+          </div>
+          <hr class="row-divider">
+          <div class="row">
+            <div class="medallion t-lavender"><svg aria-hidden="true"><use href="#i-sparkle"/></svg></div>
+            <div class="row-body">
+              <p class="row-title">Canny</p>
+              <p class="row-sub">The optional feature-suggestion board opened from Settings.</p>
+              <p class="row-meta"><b>Shared</b>Only what you choose to type there, under Canny's own privacy policy.</p>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin-top:var(--s-16)">These services process data under their own privacy policies. Book searches are sent to Apple and Open Library only when you actively search for or scan a book.</p>
+      </section>
+
+      <section class="card section rise" id="s7">
+        <div class="section-head">
+          <div class="medallion t-gold"><svg aria-hidden="true"><use href="#i-gift"/></svg></div>
+          <h2><span class="section-index">SECTION 07</span>Purchases &amp; tips</h2>
+        </div>
+        <p>BookWorm is free. It offers optional one-time tips through Apple's in-app purchase system. These are single payments, not subscriptions — nothing recurs and nothing is unlocked. All payments are processed by Apple. We never receive or store your credit-card number, billing address, or Apple ID password. Receipts are handled through your Apple account settings.</p>
+        <p>We use <strong>RevenueCat</strong> to validate purchases and remember whether you have tipped, so the app can thank you. RevenueCat receives an app-generated anonymous identifier and Apple's purchase receipt, but never your name, email, or payment details. RevenueCat does not handle payment processing; Apple does.</p>
+      </section>
+
+      <section class="card section rise" id="s8">
+        <div class="section-head">
+          <div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-bell"/></svg></div>
+          <h2><span class="section-index">SECTION 08</span>Notifications</h2>
+        </div>
+        <p>If you enable reading reminders, BookWorm schedules local notifications on your device — for example a morning reading prompt, an evening progress reminder, and a nudge when a reading streak is at risk. These notifications are generated on-device and are not sent through any external server. You can disable them at any time in the app's settings or in your device's system settings.</p>
+        <p>Reminders also include an occasional weekly note, currently on Sundays, mentioning that BookWorm is free and that you can leave an optional tip if you would like to. It contains no advertising and links only to BookWorm's own tip screen. It is part of the same reminder setting, so turning reminders off turns it off too.</p>
+      </section>
+
+      <!-- ================= YOUR CONTROL ================= -->
+      <h2 class="menu-head rise"><span>Your control</span></h2>
+
+      <section class="card section rise" id="s9">
+        <div class="section-head">
+          <div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-slash"/></svg></div>
+          <h2><span class="section-index">SECTION 09</span>What we do <em>not</em> do</h2>
+        </div>
+        <ul class="never">
+          <li><div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-slash"/></svg></div><span>Require an account or email address to use the app.</span></li>
+          <li><div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-slash"/></svg></div><span>Sell, rent, or trade your personal information.</span></li>
+          <li><div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-slash"/></svg></div><span>Track you across other companies' apps or websites.</span></li>
+          <li><div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-slash"/></svg></div><span>Show third-party advertising.</span></li>
+          <li><div class="medallion t-coral"><svg aria-hidden="true"><use href="#i-slash"/></svg></div><span>Collect your precise location, contacts, or health data.</span></li>
+        </ul>
+      </section>
+
+      <section class="card section rise" id="s10">
+        <div class="section-head">
+          <div class="medallion t-green"><svg aria-hidden="true"><use href="#i-trash"/></svg></div>
+          <h2><span class="section-index">SECTION 10</span>Data retention &amp; deletion</h2>
+        </div>
+        <p>Because your library is stored locally and in your own iCloud account, <strong>you are always in control</strong>:</p>
+        <ul class="list">
+          <li>Deleting a book, or all your data, within the app removes it from your device — and syncs that deletion to your iCloud.</li>
+          <li>Deleting the app removes all locally stored data from that device.</li>
+          <li>To remove synced data everywhere, delete it in the app while signed in to iCloud, or manage BookWorm's data in your device's iCloud settings.</li>
+          <li>Analytics events are tied to a randomly generated app identifier and retained by PostHog on our behalf. If you reset all app data, a new identifier is created and past analytics can no longer be associated with your device.</li>
+        </ul>
+      </section>
+
+      <section class="card section rise" id="s11">
+        <div class="section-head">
+          <div class="medallion t-lavender"><svg aria-hidden="true"><use href="#i-scales"/></svg></div>
+          <h2><span class="section-index">SECTION 11</span>Your privacy rights</h2>
+        </div>
+        <p>Depending on where you live, you may have rights under laws such as the EU/UK <strong>GDPR</strong> or the <strong>California Consumer Privacy Act (CCPA/CPRA)</strong>, including the right to access, correct, delete, or port your data, and the right not to be discriminated against for exercising those rights.</p>
+        <p>Because BookWorm does not hold your personal library on our own servers, most of these rights are exercised directly within the app by editing or deleting your data. Resetting all data in the app also resets your analytics identifier. If you would like us to erase the analytics profile associated with your device, or you have any other privacy question, contact us using the details below and we will respond in accordance with applicable law.</p>
+      </section>
+
+      <!-- ================= THE FINE PRINT ================= -->
+      <h2 class="menu-head rise"><span>The fine print</span></h2>
+
+      <section class="card section rise" id="s12">
+        <div class="section-head">
+          <div class="medallion t-brown"><svg aria-hidden="true"><use href="#i-person"/></svg></div>
+          <h2><span class="section-index">SECTION 12</span>Children's privacy</h2>
+        </div>
+        <p>BookWorm is not directed to children under the age of 13 (or the minimum age required in your country), and we do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will take appropriate steps to address it.</p>
+      </section>
+
+      <section class="card section rise" id="s13">
+        <div class="section-head">
+          <div class="medallion t-green"><svg aria-hidden="true"><use href="#i-shield"/></svg></div>
+          <h2><span class="section-index">SECTION 13</span>Data security</h2>
+        </div>
+        <p>We take reasonable measures to protect your information. Data in transit to the services listed above is protected using encryption (HTTPS/TLS). iCloud data is secured by Apple's infrastructure and your Apple ID. However, no method of electronic storage or transmission is 100% secure, and we cannot guarantee absolute security.</p>
+      </section>
+
+      <section class="card section rise" id="s14">
+        <div class="section-head">
+          <div class="medallion t-sky"><svg aria-hidden="true"><use href="#i-globe"/></svg></div>
+          <h2><span class="section-index">SECTION 14</span>International data transfers</h2>
+        </div>
+        <p>The third-party services we use may process data on servers located in various countries. We have chosen PostHog's EU cloud for analytics to support GDPR compliance. RevenueCat, which validates purchases, processes data in the United States. Where data is transferred internationally, it is done under the safeguards provided by the respective service providers.</p>
+      </section>
+
+      <section class="card section rise" id="s15">
+        <div class="section-head">
+          <div class="medallion t-gold"><svg aria-hidden="true"><use href="#i-clock"/></svg></div>
+          <h2><span class="section-index">SECTION 15</span>Changes to this policy</h2>
+        </div>
+        <p>We may update this Privacy Policy from time to time to reflect changes in the app or in legal requirements. When we do, we will revise the "Last updated" date at the top of this page. This version was last updated on <strong>26 October 2026</strong>. Significant changes may also be communicated within the app. We encourage you to review this policy periodically.</p>
+      </section>
+
+      <!-- ---------- Contact ---------- -->
+      <section class="card contact rise" aria-labelledby="contact-title">
+        <img class="app-icon contact-icon" src="../assets/icon.png" alt="" width="60" height="60" data-icon data-fallback-emoji="🐛">
+        <h2 id="contact-title">Questions? We'd love to hear from you</h2>
+        <p>If anything here is unclear, or you have a question about your data, reach out any time.</p>
+        <a class="btn" href="mailto:markockidev@icloud.com">
+          <svg aria-hidden="true"><use href="#i-envelope"/></svg>
+          Contact the developer
+        </a>
+        <span class="mail"><a href="mailto:markockidev@icloud.com">markockidev@icloud.com</a></span>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <img class="app-icon foot-icon" src="../assets/icon.png" alt="" width="40" height="40" data-icon data-fallback-emoji="🐛">
+  BookWorm — a cozy reading companion.<br>
+  © 2026 BookWorm. All rights reserved. · <a href="mailto:markockidev@icloud.com">markockidev@icloud.com</a>
+</footer>
+
+<button class="to-top" type="button" aria-label="Back to top">
+  <svg aria-hidden="true"><use href="#i-arrow-up"/></svg>
+</button>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* If icon.png is missing, swap in a styled mascot tile rather than a
+     broken image, so the page still looks finished. */
+  document.querySelectorAll('[data-icon]').forEach(function (img) {
+    img.addEventListener('error', function () {
+      var el = document.createElement('span');
+      el.className = img.className.replace('app-icon', 'fallback');
+      el.setAttribute('role', 'img');
+      el.setAttribute('aria-label', img.alt || 'BookWorm');
+      el.style.width = img.getAttribute('width') + 'px';
+      el.style.height = img.getAttribute('height') + 'px';
+      el.style.fontSize = (img.getAttribute('width') * 0.52) + 'px';
+      el.textContent = img.dataset.fallbackEmoji || '🐛';
+      img.replaceWith(el);
+    });
+  });
+
+  /* Reading progress + sticky-header hairline + back-to-top */
+  var bar = document.querySelector('.progress');
+  var topbar = document.querySelector('.topbar');
+  var toTop = document.querySelector('.to-top');
+  var ticking = false;
+
+  function paint() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var y = window.scrollY;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+    topbar.classList.toggle('stuck', y > 8);
+    toTop.classList.toggle('show', y > 700);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(paint); }
+  }, { passive: true });
+  window.addEventListener('resize', paint, { passive: true });
+  paint();
+
+  toTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  if (!('IntersectionObserver' in window)) return;
+
+  /* Scroll-spy: highlight the section you are reading in every contents list */
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.section[id]'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('.leader'));
+  var visible = {};
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+    var current = null;
+    for (var i = 0; i < sections.length; i++) {
+      if (visible[sections[i].id]) { current = sections[i].id; break; }
+    }
+    if (!current) return;
+    links.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
+  sections.forEach(function (s) { spy.observe(s); });
+
+  /* §17.7 Staggered rise-in — only hide content when we can guarantee reveal */
+  if (reduce) return;
+  document.documentElement.classList.add('js');
+  var items = document.querySelectorAll('.rise');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  items.forEach(function (el) { io.observe(el); });
+  setTimeout(function () {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }, 2500);
+})();
+</script>
+
+</body>
+</html>
