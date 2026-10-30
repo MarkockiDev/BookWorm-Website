@@ -370,6 +370,13 @@ p { text-wrap: pretty; }
   max-height: min(70vh, 460px); overflow: auto;
 }
 [data-theme="retro"] .menu { border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); border-radius: 12px; }
+/* On a phone the buttons sit mid-bar, so a menu hung from its own button runs off the screen.
+   There both menus hang from the bar itself, full width, just under it. */
+@media (max-width: 640px) {
+  .nav-pill { position: relative; }
+  .menu-wrap { position: static; }
+  .menu { left: 0; right: 0; min-width: 0; transform-origin: top center; }
+}
 .menu.open { opacity: 1; transform: none; visibility: visible; transition: opacity .18s var(--ease-out), transform .18s var(--ease-out), visibility 0s; }
 .menu p { margin: 6px 10px 6px; font: 600 .72rem/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
 .menu button, .menu a {
