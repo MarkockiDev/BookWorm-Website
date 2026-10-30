@@ -41,6 +41,9 @@ PAGES = [p for p in PAGES if (SRC / "pages" / f"{p[0]}.html").exists()]
 BY_ID = {p[0]: p for p in PAGES}
 
 layout = (SRC / "layout.html").read_text(encoding="utf-8")
+SITE_CONFIG = json.loads((SRC / "site.json").read_text(encoding="utf-8"))
+assert SITE_CONFIG["posthog_key"].startswith("phc_"), "site.json must hold PostHog's public project key (phc_...), nothing else"
+CAMPAIGN = SITE_CONFIG.get("app_store_pt", "").strip()  # App Store Connect campaign provider token, if set
 ver = hashlib.sha1(b"".join((ROOT / "assets" / f).read_bytes() for f in ("site.css", "site.js"))).hexdigest()[:8]
 
 
@@ -81,6 +84,31 @@ def app_rating():
 
 RATING = app_rating()
 TODAY = datetime.date.today().isoformat()
+
+
+def secrets():
+    """Every value in the app's private BookWorm.xcconfig except the public PostHog project key and host,
+    plus the shapes of keys that must never be published (PostHog personal keys, RevenueCat keys)."""
+    found = []
+    xc = ROOT.parent / "BookWorm.xcconfig"
+    if xc.exists():
+        for line in xc.read_text(encoding="utf-8").splitlines():
+            if "=" in line and not line.strip().startswith("//"):
+                value = line.split("=", 1)[1].strip()
+                if len(value) >= 8 and not value.startswith("phc_") and "posthog.com" not in value:
+                    found.append(value)
+    return found
+
+
+SECRETS = secrets()
+SECRET_SHAPES = re.compile(r"\b(phx_[A-Za-z0-9]{10,}|appl_[A-Za-z0-9]{10,}|test_[A-Za-z0-9]{20,}|sk_[A-Za-z0-9]{20,})")
+
+
+def leak_check(html, where):
+    """Stops the build if a page would publish anything secret."""
+    hit = SECRET_SHAPES.search(html)
+    if hit or any(v in html for v in SECRETS):
+        raise SystemExit(f"STOP: {where} would publish a secret ({'pattern ' + hit.group(1)[:5] + '...' if hit else 'a value from BookWorm.xcconfig'}). Nothing was written.")
 TICK = '<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
 
 
@@ -190,7 +218,13 @@ def build(lang, pid):
         "badge": f'/assets/badges/{w["_badge"]}-black.svg',
         "faq_items": faq,
         "breadcrumb": crumbs_html,
-        "app_url": APP_URL,
+        # with a campaign token, App Store Connect counts downloads per page (ct=web-<page>)
+        "app_url": f"https://apps.apple.com/app/apple-store/id{APP_ID}?pt={CAMPAIGN}&ct=web-{pid}&mt=8" if CAMPAIGN else APP_URL,
+        "page_id": pid,
+        "lang_code": lang,
+        "posthog_key": SITE_CONFIG["posthog_key"],
+        "posthog_host": SITE_CONFIG["posthog_host"],
+        "posthog_ui": SITE_CONFIG["posthog_ui"],
         "ver": ver,
     }
 
@@ -204,6 +238,7 @@ def build(lang, pid):
     html = layout.replace("{{content}}", content)
     html = re.sub(r"\{\{(\w+)\}\}", fill, html)
     html = re.sub(r"\{\{(\w+)\}\}", fill, html)  # a page's words may themselves carry {{home}} links
+    leak_check(html, f"{lang}/{pid}")
     out = ROOT / home.strip("/") / slug / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")

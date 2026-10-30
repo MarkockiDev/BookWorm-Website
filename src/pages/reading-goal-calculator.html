@@ -84,7 +84,7 @@
     <div class="wrap">
       <h2>{{cta_title}}</h2>
       <p>{{cta_text}}</p>
-      <div class="cta-row"><a class="badge" href="{{app_url}}"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54" loading="lazy"></a></div>
+      <div class="cta-row"><a class="badge" href="{{app_url}}" data-placement="closing"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54" loading="lazy"></a></div>
     </div>
   </section>
 
@@ -147,7 +147,18 @@
       if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); select(1 - i, true); }
     });
   });
-  document.querySelectorAll('#calc input').forEach(function (el) { el.addEventListener('input', calc); });
+  // analytics: once per mode per visit, a few seconds after the visitor stops typing, with the answer they got
+  var reported = {}, timer = null;
+  function report() {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      var pages = parseInt($('r-pages').textContent.replace(/\D/g, ''), 10);
+      if (reported[mode] || !isFinite(pages) || !window.bwTrack) return;
+      reported[mode] = true;
+      window.bwTrack('website_calculator_used', { mode: mode, pages_per_day: pages });
+    }, 2500);
+  }
+  document.querySelectorAll('#calc input').forEach(function (el) { el.addEventListener('input', function () { calc(); report(); }); });
   calc();
 })();
 </script>

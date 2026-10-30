@@ -42,6 +42,38 @@ Pages: home, `reading-goal-calculator/`, `audiobook-tracker/`, `reading-habit-tr
 
 Rebuild now and then so the rating in search results stays current.
 
+## Website analytics (PostHog)
+
+The site sends to the **same PostHog project as the app** (EU cloud), cookieless: `persistence: 'memory'`,
+no person profiles, no autocapture, no session recording. The key in `src/site.json` is PostHog's public
+*project* key: it can only send events. `build.py` refuses to write any page that contains a PostHog personal
+key (`phx_`), a RevenueCat key, or any other value from the app's private `BookWorm.xcconfig`.
+
+PostHog only loads on `ilovebookworm.com`. To test locally, open a page with `?ph=1`; those events carry
+`env = preview`.
+
+Every website event carries `platform = web`, `site = ilovebookworm.com`, `env`, `page_id` (e.g. `home`,
+`reading-goal-calculator`, `how-many-pages-a-day`) and `page_lang` (e.g. `en`, `pl`). App events don't have
+`platform = web`, which is how the two are told apart.
+
+| Event | When | Properties |
+|---|---|---|
+| `$pageview` | every page load | PostHog's own: URL, referrer, UTM tags, country, device |
+| `$pageleave` | leaving a page | includes `$prev_pageview_max_scroll_percentage` (scroll depth) |
+| `website_app_store_clicked` | any App Store button or link | `placement` (`nav`, `hero`, `page-top`, `closing`, `footer`), `theme` |
+| `website_theme_changed` | a different look is picked | `theme`, `from`, `source` (`nav` or `section`) |
+| `website_language_changed` | a language is picked in the menu | `to`, `from` |
+| `website_faq_opened` | a question is opened | `question` (its number on that page) |
+| `website_calculator_used` | once per mode per visit, after typing | `mode` (`year` or `book`), `pages_per_day` |
+
+Event names never change once shipped (same rule as the app).
+
+### App Store campaign links
+
+Add `"app_store_pt": "<provider token>"` to `src/site.json` and rebuild. Every App Store link then becomes
+`apps.apple.com/app/apple-store/id6761390761?pt=<token>&ct=web-<page>&mt=8`, and App Store Connect →
+App Analytics → Acquisition → Campaigns shows downloads per page.
+
 ## Preview locally
 
 ```bash

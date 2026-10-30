@@ -5,6 +5,23 @@
   var store = function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} };
   var saved = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
 
+  /* ---- analytics: one helper, named events only (see README, "Website events") ----
+     A no-op when PostHog isn't loaded (local preview, blockers), so nothing here can break the page. */
+  var track = window.bwTrack = function (name, props) {
+    if (window.posthog && window.posthog.capture) window.posthog.capture(name, props || {});
+  };
+  // every App Store button says where it sat; links without a tag are reported by their section
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
+    if (!a) return;
+    var spot = a.getAttribute('data-placement') || ((a.closest('section, header, footer') || {}).id) || 'other';
+    track('website_app_store_clicked', { placement: spot, theme: root.getAttribute('data-theme') });
+  });
+  // which questions people open
+  document.querySelectorAll('details').forEach(function (d, i) {
+    d.addEventListener('toggle', function () { if (d.open) track('website_faq_opened', { question: i + 1 }); });
+  });
+
   /* ---- screenshots follow the theme ---- */
   function srcset(img, theme) {
     return img.getAttribute('data-w').split(' ').map(function (w) {
@@ -46,7 +63,12 @@
     if (!saved('bw-theme')) setTheme(e.matches ? 'dark' : 'light', { animate: true });
   });
   document.querySelectorAll('[data-set-theme]').forEach(function (b) {
-    b.addEventListener('click', function () { setTheme(b.getAttribute('data-set-theme'), { animate: true, save: true }); if (b.closest('.menu')) closeMenus(true); });
+    b.addEventListener('click', function () {
+      var from = root.getAttribute('data-theme'), to = b.getAttribute('data-set-theme');
+      setTheme(to, { animate: true, save: true });
+      if (from !== to) track('website_theme_changed', { theme: to, from: from, source: b.closest('.menu') ? 'nav' : 'section' });
+      if (b.closest('.menu')) closeMenus(true);
+    });
   });
   // the looks are a radio group: arrow keys move and choose
   var looks = Array.prototype.slice.call(document.querySelectorAll('.look'));
@@ -92,7 +114,10 @@
   document.addEventListener('click', function (e) { if (!e.target.closest('.menu-wrap')) closeMenus(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenus(true); });
   document.querySelectorAll('#lang-menu a').forEach(function (a) {
-    a.addEventListener('click', function () { store('bw-lang', a.getAttribute('hreflang')); });
+    a.addEventListener('click', function () {
+      store('bw-lang', a.getAttribute('hreflang'));
+      track('website_language_changed', { to: a.getAttribute('hreflang'), from: root.lang });
+    });
   });
 
   /* ---- nav tightens once the page moves; marks the section in view ---- */

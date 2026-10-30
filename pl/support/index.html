@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" data-theme="light">
+<html lang="pl" data-theme="light" data-page="support">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -52,6 +52,29 @@
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
     for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/support/' + location.hash); break; }
   }
+})();
+</script>
+<script>
+/* PostHog, cookieless: nothing is stored on the visitor's device and no one is identified.
+   The key below is PostHog's public "project key": it can only send events, never read them.
+   Runs only on ilovebookworm.com (add ?ph=1 to a local preview to test, tagged env=preview). */
+(function () {
+  var live = location.hostname === 'ilovebookworm.com', test = /[?&]ph=1\b/.test(location.search);
+  if (!live && !test) return;
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlag resetPersonPropertiesForFlag setGroupPropertiesForFlag resetGroupPropertiesForFlag reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_zCVZ7oSoCiGgK4fNJKATcZubkkuYVdNw6i5iUNwRQaaJ', {
+    api_host: 'https://eu.i.posthog.com',
+    ui_host: 'https://eu.posthog.com',
+    persistence: 'memory',              // no cookies, no localStorage: no consent banner needed
+    person_profiles: 'identified_only', // nobody is identified, so no person profiles are made
+    autocapture: false,                 // only the events named in site.js, never page text or input
+    capture_pageview: true,
+    capture_pageleave: true,            // carries how far down the page the visitor scrolled
+    disable_session_recording: true,
+    disable_surveys: true,
+    advanced_disable_feature_flags: true
+  });
+  posthog.register({ platform: 'web', site: 'ilovebookworm.com', env: live ? 'production' : 'preview', page_id: 'support', page_lang: 'pl' });
 })();
 </script>
 <script type="application/ld+json">
@@ -148,7 +171,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+<link rel="stylesheet" href="/assets/site.css?v=ff8be854">
 </head>
 <body>
 <a class="skip" href="#main">Przejdź do treści</a>
@@ -193,7 +216,7 @@
         <a href="/pt-br/support/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
       </nav>
     </div>
-    <a class="get" href="https://apps.apple.com/app/id6761390761">Pobierz aplikację</a>
+    <a class="get" href="https://apps.apple.com/app/id6761390761" data-placement="nav">Pobierz aplikację</a>
   </div>
 </header>
 
@@ -233,7 +256,7 @@
     <div class="wrap">
       <h2>Zabierz go na swojego iPhone'a.</h2>
       <p>BookWorm pilnuje Twojej strony, celu i serii. Wystarczy jedno dotknięcie.</p>
-      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/pl-black.svg" alt="Pobierz BookWorm z App Store" width="160" height="54" loading="lazy"></a></div>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761" data-placement="closing"><img src="/assets/badges/pl-black.svg" alt="Pobierz BookWorm z App Store" width="160" height="54" loading="lazy"></a></div>
     </div>
   </section>
 
@@ -244,7 +267,7 @@
     <div class="foot-brand">
       <a class="brand" href="/pl/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
       <p>Spokojny dziennik czytania papierowych książek, ebooków i audiobooków.</p>
-      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/pl-black.svg" alt="Pobierz BookWorm z App Store" width="120" height="40" loading="lazy"></a>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761" data-placement="footer"><img src="/assets/badges/pl-black.svg" alt="Pobierz BookWorm z App Store" width="120" height="40" loading="lazy"></a>
     </div>
     <nav aria-label="Aplikacja">
       <h2>Aplikacja</h2>
@@ -270,6 +293,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=bb84e3b7"></script>
+<script src="/assets/site.js?v=ff8be854"></script>
 </body>
 </html>
