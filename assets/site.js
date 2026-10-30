@@ -122,7 +122,15 @@
 
   /* ---- nav tightens once the page moves; marks the section in view ---- */
   var nav = document.getElementById('nav');
-  var onScroll = function () { nav.classList.toggle('compact', window.scrollY > 40); };
+  var lastY = window.scrollY;
+  var onScroll = function () {
+    var y = window.scrollY;
+    nav.classList.toggle('compact', y > 40);
+    // the phone link row steps aside while reading down and comes back on any scroll up
+    if (y > 160 && y > lastY + 6) nav.classList.add('tuck');
+    else if (y < lastY - 6 || y <= 160) nav.classList.remove('tuck');
+    if (Math.abs(y - lastY) > 6) lastY = y;
+  };
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   // a link to another page is "current" while you are on it (or inside it, for guides);
   // a link to a section of this page is current while that section fills the middle of the screen
