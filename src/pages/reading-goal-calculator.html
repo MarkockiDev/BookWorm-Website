@@ -1,0 +1,153 @@
+  <header class="page-head">
+    <div class="wrap">
+      {{breadcrumb}}
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{h1}}</h1>
+      <p class="lede">{{lede}}</p>
+    </div>
+  </header>
+
+  <section aria-label="{{eyebrow}}">
+    <div class="wrap">
+      <div class="calc" id="calc">
+        <div class="calc-tabs" role="tablist" aria-label="{{eyebrow}}">
+          <button role="tab" id="tab-year" aria-selected="true" aria-controls="panel-year">{{tab_year}}</button>
+          <button role="tab" id="tab-book" aria-selected="false" aria-controls="panel-book" tabindex="-1">{{tab_book}}</button>
+        </div>
+
+        <div role="tabpanel" id="panel-year" aria-labelledby="tab-year">
+          <div class="calc-fields">
+            <div><label for="y-books">{{f_books}}</label><input id="y-books" type="number" inputmode="numeric" min="1" max="500" value="24"></div>
+            <div><label for="y-pages">{{f_avg_pages}}</label><input id="y-pages" type="number" inputmode="numeric" min="10" max="3000" value="300"></div>
+            <div class="wide"><label for="y-speed">{{f_speed}}</label><input id="y-speed" type="number" inputmode="decimal" min="0.3" max="10" step="0.1" value="1.5"></div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="panel-book" aria-labelledby="tab-book" hidden>
+          <div class="calc-fields">
+            <div><label for="b-total">{{f_total}}</label><input id="b-total" type="number" inputmode="numeric" min="1" max="5000" value="432"></div>
+            <div><label for="b-current">{{f_current}}</label><input id="b-current" type="number" inputmode="numeric" min="0" max="5000" value="120"></div>
+            <div><label for="b-date">{{f_date}}</label><input id="b-date" type="date"></div>
+            <div><label for="b-speed">{{f_speed}}</label><input id="b-speed" type="number" inputmode="decimal" min="0.3" max="10" step="0.1" value="1.5"></div>
+          </div>
+        </div>
+
+        <div class="calc-result" aria-live="polite">
+          <div class="calc-big"><span id="r-pages">0</span><small>{{unit_pages}}</small></div>
+          <p class="calc-sub" id="r-sub"></p>
+          <p class="calc-hint" id="r-goal"></p>
+        </div>
+
+        <span hidden id="t-year">{{t_year}}</span>
+        <span hidden id="t-book">{{t_book}}</span>
+        <span hidden id="t-goal">{{t_goal}}</span>
+        <span hidden id="t-done">{{t_done}}</span>
+        <span hidden id="t-date">{{t_date}}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>{{how_title}}</h2>
+        <p>{{how_p1}}</p>
+        <p>{{how_p2}}</p>
+        <h2>{{table_title}}</h2>
+        <p>{{table_intro}}</p>
+        <table>
+          <thead><tr><th>{{th_books}}</th><th>{{th_pages}}</th><th>{{th_minutes}}</th></tr></thead>
+          <tbody>
+            <tr><td>12</td><td>10</td><td>15</td></tr>
+            <tr><td>24</td><td>20</td><td>30</td></tr>
+            <tr><td>36</td><td>30</td><td>45</td></tr>
+            <tr><td>52</td><td>43</td><td>65</td></tr>
+            <tr><td>100</td><td>83</td><td>125</td></tr>
+          </tbody>
+        </table>
+        <p class="note">{{table_note}}</p>
+        <a class="more" href="{{home}}guides/how-many-pages-a-day/">{{more_guide}}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head">
+        <h2 id="faq-title">{{faq_title}}</h2>
+      </div>
+      {{faq_items}}
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>{{cta_title}}</h2>
+      <p>{{cta_text}}</p>
+      <div class="cta-row"><a class="badge" href="{{app_url}}"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+<script>
+/* Reading goal calculator. Rounds up, like the app's finish-line step: a goal you can meet beats one you can't. */
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var lang = document.documentElement.lang;
+  var nf = new Intl.NumberFormat(lang);
+  var fill = function (t, v) { return t.replace(/\{(\w+)\}/g, function (_, k) { return v[k]; }); };
+  var num = function (id, min) { var n = parseFloat($(id).value); return isFinite(n) && n >= min ? n : null; };
+  var DAY = 864e5;
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+
+  // default finish date: a month from today
+  // dates as the visitor's own calendar sees them (toISOString would use UTC and can land a day off)
+  var iso = function (d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
+  var plusDays = function (n) { var d = new Date(today); d.setDate(d.getDate() + n); return d; };
+  $('b-date').value = iso(plusDays(30));
+  $('b-date').min = iso(plusDays(1));
+
+  var mode = 'year';
+  function goal(pages) { return Math.min(500, Math.max(5, Math.ceil(pages / 5) * 5)); }
+  function show(pages, sub) {
+    $('r-pages').textContent = pages == null ? '–' : nf.format(pages);
+    $('r-sub').textContent = sub || '';
+    $('r-goal').textContent = pages ? fill($('t-goal').textContent, { goal: nf.format(goal(pages)) }) : '';
+  }
+  function calc() {
+    if (mode === 'year') {
+      var books = num('y-books', 1), avg = num('y-pages', 1), speed = num('y-speed', 0.1);
+      if (!books || !avg || !speed) return show(null);
+      var end = new Date(today.getFullYear(), 11, 31);
+      var days = Math.round((end - today) / DAY) + 1;            // today counts
+      var pages = Math.ceil(books * avg / days);
+      show(pages, fill($('t-year').textContent, { days: nf.format(days), min: nf.format(Math.ceil(pages * speed)) }));
+    } else {
+      var total = num('b-total', 1), current = num('b-current', 0), speed2 = num('b-speed', 0.1);
+      var date = $('b-date').value ? new Date($('b-date').value + 'T00:00:00') : null;
+      if (!total || current == null || !speed2) return show(null);
+      var left = total - current;
+      if (left <= 0) return show(0, $('t-done').textContent);
+      if (!date || date <= today) return show(null, $('t-date').textContent);
+      var d = Math.round((date - today) / DAY);
+      var p = Math.ceil(left / d);
+      show(p, fill($('t-book').textContent, { left: nf.format(left), days: nf.format(d), min: nf.format(Math.ceil(p * speed2)) }));
+    }
+  }
+  var tabs = [$('tab-year'), $('tab-book')];
+  function select(i, focus) {
+    mode = i ? 'book' : 'year';
+    tabs.forEach(function (t, j) { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+    $('panel-year').hidden = !!i; $('panel-book').hidden = !i;
+    if (focus) tabs[i].focus();
+    calc();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); select(1 - i, true); }
+    });
+  });
+  document.querySelectorAll('#calc input').forEach(function (el) { el.addEventListener('input', calc); });
+  calc();
+})();
+</script>

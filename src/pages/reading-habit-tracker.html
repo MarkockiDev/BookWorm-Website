@@ -1,0 +1,62 @@
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        {{breadcrumb}}
+        <p class="eyebrow">{{eyebrow}}</p>
+        <h1>{{h1}}</h1>
+        <p class="lede">{{lede}}</p>
+        <div class="cta-row"><a class="badge" href="{{app_url}}"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="380px" width="720" height="1207" alt="{{shot_alt}}" fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">{{points_title}}</h2><p>{{points_lede}}</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>{{p1_t}}</h3><p>{{p1_d}}</p></article>
+        <article class="point reveal"><h3>{{p2_t}}</h3><p>{{p2_d}}</p></article>
+        <article class="point reveal"><h3>{{p3_t}}</h3><p>{{p3_d}}</p></article>
+        <article class="point reveal"><h3>{{p4_t}}</h3><p>{{p4_d}}</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>{{deep_title}}</h2>
+        <p>{{deep_p1}}</p>
+        <p>{{deep_p2}}</p>
+        <a class="more" href="{{home}}{{deep_link_href}}">{{deep_link}}</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="calendar" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="{{shot2_alt}}"></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">{{faq_title}}</h2></div>
+      {{faq_items}}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">{{related}}</h2></div>
+      <div class="cards">
+        <a class="card" href="{{home}}audiobook-tracker/"><small>{{c_audio_k}}</small><h3>{{c_audio_t}}</h3><p>{{c_audio_d}}</p><span class="go">{{c_audio_go}} →</span></a>
+        <a class="card" href="{{home}}reading-goal-calculator/"><small>{{c_calc_k}}</small><h3>{{c_calc_t}}</h3><p>{{c_calc_d}}</p><span class="go">{{c_calc_go}} →</span></a>
+        <a class="card" href="{{home}}guides/build-a-reading-habit/"><small>{{c_g2_k}}</small><h3>{{c_g2_t}}</h3><p>{{c_g2_d}}</p><span class="go">{{c_g2_go}} →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>{{cta_title}}</h2>
+      <p>{{cta_text}}</p>
+      <div class="cta-row"><a class="badge" href="{{app_url}}"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>

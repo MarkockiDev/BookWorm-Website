@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>有声书记录 App：记下听书时长 | BookWorm</title>
+<meta name="description" content="按小时和分钟记录有声书，和纸质书、电子书放在一起。锁定屏幕上的阅读计时器，所有格式共用一个每日目标。">
+<link rel="canonical" href="https://ilovebookworm.com/zh-hans/audiobook-tracker/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/audiobook-tracker/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/audiobook-tracker/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/audiobook-tracker/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/audiobook-tracker/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/audiobook-tracker/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/audiobook-tracker/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/audiobook-tracker/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/audiobook-tracker/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/audiobook-tracker/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/audiobook-tracker/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/zh-hans/audiobook-tracker/">
+<meta property="og:title" content="把听书也算作阅读的有声书记录 App">
+<meta property="og:description" content="小时和分钟、锁定屏幕计时器，有声书、电子书和纸质书共用一个每日目标。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="把听书也算作阅读的有声书记录 App">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="把听书也算作阅读的有声书记录 App">
+<meta name="twitter:description" content="小时和分钟、锁定屏幕计时器，有声书、电子书和纸质书共用一个每日目标。">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="把听书也算作阅读的有声书记录 App">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/audiobook-tracker/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ilovebookworm.com/zh-hans/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "有声书记录",
+          "item": "https://ilovebookworm.com/zh-hans/audiobook-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "zh-Hans",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "听有声书算进我的阅读目标吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "算。BookWorm 会把听书的分钟和读书的页数计入同一个每日目标，所以无论哪种格式，都能让连续记录继续下去。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以同时记录一本有声书和一本纸质书吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。所有正在读的书都会放在首页，无论什么格式，每本都可以单独更新。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BookWorm 怎么知道一本有声书有多长？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "从搜索中添加时，它会根据书的页数估算时长。你也可以直接输入有声书 App 里显示的准确时长。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BookWorm 能播放或下载有声书吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。继续用你习惯的 App 听书就好，BookWorm 负责帮你记下来。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/zh-hans/#main" aria-label="BookWorm，回到顶部">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="版块">
+      <a href="/zh-hans/#how">使用方式</a>
+      <a href="/zh-hans/#looks">主题</a>
+      <a href="/zh-hans/guides/">指南</a>
+      <a href="/zh-hans/support/">支持</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="主题">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="主题">
+        <p aria-hidden="true">主题</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>浅色<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>深色<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>复古<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>页边笔记<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="语言: 简体中文">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">ZH</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="语言">
+        <p aria-hidden="true">语言</p>
+        <a href="/audiobook-tracker/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/audiobook-tracker/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/audiobook-tracker/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/audiobook-tracker/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/audiobook-tracker/" hreflang="zh-hans" lang="zh-Hans" aria-current="page">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/audiobook-tracker/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/audiobook-tracker/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/audiobook-tracker/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/audiobook-tracker/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">获取 App</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="当前位置"><ol><li><a href="https://ilovebookworm.com/zh-hans/">首页</a></li><li aria-current="page">有声书记录</li></ol></nav>
+        <p class="eyebrow">有声书记录</p>
+        <h1>听书也是读书，就这样记录它。</h1>
+        <p class="lede">在 BookWorm 里，有声书和纸质书放在同一个书架上，按小时和分钟记录，计入同一个每日目标和同一条连续记录。</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/zh-hans-black.svg" alt="在 App Store 下载 BookWorm" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="timer" data-w="420 720" sizes="380px" width="720" height="1207" alt="BookWorm 阅读计时器正在为 Phil Knight 的 Shoe Dog 计时。" fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">为用耳朵读的书而做</h2><p>大多数读书记录 App 只认页数。BookWorm 知道你听到了哪里。</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>用小时和分钟，而不是页数</h3><p>记下 11 小时 35 分中的 3 小时 30 分，进度条、日历和统计都会用时间来表示。</p></article>
+        <article class="point reveal"><h3>所有格式共用一个目标</h3><p>每日目标可以按分钟或页数设定。听书和读书都计入其中，通勤路上听一段有声书，连续记录也不会断。</p></article>
+        <article class="point reveal"><h3>每次听书都有计时</h3><p>按下播放时开始计时。在锁定屏幕或灵动岛上暂停和继续，结束时记下听到的位置。</p></article>
+        <article class="point reveal"><h3>安静地陪着你的音频</h3><p>BookWorm 的音效从不会暂停你的有声书或让它变小声，开启静音模式后音效也会完全关闭。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>几秒钟添加一本书</h2>
+        <p>按书名或作者搜索，封面会自动补上。选择有声书后，BookWorm 会根据书的页数估算时长，你可以改成自己那个版本的实际时长。</p>
+        <p>随时可以在纸质书、电子书和有声书之间切换。每一天都保留当天的阅读格式，你的记录始终准确。</p>
+        <a class="more" href="/zh-hans/guides/track-audiobooks/">阅读记录有声书的指南</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="book" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="BookWorm 中一本书的页面，显示进度、继续阅读和更新进度。"></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">关于记录有声书的问题</h2></div>
+      <details class="reveal"><summary>听有声书算进我的阅读目标吗？<i aria-hidden="true"></i></summary><div class="answer"><p>算。BookWorm 会把听书的分钟和读书的页数计入同一个每日目标，所以无论哪种格式，都能让连续记录继续下去。</p></div></details>
+      <details class="reveal"><summary>可以同时记录一本有声书和一本纸质书吗？<i aria-hidden="true"></i></summary><div class="answer"><p>可以。所有正在读的书都会放在首页，无论什么格式，每本都可以单独更新。</p></div></details>
+      <details class="reveal"><summary>BookWorm 怎么知道一本有声书有多长？<i aria-hidden="true"></i></summary><div class="answer"><p>从搜索中添加时，它会根据书的页数估算时长。你也可以直接输入有声书 App 里显示的准确时长。</p></div></details>
+      <details class="reveal"><summary>BookWorm 能播放或下载有声书吗？<i aria-hidden="true"></i></summary><div class="answer"><p>不能。继续用你习惯的 App 听书就好，BookWorm 负责帮你记下来。</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">继续阅读</h2></div>
+      <div class="cards">
+        <a class="card" href="/zh-hans/reading-habit-tracker/"><small>App</small><h3>阅读习惯打卡</h3><p>一个每日目标，一条慢慢变长的连续记录，还有一条安静的提醒。</p><span class="go">看看怎么用 →</span></a>
+        <a class="card" href="/zh-hans/reading-goal-calculator/"><small>工具</small><h3>阅读目标计算器</h3><p>把一年的目标或读完的日期，换算成每天的页数。</p><span class="go">算一算 →</span></a>
+        <a class="card" href="/zh-hans/guides/track-audiobooks/"><small>指南</small><h3>如何记录有声书</h3><p>把听书算作阅读，并和纸质书一起计算。</p><span class="go">阅读指南 →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>把它带到你的 iPhone 上。</h2>
+      <p>BookWorm 帮你记住页码、目标和连续记录，轻点一下就好。</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/zh-hans-black.svg" alt="在 App Store 下载 BookWorm" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/zh-hans/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>一款安静的阅读记录 App，适用于纸质书、电子书和有声书。</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/zh-hans-black.svg" alt="在 App Store 下载 BookWorm" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="App">
+      <h2>App</h2>
+      <a href="/zh-hans/audiobook-tracker/">有声书记录</a>
+      <a href="/zh-hans/reading-habit-tracker/">阅读习惯打卡</a>
+      <a href="/zh-hans/reading-goal-calculator/">阅读目标计算器</a>
+    </nav>
+    <nav aria-label="了解">
+      <h2>了解</h2>
+      <a href="/zh-hans/guides/">全部指南</a>
+      <a href="/zh-hans/guides/how-many-pages-a-day/">每天该读多少页？</a>
+      <a href="/zh-hans/guides/build-a-reading-habit/">养成阅读习惯</a>
+      <a href="/zh-hans/guides/track-audiobooks/">记录有声书</a>
+    </nav>
+    <nav aria-label="帮助">
+      <h2>帮助</h2>
+      <a href="/zh-hans/support/">支持</a>
+      <a href="/privacy/">隐私</a>
+      <a href="https://markockidev.canny.io/bookworm">建议新功能</a>
+      <a href="mailto:markockidev@icloud.com">联系</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

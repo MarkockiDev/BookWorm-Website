@@ -1,0 +1,31 @@
+  <header class="page-head">
+    <div class="wrap">
+      {{breadcrumb}}
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{h1}}</h1>
+      <p class="lede">{{lede}}</p>
+    </div>
+  </header>
+
+  <section aria-label="{{contact_title}}">
+    <div class="wrap cards">
+      <a class="card" href="mailto:markockidev@icloud.com"><small>{{mail_k}}</small><h3>{{mail_t}}</h3><p>{{mail_d}}</p><span class="go">markockidev@icloud.com</span></a>
+      <a class="card" href="https://markockidev.canny.io/bookworm"><small>{{idea_k}}</small><h3>{{idea_t}}</h3><p>{{idea_d}}</p><span class="go">{{idea_go}} →</span></a>
+      <a class="card" href="/privacy/"><small>{{priv_k}}</small><h3>{{priv_t}}</h3><p>{{priv_d}}</p><span class="go">{{priv_go}} →</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">{{faq_title}}</h2><p>{{faq_lede}}</p></div>
+      {{faq_items}}
+    </div>
+  </section>
+
+  <section class="cta-band band">
+    <div class="wrap">
+      <h2>{{cta_title}}</h2>
+      <p>{{cta_text}}</p>
+      <div class="cta-row"><a class="badge" href="{{app_url}}"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>

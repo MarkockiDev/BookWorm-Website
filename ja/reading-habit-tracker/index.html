@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>読書習慣トラッカー：連続記録と毎日の目標 | BookWorm</title>
+<meta name="description" content="ページか分の毎日の目標で読書習慣を。達成するたびに伸びる連続記録、読書カレンダー、1日ひとつの静かなリマインダー。iPhone と iPad に対応。">
+<link rel="canonical" href="https://ilovebookworm.com/ja/reading-habit-tracker/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/reading-habit-tracker/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/reading-habit-tracker/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/reading-habit-tracker/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/reading-habit-tracker/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/reading-habit-tracker/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/reading-habit-tracker/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/reading-habit-tracker/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/reading-habit-tracker/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/reading-habit-tracker/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/reading-habit-tracker/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/ja/reading-habit-tracker/">
+<meta property="og:title" content="あなたにやさしい読書習慣トラッカー">
+<meta property="og:description" content="毎日の目標、伸びていく連続記録、読書日のカレンダー、1日ひとつの静かなリマインダー。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="あなたにやさしい読書習慣トラッカー">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="あなたにやさしい読書習慣トラッカー">
+<meta name="twitter:description" content="毎日の目標、伸びていく連続記録、読書日のカレンダー、1日ひとつの静かなリマインダー。">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="あなたにやさしい読書習慣トラッカー">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/reading-habit-tracker/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://ilovebookworm.com/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "読書習慣トラッカー",
+          "item": "https://ilovebookworm.com/ja/reading-habit-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "ja",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "連続記録の1日として数えられるのは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ページでも分でも、毎日の目標を達成した日です。読んでも聴いてもカウントされます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "毎日の読書目標はどれくらいにすればいい？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "忙しい日でも達成できるくらいに。10〜20ページ、または15分がいいスタートです。いつでも上げられます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "リマインダーはいくつ届きますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "多くてもお昼どきにひとつ。連続記録が途切れそうなときだけ、夜にもうひとつ。すでに目標を達成した日には届きません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "アプリを開かずに連続記録を確認できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。ホーム画面のウィジェットに、今日の目標がリングで、現在の連続記録とあわせて表示されます。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/ja/#main" aria-label="BookWorm、ページの先頭へ">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="セクション">
+      <a href="/ja/#how">使いかた</a>
+      <a href="/ja/#looks">テーマ</a>
+      <a href="/ja/guides/">ガイド</a>
+      <a href="/ja/support/">サポート</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="テーマ">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="テーマ">
+        <p aria-hidden="true">テーマ</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>ライト<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>ダーク<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>レトロ<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>余白メモ<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="言語: 日本語">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">JA</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="言語">
+        <p aria-hidden="true">言語</p>
+        <a href="/reading-habit-tracker/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/reading-habit-tracker/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/reading-habit-tracker/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/reading-habit-tracker/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/reading-habit-tracker/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/reading-habit-tracker/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/reading-habit-tracker/" hreflang="ja" lang="ja" aria-current="page">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/reading-habit-tracker/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/reading-habit-tracker/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">アプリを入手</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="現在地"><ol><li><a href="https://ilovebookworm.com/ja/">ホーム</a></li><li aria-current="page">読書習慣トラッカー</li></ol></nav>
+        <p class="eyebrow">読書習慣トラッカー</p>
+        <h1>毎日少しずつが、大きな積み重ねに。</h1>
+        <p class="lede">続けられる毎日の目標を選びましょう。BookWorm は達成した日を数え、カレンダーに灯りをともし、1日に一度だけ、そっと声をかけます。</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="380px" width="720" height="1207" alt="BookWorm の読書クエスト：今日は30ページ中36ページ、目標達成、16日連続。" fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">習慣が根づくしくみ</h2><p>どの機能も、明日の読書を今日より少しだけ起こりやすくするためにあります。</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>暮らしに合わせた目標</h3><p>1日のページ数か分数を、5から選べます。BookWorm は、それが今年何冊分になるかも教えてくれます。</p></article>
+        <article class="point reveal"><h3>連続記録のワーム</h3><p>目標を達成した日ごとに、ワームが1節伸びます。今日がカウントされた瞬間、頭が光ります。</p></article>
+        <article class="point reveal"><h3>読書日のカレンダー</h3><p>読んだ日には印がつき、読み終えた本には金のリングがつきます。ひと月を見渡せば、自分がつくったリズムがわかります。</p></article>
+        <article class="point reveal"><h3>静かなリマインダーをひとつ</h3><p>お昼どきに、いまのあなたに合わせたリマインダーをひとつ。連続記録が途切れそうなときだけ、夜にもう一度。今日の目標を達成したら、何も届きません。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>1日休んでも、明日からまた。</h2>
+        <p>連続記録は背中を押すためのもので、責めるためのものではありません。1日抜けても、連続記録はまた始まり、翌日は新しいスタート。リマインダーもそう伝えます。</p>
+        <p>最長連続記録はプロフィールにずっと残ります。毎月1日には、BookWorm が先月の読書を振り返ってくれます。</p>
+        <a class="more" href="/ja/guides/build-a-reading-habit/">読書習慣のつくりかたガイドを読む</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="calendar" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="BookWorm の読書カレンダー。読書日は18日、16日連続。"></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">読書の連続記録についての質問</h2></div>
+      <details class="reveal"><summary>連続記録の1日として数えられるのは？<i aria-hidden="true"></i></summary><div class="answer"><p>ページでも分でも、毎日の目標を達成した日です。読んでも聴いてもカウントされます。</p></div></details>
+      <details class="reveal"><summary>毎日の読書目標はどれくらいにすればいい？<i aria-hidden="true"></i></summary><div class="answer"><p>忙しい日でも達成できるくらいに。10〜20ページ、または15分がいいスタートです。いつでも上げられます。</p></div></details>
+      <details class="reveal"><summary>リマインダーはいくつ届きますか？<i aria-hidden="true"></i></summary><div class="answer"><p>多くてもお昼どきにひとつ。連続記録が途切れそうなときだけ、夜にもうひとつ。すでに目標を達成した日には届きません。</p></div></details>
+      <details class="reveal"><summary>アプリを開かずに連続記録を確認できますか？<i aria-hidden="true"></i></summary><div class="answer"><p>はい。ホーム画面のウィジェットに、今日の目標がリングで、現在の連続記録とあわせて表示されます。</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">続けて読む</h2></div>
+      <div class="cards">
+        <a class="card" href="/ja/audiobook-tracker/"><small>アプリ</small><h3>オーディオブック記録</h3><p>聴いた時間を時間と分で記録。紙の本と同じ本棚に。</p><span class="go">くわしく見る →</span></a>
+        <a class="card" href="/ja/reading-goal-calculator/"><small>ツール</small><h3>読書目標計算ツール</h3><p>年間目標や読み終えたい日を、1日のページ数に。</p><span class="go">計算してみる →</span></a>
+        <a class="card" href="/ja/guides/build-a-reading-habit/"><small>ガイド</small><h3>続く読書習慣のつくりかた</h3><p>小さな目標、決まった時間、そして罪悪感のない連続記録。</p><span class="go">ガイドを読む →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>あなたの iPhone にも。</h2>
+      <p>ページも、目標も、連続記録も。BookWorm がタップひとつで覚えておきます。</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/ja/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>紙の本、電子書籍、オーディオブックのための静かな読書記録アプリ。</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="アプリ">
+      <h2>アプリ</h2>
+      <a href="/ja/audiobook-tracker/">オーディオブック記録</a>
+      <a href="/ja/reading-habit-tracker/">読書習慣トラッカー</a>
+      <a href="/ja/reading-goal-calculator/">読書目標計算ツール</a>
+    </nav>
+    <nav aria-label="読みもの">
+      <h2>読みもの</h2>
+      <a href="/ja/guides/">ガイド一覧</a>
+      <a href="/ja/guides/how-many-pages-a-day/">1日何ページ読む？</a>
+      <a href="/ja/guides/build-a-reading-habit/">読書習慣をつくる</a>
+      <a href="/ja/guides/track-audiobooks/">オーディオブックを記録する</a>
+    </nav>
+    <nav aria-label="ヘルプ">
+      <h2>ヘルプ</h2>
+      <a href="/ja/support/">サポート</a>
+      <a href="/privacy/">プライバシー</a>
+      <a href="https://markockidev.canny.io/bookworm">機能をリクエスト</a>
+      <a href="mailto:markockidev@icloud.com">お問い合わせ</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

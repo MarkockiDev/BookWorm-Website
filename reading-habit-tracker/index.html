@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reading Habit Tracker with Streaks and Daily Goals | BookWorm</title>
+<meta name="description" content="Build a reading habit with a daily page or minute goal, a streak that grows each day you reach it, a reading calendar and one calm reminder a day. For iPhone and iPad.">
+<link rel="canonical" href="https://ilovebookworm.com/reading-habit-tracker/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/reading-habit-tracker/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/reading-habit-tracker/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/reading-habit-tracker/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/reading-habit-tracker/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/reading-habit-tracker/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/reading-habit-tracker/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/reading-habit-tracker/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/reading-habit-tracker/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/reading-habit-tracker/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/reading-habit-tracker/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/reading-habit-tracker/">
+<meta property="og:title" content="A reading habit tracker that's kind to you">
+<meta property="og:description" content="A daily goal, a streak that grows, a calendar of reading days and one calm reminder a day.">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A reading habit tracker that's kind to you">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A reading habit tracker that's kind to you">
+<meta name="twitter:description" content="A daily goal, a streak that grows, a calendar of reading days and one calm reminder a day.">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="A reading habit tracker that's kind to you">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (true && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/reading-habit-tracker/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ilovebookworm.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reading habit tracker",
+          "item": "https://ilovebookworm.com/reading-habit-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What counts as a day in my streak?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Any day you reach your daily goal, in pages or minutes. Reading and listening both count."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What daily reading goal should I choose?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One you could meet on a busy day. Ten to twenty pages, or fifteen minutes, is a good start, and you can raise it any time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many reminders will I get?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At most one at lunchtime and, only when your streak is at risk, one in the evening. None on a day you've already reached your goal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I see my streak without opening the app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Home Screen widgets show today's goal as a ring and your current streak."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/#main" aria-label="BookWorm, back to top">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="/#how">How it works</a>
+      <a href="/#looks">Themes</a>
+      <a href="/guides/">Guides</a>
+      <a href="/support/">Support</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="Theme">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="Theme">
+        <p aria-hidden="true">Theme</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>Light<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>Dark<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>Retro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>Marginalia<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language: English">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">EN</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="Language">
+        <p aria-hidden="true">Language</p>
+        <a href="/reading-habit-tracker/" hreflang="en" lang="en" aria-current="page">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/reading-habit-tracker/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/reading-habit-tracker/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/reading-habit-tracker/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/reading-habit-tracker/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/reading-habit-tracker/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/reading-habit-tracker/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/reading-habit-tracker/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/reading-habit-tracker/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">Get the app</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="https://ilovebookworm.com/">Home</a></li><li aria-current="page">Reading habit tracker</li></ol></nav>
+        <p class="eyebrow">Reading habit tracker</p>
+        <h1>A little every day adds up to a lot.</h1>
+        <p class="lede">Pick a daily goal you can keep. BookWorm counts the days you reach it, lights up your calendar, and nudges you once a day, gently.</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="380px" width="720" height="1207" alt="Reading Quests in BookWorm: 36 of 30 pages today, goal reached, and a 16-day streak." fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">How the habit takes hold</h2><p>Every piece is there to make tomorrow's reading a little more likely than today's.</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>A goal sized for real life</h3><p>Choose pages or minutes a day, from 5 upwards. BookWorm also turns it into the number of books it adds up to this year.</p></article>
+        <article class="point reveal"><h3>The streak worm</h3><p>Each day you reach your goal, the worm grows a segment. Its head lights up the moment today counts.</p></article>
+        <article class="point reveal"><h3>A calendar of reading days</h3><p>Every day you read gets a mark, and every book you finish gets a gold ring. A month at a glance shows the rhythm you've built.</p></article>
+        <article class="point reveal"><h3>One calm reminder</h3><p>One reminder at lunchtime, written for where you are, and a last call in the evening only when a streak is on the line. Nothing at all once today's goal is met.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>Miss a day? Start again tomorrow.</h2>
+        <p>Streaks are a nudge, not a judge. If a day slips, the streak starts again and the next day is a fresh start, with a reminder that says exactly that.</p>
+        <p>Your best streak stays on your profile, and on the first of each month BookWorm shows a recap of the month you just read.</p>
+        <a class="more" href="/guides/build-a-reading-habit/">Read the guide to building a reading habit</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="calendar" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="The BookWorm reading calendar with 18 reading days and a 16-day streak."></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">Questions about reading streaks</h2></div>
+      <details class="reveal"><summary>What counts as a day in my streak?<i aria-hidden="true"></i></summary><div class="answer"><p>Any day you reach your daily goal, in pages or minutes. Reading and listening both count.</p></div></details>
+      <details class="reveal"><summary>What daily reading goal should I choose?<i aria-hidden="true"></i></summary><div class="answer"><p>One you could meet on a busy day. Ten to twenty pages, or fifteen minutes, is a good start, and you can raise it any time.</p></div></details>
+      <details class="reveal"><summary>How many reminders will I get?<i aria-hidden="true"></i></summary><div class="answer"><p>At most one at lunchtime and, only when your streak is at risk, one in the evening. None on a day you've already reached your goal.</p></div></details>
+      <details class="reveal"><summary>Can I see my streak without opening the app?<i aria-hidden="true"></i></summary><div class="answer"><p>Yes. The Home Screen widgets show today's goal as a ring and your current streak.</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">Keep reading</h2></div>
+      <div class="cards">
+        <a class="card" href="/audiobook-tracker/"><small>The app</small><h3>Audiobook tracker</h3><p>Track listening in hours and minutes, next to your paper books.</p><span class="go">See how →</span></a>
+        <a class="card" href="/reading-goal-calculator/"><small>Tool</small><h3>Reading goal calculator</h3><p>Turn a yearly goal or a finish date into pages a day.</p><span class="go">Work it out →</span></a>
+        <a class="card" href="/guides/build-a-reading-habit/"><small>Guide</small><h3>How to build a reading habit that lasts</h3><p>Small goals, a fixed moment, and streaks without guilt.</p><span class="go">Read the guide →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Bring it to your iPhone.</h2>
+      <p>BookWorm keeps your page, your goal and your streak, one tap at a time.</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>A calm reading tracker for paper books, ebooks and audiobooks.</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="The app">
+      <h2>The app</h2>
+      <a href="/audiobook-tracker/">Audiobook tracker</a>
+      <a href="/reading-habit-tracker/">Reading habit tracker</a>
+      <a href="/reading-goal-calculator/">Reading goal calculator</a>
+    </nav>
+    <nav aria-label="Learn">
+      <h2>Learn</h2>
+      <a href="/guides/">All guides</a>
+      <a href="/guides/how-many-pages-a-day/">How many pages a day?</a>
+      <a href="/guides/build-a-reading-habit/">Build a reading habit</a>
+      <a href="/guides/track-audiobooks/">Track audiobooks</a>
+    </nav>
+    <nav aria-label="Help">
+      <h2>Help</h2>
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="https://markockidev.canny.io/bookworm">Suggest a feature</a>
+      <a href="mailto:markockidev@icloud.com">Contact</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

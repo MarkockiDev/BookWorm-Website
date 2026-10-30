@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suivi d’habitude de lecture : séries et objectifs | BookWorm</title>
+<meta name="description" content="Prenez l’habitude de lire : un objectif quotidien en pages ou en minutes, une série qui grandit, un calendrier de lecture et un seul rappel par jour.">
+<link rel="canonical" href="https://ilovebookworm.com/fr/reading-habit-tracker/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/reading-habit-tracker/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/reading-habit-tracker/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/reading-habit-tracker/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/reading-habit-tracker/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/reading-habit-tracker/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/reading-habit-tracker/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/reading-habit-tracker/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/reading-habit-tracker/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/reading-habit-tracker/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/reading-habit-tracker/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/fr/reading-habit-tracker/">
+<meta property="og:title" content="Un suivi d’habitude de lecture bienveillant">
+<meta property="og:description" content="Un objectif quotidien, une série qui grandit, un calendrier de vos jours de lecture et un seul rappel tout en douceur par jour.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Un suivi d’habitude de lecture bienveillant">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Un suivi d’habitude de lecture bienveillant">
+<meta name="twitter:description" content="Un objectif quotidien, une série qui grandit, un calendrier de vos jours de lecture et un seul rappel tout en douceur par jour.">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="Un suivi d’habitude de lecture bienveillant">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/reading-habit-tracker/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://ilovebookworm.com/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Suivi de l’habitude de lecture",
+          "item": "https://ilovebookworm.com/fr/reading-habit-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "fr",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu’est-ce qui compte comme un jour dans ma série ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tout jour où vous atteignez votre objectif quotidien, en pages ou en minutes. La lecture et l’écoute comptent toutes les deux."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel objectif de lecture quotidien choisir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un objectif que vous pourriez atteindre un jour chargé. Dix à vingt pages, ou quinze minutes, c’est un bon début, et vous pouvez l’augmenter à tout moment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de rappels vais-je recevoir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Au plus un à l’heure du déjeuner et, seulement quand votre série est menacée, un le soir. Aucun les jours où vous avez déjà atteint votre objectif."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je voir ma série sans ouvrir l’app ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Les widgets de l’écran d’accueil affichent l’objectif du jour sous forme d’anneau et votre série en cours."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/fr/#main" aria-label="BookWorm, retour en haut">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="/fr/#how">Comment ça marche</a>
+      <a href="/fr/#looks">Thèmes</a>
+      <a href="/fr/guides/">Guides</a>
+      <a href="/fr/support/">Assistance</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="Thème">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="Thème">
+        <p aria-hidden="true">Thème</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>Clair<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>Sombre<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>Rétro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>Marginalia<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Langue: Français">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">FR</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="Langue">
+        <p aria-hidden="true">Langue</p>
+        <a href="/reading-habit-tracker/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/reading-habit-tracker/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/reading-habit-tracker/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/reading-habit-tracker/" hreflang="fr" lang="fr" aria-current="page">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/reading-habit-tracker/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/reading-habit-tracker/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/reading-habit-tracker/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/reading-habit-tracker/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/reading-habit-tracker/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">Obtenir l’app</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="https://ilovebookworm.com/fr/">Accueil</a></li><li aria-current="page">Suivi de l’habitude de lecture</li></ol></nav>
+        <p class="eyebrow">Suivi de l’habitude de lecture</p>
+        <h1>Un peu chaque jour, beaucoup au bout du compte.</h1>
+        <p class="lede">Choisissez un objectif quotidien que vous pouvez tenir. BookWorm compte les jours où vous l’atteignez, illumine votre calendrier et vous fait signe une fois par jour, tout en douceur.</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/fr-black.svg" alt="Télécharger BookWorm sur l’App Store" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="380px" width="720" height="1207" alt="Quêtes de lecture dans BookWorm : 36 pages sur 30 aujourd’hui, objectif atteint, et une série de 16 jours." fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">Comment l’habitude s’installe</h2><p>Chaque élément est là pour rendre la lecture de demain un peu plus probable que celle d’aujourd’hui.</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>Un objectif à la mesure de la vraie vie</h3><p>Choisissez des pages ou des minutes par jour, à partir de 5. BookWorm le traduit aussi en nombre de livres sur l’année.</p></article>
+        <article class="point reveal"><h3>Le ver de la série</h3><p>Chaque jour où vous atteignez votre objectif, le ver gagne un anneau. Sa tête s’allume dès que la journée compte.</p></article>
+        <article class="point reveal"><h3>Un calendrier de vos jours de lecture</h3><p>Chaque jour de lecture reçoit une marque, et chaque livre terminé un anneau doré. Un mois d’un coup d’œil montre le rythme que vous avez pris.</p></article>
+        <article class="point reveal"><h3>Un seul rappel, tout en douceur</h3><p>Un rappel à l’heure du déjeuner, écrit selon où vous en êtes, et un dernier le soir seulement quand une série est en jeu. Plus rien une fois l’objectif du jour atteint.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>Un jour manqué ? Recommencez demain.</h2>
+        <p>Une série encourage, elle ne juge pas. Si une journée vous échappe, la série recommence et le lendemain est un nouveau départ, avec un rappel qui le dit exactement.</p>
+        <p>Votre meilleure série reste sur votre profil, et le premier de chaque mois, BookWorm vous montre un récapitulatif du mois que vous venez de lire.</p>
+        <a class="more" href="/fr/guides/build-a-reading-habit/">Lire le guide pour prendre l’habitude de lire</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="calendar" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="Le calendrier de lecture de BookWorm avec 18 jours de lecture et une série de 16 jours."></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">Questions sur les séries de lecture</h2></div>
+      <details class="reveal"><summary>Qu’est-ce qui compte comme un jour dans ma série ?<i aria-hidden="true"></i></summary><div class="answer"><p>Tout jour où vous atteignez votre objectif quotidien, en pages ou en minutes. La lecture et l’écoute comptent toutes les deux.</p></div></details>
+      <details class="reveal"><summary>Quel objectif de lecture quotidien choisir ?<i aria-hidden="true"></i></summary><div class="answer"><p>Un objectif que vous pourriez atteindre un jour chargé. Dix à vingt pages, ou quinze minutes, c’est un bon début, et vous pouvez l’augmenter à tout moment.</p></div></details>
+      <details class="reveal"><summary>Combien de rappels vais-je recevoir ?<i aria-hidden="true"></i></summary><div class="answer"><p>Au plus un à l’heure du déjeuner et, seulement quand votre série est menacée, un le soir. Aucun les jours où vous avez déjà atteint votre objectif.</p></div></details>
+      <details class="reveal"><summary>Puis-je voir ma série sans ouvrir l’app ?<i aria-hidden="true"></i></summary><div class="answer"><p>Oui. Les widgets de l’écran d’accueil affichent l’objectif du jour sous forme d’anneau et votre série en cours.</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">À lire aussi</h2></div>
+      <div class="cards">
+        <a class="card" href="/fr/audiobook-tracker/"><small>L’app</small><h3>Suivi des livres audio</h3><p>Suivez votre écoute en heures et en minutes, à côté de vos livres papier.</p><span class="go">Découvrir →</span></a>
+        <a class="card" href="/fr/reading-goal-calculator/"><small>Outil</small><h3>Calculateur d’objectif de lecture</h3><p>Transformez un objectif annuel ou une date de fin en pages par jour.</p><span class="go">Faire le calcul →</span></a>
+        <a class="card" href="/fr/guides/build-a-reading-habit/"><small>Guide</small><h3>Comment prendre une habitude de lecture qui dure</h3><p>De petits objectifs, un moment fixe et des séries sans culpabilité.</p><span class="go">Lire le guide →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Emportez-le sur votre iPhone.</h2>
+      <p>BookWorm garde votre page, votre objectif et votre série, d’une simple touche.</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/fr-black.svg" alt="Télécharger BookWorm sur l’App Store" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/fr/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>Un suivi de lecture tout en douceur pour les livres papier, les ebooks et les livres audio.</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/fr-black.svg" alt="Télécharger BookWorm sur l’App Store" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="L’app">
+      <h2>L’app</h2>
+      <a href="/fr/audiobook-tracker/">Suivi des livres audio</a>
+      <a href="/fr/reading-habit-tracker/">Suivi de l’habitude de lecture</a>
+      <a href="/fr/reading-goal-calculator/">Calculateur d’objectif de lecture</a>
+    </nav>
+    <nav aria-label="Apprendre">
+      <h2>Apprendre</h2>
+      <a href="/fr/guides/">Tous les guides</a>
+      <a href="/fr/guides/how-many-pages-a-day/">Combien de pages par jour ?</a>
+      <a href="/fr/guides/build-a-reading-habit/">Prendre l’habitude de lire</a>
+      <a href="/fr/guides/track-audiobooks/">Suivre ses livres audio</a>
+    </nav>
+    <nav aria-label="Aide">
+      <h2>Aide</h2>
+      <a href="/fr/support/">Assistance</a>
+      <a href="/privacy/">Confidentialité</a>
+      <a href="https://markockidev.canny.io/bookworm">Suggérer une fonction</a>
+      <a href="mailto:markockidev@icloud.com">Contact</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

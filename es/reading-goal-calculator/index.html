@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de metas de lectura: ¿páginas al día? | BookWorm</title>
+<meta name="description" content="Calcula cuántas páginas al día leer para cumplir tu meta anual de libros o terminar un libro en una fecha. De BookWorm, el registro de lectura para iPhone.">
+<link rel="canonical" href="https://ilovebookworm.com/es/reading-goal-calculator/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/reading-goal-calculator/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/reading-goal-calculator/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/reading-goal-calculator/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/reading-goal-calculator/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/reading-goal-calculator/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/reading-goal-calculator/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/reading-goal-calculator/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/reading-goal-calculator/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/reading-goal-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/reading-goal-calculator/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/es/reading-goal-calculator/">
+<meta property="og:title" content="Calculadora de metas de lectura: ¿cuántas páginas al día?">
+<meta property="og:description" content="Tu meta anual de libros o una fecha límite, convertida en páginas y minutos al día.">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Calculadora de metas de lectura: ¿cuántas páginas al día?">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de metas de lectura: ¿cuántas páginas al día?">
+<meta name="twitter:description" content="Tu meta anual de libros o una fecha límite, convertida en páginas y minutos al día.">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="Calculadora de metas de lectura: ¿cuántas páginas al día?">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/reading-goal-calculator/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://ilovebookworm.com/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculadora de metas de lectura",
+          "item": "https://ilovebookworm.com/es/reading-goal-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "es",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuántas páginas al día para leer 52 libros al año?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con libros de unas 300 páginas, 52 libros son 15.600 páginas, o 43 páginas al día durante un año entero. A un minuto y medio por página, es algo más de una hora al día."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto se tarda en leer un libro de 300 páginas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La mayoría de la gente necesita entre cinco y diez horas, según el libro y lo rápido que lea. A 30 páginas al día, son diez días."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los audiolibros cuentan para mi meta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En BookWorm, sí. Lo que escuchas se registra en horas y minutos, y tu meta diaria suma lectura y escucha juntas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Y si me retraso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vuelve a usar la calculadora desde hoy. El nuevo número ya incluye los días que te saltaste, y suele ser más pequeño de lo que parece."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/es/#main" aria-label="BookWorm, volver arriba">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="/es/#how">Cómo funciona</a>
+      <a href="/es/#looks">Temas</a>
+      <a href="/es/guides/">Guías</a>
+      <a href="/es/support/">Ayuda</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="Tema">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="Tema">
+        <p aria-hidden="true">Tema</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>Claro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>Oscuro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>Retro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>Marginalia<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Idioma: Español">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">ES</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="Idioma">
+        <p aria-hidden="true">Idioma</p>
+        <a href="/reading-goal-calculator/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/reading-goal-calculator/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/reading-goal-calculator/" hreflang="es" lang="es" aria-current="page">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/reading-goal-calculator/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/reading-goal-calculator/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/reading-goal-calculator/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/reading-goal-calculator/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/reading-goal-calculator/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/reading-goal-calculator/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">Descargar la app</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Ruta de navegación"><ol><li><a href="https://ilovebookworm.com/es/">Inicio</a></li><li aria-current="page">Calculadora de metas de lectura</li></ol></nav>
+      <p class="eyebrow">Calculadora de metas de lectura</p>
+      <h1>¿Cuántas páginas al día necesitas?</h1>
+      <p class="lede">Dile cuántos libros quieres leer este año, o cuándo quieres terminar el que tienes entre manos. Lo convierte en páginas y minutos al día, a partir de hoy.</p>
+    </div>
+  </header>
+
+  <section aria-label="Calculadora de metas de lectura">
+    <div class="wrap">
+      <div class="calc" id="calc">
+        <div class="calc-tabs" role="tablist" aria-label="Calculadora de metas de lectura">
+          <button role="tab" id="tab-year" aria-selected="true" aria-controls="panel-year">Libros este año</button>
+          <button role="tab" id="tab-book" aria-selected="false" aria-controls="panel-book" tabindex="-1">Terminar un libro</button>
+        </div>
+
+        <div role="tabpanel" id="panel-year" aria-labelledby="tab-year">
+          <div class="calc-fields">
+            <div><label for="y-books">Libros que leer</label><input id="y-books" type="number" inputmode="numeric" min="1" max="500" value="24"></div>
+            <div><label for="y-pages">Páginas medias por libro</label><input id="y-pages" type="number" inputmode="numeric" min="10" max="3000" value="300"></div>
+            <div class="wide"><label for="y-speed">Minutos por página</label><input id="y-speed" type="number" inputmode="decimal" min="0.3" max="10" step="0.1" value="1.5"></div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="panel-book" aria-labelledby="tab-book" hidden>
+          <div class="calc-fields">
+            <div><label for="b-total">Páginas del libro</label><input id="b-total" type="number" inputmode="numeric" min="1" max="5000" value="432"></div>
+            <div><label for="b-current">Página por la que vas</label><input id="b-current" type="number" inputmode="numeric" min="0" max="5000" value="120"></div>
+            <div><label for="b-date">Terminar el</label><input id="b-date" type="date"></div>
+            <div><label for="b-speed">Minutos por página</label><input id="b-speed" type="number" inputmode="decimal" min="0.3" max="10" step="0.1" value="1.5"></div>
+          </div>
+        </div>
+
+        <div class="calc-result" aria-live="polite">
+          <div class="calc-big"><span id="r-pages">0</span><small>páginas al día</small></div>
+          <p class="calc-sub" id="r-sub"></p>
+          <p class="calc-hint" id="r-goal"></p>
+        </div>
+
+        <span hidden id="t-year">Unos {min} minutos al día durante los {days} días que quedan de año.</span>
+        <span hidden id="t-book">Te quedan {left} páginas en {days} días, unos {min} minutos al día.</span>
+        <span hidden id="t-goal">Como meta diaria en BookWorm: {goal} páginas.</span>
+        <span hidden id="t-done">Lo has terminado. Hora de elegir el siguiente.</span>
+        <span hidden id="t-date">Elige una fecha posterior a hoy.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Cómo funciona la calculadora</h2>
+        <p>Para una meta anual, multiplica tus libros por su extensión media y reparte esas páginas entre los días que quedan hasta el 31 de diciembre, hoy incluido. Para terminar un libro, toma las páginas que te quedan y las reparte entre los días hasta tu fecha.</p>
+        <p>Siempre redondea hacia arriba, porque una meta que puedes cumplir es mejor que una que fallas siempre por una página. Los minutos son una estimación: la mayoría de la gente lee una página de un libro de bolsillo en uno o dos minutos, así que ajusta ese número a tu ritmo.</p>
+        <h2>Páginas al día durante un año entero</h2>
+        <p>Si empiezas el 1 de enero y tus libros tienen una media de 300 páginas, esto es lo que te pide cada meta.</p>
+        <table>
+          <thead><tr><th>Libros al año</th><th>Páginas al día</th><th>Minutos al día</th></tr></thead>
+          <tbody>
+            <tr><td>12</td><td>10</td><td>15</td></tr>
+            <tr><td>24</td><td>20</td><td>30</td></tr>
+            <tr><td>36</td><td>30</td><td>45</td></tr>
+            <tr><td>52</td><td>43</td><td>65</td></tr>
+            <tr><td>100</td><td>83</td><td>125</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Los minutos suponen 1,5 minutos por página. Empezar más tarde en el año sube el número diario, y para eso está la calculadora de arriba.</p>
+        <a class="more" href="/es/guides/how-many-pages-a-day/">Lee la guía: ¿cuántas páginas al día deberías leer?</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head">
+        <h2 id="faq-title">Preguntas sobre metas de lectura</h2>
+      </div>
+      <details class="reveal"><summary>¿Cuántas páginas al día para leer 52 libros al año?<i aria-hidden="true"></i></summary><div class="answer"><p>Con libros de unas 300 páginas, 52 libros son 15.600 páginas, o 43 páginas al día durante un año entero. A un minuto y medio por página, es algo más de una hora al día.</p></div></details>
+      <details class="reveal"><summary>¿Cuánto se tarda en leer un libro de 300 páginas?<i aria-hidden="true"></i></summary><div class="answer"><p>La mayoría de la gente necesita entre cinco y diez horas, según el libro y lo rápido que lea. A 30 páginas al día, son diez días.</p></div></details>
+      <details class="reveal"><summary>¿Los audiolibros cuentan para mi meta?<i aria-hidden="true"></i></summary><div class="answer"><p>En BookWorm, sí. Lo que escuchas se registra en horas y minutos, y tu meta diaria suma lectura y escucha juntas.</p></div></details>
+      <details class="reveal"><summary>¿Y si me retraso?<i aria-hidden="true"></i></summary><div class="answer"><p>Vuelve a usar la calculadora desde hoy. El nuevo número ya incluye los días que te saltaste, y suele ser más pequeño de lo que parece.</p></div></details>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Llévalo a tu iPhone.</h2>
+      <p>BookWorm guarda tu página, tu meta y tu racha, toque a toque.</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/es-black.svg" alt="Descarga BookWorm en el App Store" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+<script>
+/* Reading goal calculator. Rounds up, like the app's finish-line step: a goal you can meet beats one you can't. */
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var lang = document.documentElement.lang;
+  var nf = new Intl.NumberFormat(lang);
+  var fill = function (t, v) { return t.replace(/\{(\w+)\}/g, function (_, k) { return v[k]; }); };
+  var num = function (id, min) { var n = parseFloat($(id).value); return isFinite(n) && n >= min ? n : null; };
+  var DAY = 864e5;
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+
+  // default finish date: a month from today
+  // dates as the visitor's own calendar sees them (toISOString would use UTC and can land a day off)
+  var iso = function (d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
+  var plusDays = function (n) { var d = new Date(today); d.setDate(d.getDate() + n); return d; };
+  $('b-date').value = iso(plusDays(30));
+  $('b-date').min = iso(plusDays(1));
+
+  var mode = 'year';
+  function goal(pages) { return Math.min(500, Math.max(5, Math.ceil(pages / 5) * 5)); }
+  function show(pages, sub) {
+    $('r-pages').textContent = pages == null ? '–' : nf.format(pages);
+    $('r-sub').textContent = sub || '';
+    $('r-goal').textContent = pages ? fill($('t-goal').textContent, { goal: nf.format(goal(pages)) }) : '';
+  }
+  function calc() {
+    if (mode === 'year') {
+      var books = num('y-books', 1), avg = num('y-pages', 1), speed = num('y-speed', 0.1);
+      if (!books || !avg || !speed) return show(null);
+      var end = new Date(today.getFullYear(), 11, 31);
+      var days = Math.round((end - today) / DAY) + 1;            // today counts
+      var pages = Math.ceil(books * avg / days);
+      show(pages, fill($('t-year').textContent, { days: nf.format(days), min: nf.format(Math.ceil(pages * speed)) }));
+    } else {
+      var total = num('b-total', 1), current = num('b-current', 0), speed2 = num('b-speed', 0.1);
+      var date = $('b-date').value ? new Date($('b-date').value + 'T00:00:00') : null;
+      if (!total || current == null || !speed2) return show(null);
+      var left = total - current;
+      if (left <= 0) return show(0, $('t-done').textContent);
+      if (!date || date <= today) return show(null, $('t-date').textContent);
+      var d = Math.round((date - today) / DAY);
+      var p = Math.ceil(left / d);
+      show(p, fill($('t-book').textContent, { left: nf.format(left), days: nf.format(d), min: nf.format(Math.ceil(p * speed2)) }));
+    }
+  }
+  var tabs = [$('tab-year'), $('tab-book')];
+  function select(i, focus) {
+    mode = i ? 'book' : 'year';
+    tabs.forEach(function (t, j) { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+    $('panel-year').hidden = !!i; $('panel-book').hidden = !i;
+    if (focus) tabs[i].focus();
+    calc();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); select(1 - i, true); }
+    });
+  });
+  document.querySelectorAll('#calc input').forEach(function (el) { el.addEventListener('input', calc); });
+  calc();
+})();
+</script>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/es/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>Un seguimiento de lectura tranquilo para libros en papel, ebooks y audiolibros.</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/es-black.svg" alt="Descarga BookWorm en el App Store" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="La app">
+      <h2>La app</h2>
+      <a href="/es/audiobook-tracker/">Seguimiento de audiolibros</a>
+      <a href="/es/reading-habit-tracker/">Hábito de lectura</a>
+      <a href="/es/reading-goal-calculator/">Calculadora de metas de lectura</a>
+    </nav>
+    <nav aria-label="Aprende">
+      <h2>Aprende</h2>
+      <a href="/es/guides/">Todas las guías</a>
+      <a href="/es/guides/how-many-pages-a-day/">¿Cuántas páginas al día?</a>
+      <a href="/es/guides/build-a-reading-habit/">Crear un hábito de lectura</a>
+      <a href="/es/guides/track-audiobooks/">Registrar audiolibros</a>
+    </nav>
+    <nav aria-label="Ayuda">
+      <h2>Ayuda</h2>
+      <a href="/es/support/">Centro de ayuda</a>
+      <a href="/privacy/">Privacidad</a>
+      <a href="https://markockidev.canny.io/bookworm">Sugerir una función</a>
+      <a href="mailto:markockidev@icloud.com">Contacto</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

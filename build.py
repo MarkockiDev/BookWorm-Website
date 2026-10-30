@@ -1,113 +1,235 @@
 #!/usr/bin/env python3
-"""Builds the landing page in every language.
+"""Builds ilovebookworm.com: every page in every language.
 
-src/template.html holds the page once, with {{key}} placeholders.
-src/i18n/<lang>.json holds the words. A key missing from a translation falls back to English,
-so a half-translated language still builds. Output: index.html (English) and <lang>/index.html.
+src/layout.html          the shell every page shares (head, nav, footer) with {{key}} placeholders
+src/pages/<page>.html    one page's content, dropped into {{content}}
+src/i18n/<lang>/common.json   words every page uses (nav, footer, themes)
+src/i18n/<lang>/<page>.json   that page's words; a page is built in a language only once this file exists
+
+A key missing from a translation falls back to English. Output: <lang path><slug>index.html, plus sitemap.xml.
+The App Store rating is read live from Apple's public lookup; if that fails it is simply left out.
 
 Run from anywhere:  python3 build.py
 """
+import datetime
+import hashlib
 import json
 import pathlib
 import re
+import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent
+SRC = ROOT / "src"
 SITE = "https://ilovebookworm.com"
-ORDER = ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"]
-# a language joins the menu as soon as its file exists
-ORDER = [c for c in ORDER if (ROOT / "src" / "i18n" / f"{c}.json").exists()]
+APP_ID = "6761390761"
+APP_URL = f"https://apps.apple.com/app/id{APP_ID}"
+LANGS = ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"]
 
-template = (ROOT / "src" / "template.html").read_text(encoding="utf-8")
-langs = {code: json.loads((ROOT / "src" / "i18n" / f"{code}.json").read_text(encoding="utf-8")) for code in ORDER}
-en = langs["en"]
+# id, slug, parent id (for breadcrumbs), kind
+PAGES = [
+    ("home", "", None, "home"),
+    ("reading-goal-calculator", "reading-goal-calculator/", None, "page"),
+    ("audiobook-tracker", "audiobook-tracker/", None, "page"),
+    ("reading-habit-tracker", "reading-habit-tracker/", None, "page"),
+    ("support", "support/", None, "page"),
+    ("guides", "guides/", None, "page"),
+    ("how-many-pages-a-day", "guides/how-many-pages-a-day/", "guides", "article"),
+    ("build-a-reading-habit", "guides/build-a-reading-habit/", "guides", "article"),
+    ("track-audiobooks", "guides/track-audiobooks/", "guides", "article"),
+]
+PAGES = [p for p in PAGES if (SRC / "pages" / f"{p[0]}.html").exists()]
+BY_ID = {p[0]: p for p in PAGES}
+
+layout = (SRC / "layout.html").read_text(encoding="utf-8")
+ver = hashlib.sha1(b"".join((ROOT / "assets" / f).read_bytes() for f in ("site.css", "site.js"))).hexdigest()[:8]
+
+
+def load(lang, name):
+    f = SRC / "i18n" / lang / f"{name}.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else None
+
+
+common = {lang: load(lang, "common") for lang in LANGS}
+words = {(lang, pid): load(lang, pid) for lang in LANGS for pid, *_ in PAGES}
+
+
+def has(lang, pid):
+    return words[(lang, pid)] is not None
+
+
+def url(lang, pid):
+    return SITE + common[lang]["_path"] + BY_ID[pid][1]
 
 
 def text(html):
-    """Plain text for JSON-LD: drop tags, decode the two entities we use."""
-    return re.sub(r"<[^>]+>", "", html).replace("&amp;", "&").replace("&nbsp;", " ")
+    """Plain text for JSON-LD: drop tags, decode the entities we use."""
+    return re.sub(r"<[^>]+>", "", html).replace("&amp;", "&").replace("&nbsp;", " ").strip()
 
 
-def build(code):
-    words = {**en, **langs[code]}
-    path = words["_path"]
-    url = SITE + path
+def app_rating():
+    try:
+        with urllib.request.urlopen(f"https://itunes.apple.com/lookup?id={APP_ID}&country=us", timeout=10) as r:
+            result = json.load(r)["results"][0]
+        count = int(result.get("userRatingCount") or 0)
+        value = float(result.get("averageUserRating") or 0)
+        if count and value:
+            return {"@type": "AggregateRating", "ratingValue": round(value, 1), "ratingCount": count, "bestRating": 5}
+    except Exception as error:  # offline, rate limited, listing changed: leave the stars out
+        print(f"rating lookup failed ({error}); building without stars")
+    return None
 
-    hreflang = "\n".join(
-        f'<link rel="alternate" hreflang="{langs[c]["_html_lang"]}" href="{SITE}{langs[c]["_path"]}">' for c in ORDER
-    ) + f'\n<link rel="alternate" hreflang="x-default" href="{SITE}/">'
 
-    tick = '<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
+RATING = app_rating()
+TODAY = datetime.date.today().isoformat()
+TICK = '<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
+
+
+def build(lang, pid):
+    _, slug, parent, kind = BY_ID[pid]
+    w = {**common["en"], **words[("en", pid)], **common[lang], **words[(lang, pid)]}
+    home = common[lang]["_path"]
+    here = url(lang, pid)
+    langs_here = [l for l in LANGS if has(l, pid)]
+
+    hreflang = "\n".join(f'<link rel="alternate" hreflang="{common[l]["_html_lang"]}" href="{url(l, pid)}">' for l in langs_here)
+    if has("en", pid):
+        hreflang += f'\n<link rel="alternate" hreflang="x-default" href="{url("en", pid)}">'
+
     menu = "\n        ".join(
-        f'<a href="{langs[c]["_path"]}" hreflang="{c}" lang="{langs[c]["_html_lang"]}"'
-        + (' aria-current="page"' if c == code else "")
-        + f'>{langs[c]["_native"]}{tick}</a>'
-        for c in ORDER
+        f'<a href="{common[l]["_path"] + (slug if has(l, pid) else "")}" hreflang="{l}" lang="{common[l]["_html_lang"]}"'
+        + (' aria-current="page"' if l == lang else "")
+        + f'>{common[l]["_native"]}{TICK}</a>'
+        for l in LANGS if common[l]
     )
 
-    faq = []
-    qa = []
-    for i in range(1, 9):
-        q, a = words[f"q{i}"], words[f"a{i}"]
-        faq.append(
-            f'<details class="reveal"><summary>{q}<i aria-hidden="true"></i></summary>'
-            f'<div class="answer"><p>{a}</p></div></details>'
+    # FAQ: every q<n>/a<n> pair in this page's words
+    page_words = {**words[("en", pid)], **words[(lang, pid)]}
+    pairs = [(page_words[f"q{i}"], page_words[f"a{i}"]) for i in range(1, 30) if f"q{i}" in page_words]
+    faq = "\n      ".join(
+        f'<details class="reveal"><summary>{q}<i aria-hidden="true"></i></summary><div class="answer"><p>{a}</p></div></details>'
+        for q, a in pairs
+    )
+
+    # breadcrumbs: Home › (Guides ›) this page
+    trail = [(w["crumb_home"], url(lang, "home"))]
+    if parent:
+        trail.append((text({**words[("en", parent)], **(words[(lang, parent)] or {})}["crumb"]), url(lang, parent)))
+    if pid != "home":
+        trail.append((text(w["crumb"]), here))
+    crumbs_html = ""
+    if pid != "home":
+        items = "".join(
+            f'<li><a href="{u}">{name}</a></li>' if i < len(trail) - 1 else f'<li aria-current="page">{name}</li>'
+            for i, (name, u) in enumerate(trail)
         )
-        qa.append({"@type": "Question", "name": text(q), "acceptedAnswer": {"@type": "Answer", "text": text(a)}})
+        crumbs_html = f'<nav class="crumbs" aria-label="{w["crumb_label"]}"><ol>{items}</ol></nav>'
 
-    jsonld = json.dumps(
-        [
-            {
-                "@context": "https://schema.org",
-                "@type": "MobileApplication",
-                "name": "BookWorm",
-                "operatingSystem": "iOS 17.2 or later",
-                "applicationCategory": "BookApplication",
-                "url": url,
-                "installUrl": "https://apps.apple.com/app/id6761390761",
-                "image": SITE + "/assets/icon.png",
-                "description": words["jsonld_desc"],
-                "inLanguage": [langs[c]["_html_lang"] for c in ORDER],
-            },
-            {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": words["_html_lang"], "mainEntity": qa},
-        ],
-        ensure_ascii=False,
-        indent=2,
-    )
+    graph = []
+    if kind == "home":
+        app = {
+            "@type": "MobileApplication",
+            "name": "BookWorm: Reading Tracker",
+            "operatingSystem": "iOS 17.2 or later",
+            "applicationCategory": "BookApplication",
+            "url": here,
+            "installUrl": APP_URL,
+            "image": SITE + "/assets/icon.png",
+            "description": w["jsonld_desc"],
+            "inLanguage": [common[l]["_html_lang"] for l in LANGS],
+            "author": {"@type": "Person", "name": "Adam Markocki"},
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        }
+        if RATING:
+            app["aggregateRating"] = RATING
+        graph += [
+            app,
+            {"@type": "WebSite", "name": "BookWorm", "alternateName": "ilovebookworm.com", "url": SITE + "/", "inLanguage": w["_html_lang"]},
+            {"@type": "Organization", "name": "BookWorm", "url": SITE + "/", "logo": SITE + "/assets/icon.png", "sameAs": [APP_URL]},
+        ]
+    else:
+        graph.append({
+            "@type": "BreadcrumbList",
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(trail)],
+        })
+    if kind == "article":
+        graph.append({
+            "@type": "Article",
+            "headline": text(w["h1"]),
+            "description": w["meta_desc"],
+            "inLanguage": w["_html_lang"],
+            "datePublished": w.get("_published", TODAY),
+            "dateModified": w.get("_modified", w.get("_published", TODAY)),
+            "author": {"@type": "Person", "name": "Adam Markocki", "url": SITE + "/"},
+            "publisher": {"@type": "Organization", "name": "BookWorm", "logo": {"@type": "ImageObject", "url": SITE + "/assets/icon.png"}},
+            "image": SITE + "/assets/og-share-v2.jpg",
+            "mainEntityOfPage": here,
+        })
+    if pairs:
+        graph.append({
+            "@type": "FAQPage",
+            "inLanguage": w["_html_lang"],
+            "mainEntity": [{"@type": "Question", "name": text(q), "acceptedAnswer": {"@type": "Answer", "text": text(a)}} for q, a in pairs],
+        })
+    jsonld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=2)
 
     fills = {
-        **words,
-        "html_lang": words["_html_lang"],
-        "canonical": url,
+        **w,
+        "html_lang": w["_html_lang"],
+        "canonical": here,
         "hreflang": hreflang,
-        "og_locale": words["_og_locale"],
-        "is_root": "true" if code == "en" else "false",
+        "og_locale": w["_og_locale"],
+        "og_title": w.get("og_title", w["meta_title"]),
+        "og_desc": w.get("og_desc", w["meta_desc"]),
+        "is_en": "true" if lang == "en" else "false",
+        "slug": slug,
         "jsonld": jsonld,
-        "home": path,
+        "home": home,
         "lang_menu": menu,
-        "lang_native": words["_native"],
-        "lang_short": words["_short"],
-        "badge": f'/assets/badges/{words["_badge"]}-black.svg',
-        "faq_items": "\n      ".join(faq),
+        "lang_native": w["_native"],
+        "lang_short": w["_short"],
+        "badge": f'/assets/badges/{w["_badge"]}-black.svg',
+        "faq_items": faq,
+        "breadcrumb": crumbs_html,
+        "app_url": APP_URL,
+        "ver": ver,
     }
 
     def fill(match):
         key = match.group(1)
         if key not in fills:
-            raise KeyError(f"{code}: no text for {{{{{key}}}}}")
+            raise KeyError(f"{lang}/{pid}: no text for {{{{{key}}}}}")
         return fills[key]
 
-    html = re.sub(r"\{\{(\w+)\}\}", fill, template)
-    out = ROOT / path.strip("/") / "index.html" if path != "/" else ROOT / "index.html"
+    content = (SRC / "pages" / f"{pid}.html").read_text(encoding="utf-8")
+    html = layout.replace("{{content}}", content)
+    html = re.sub(r"\{\{(\w+)\}\}", fill, html)
+    html = re.sub(r"\{\{(\w+)\}\}", fill, html)  # a page's words may themselves carry {{home}} links
+    out = ROOT / home.strip("/") / slug / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
-    missing = sorted(k for k in en if not k.startswith("_") and k not in langs[code])
-    print(f"{code:8} -> {out.relative_to(ROOT)}" + (f"  ({len(missing)} keys fall back to English)" if missing else ""))
+    missing = sorted(k for k in {**common["en"], **words[("en", pid)]} if not k.startswith("_") and k not in {**common[lang], **words[(lang, pid)]})
+    return missing
 
 
-for c in ORDER:
-    build(c)
+report = {}
+for pid, *_ in PAGES:
+    for lang in LANGS:
+        if has(lang, pid):
+            missing = build(lang, pid)
+            report.setdefault(pid, []).append(lang + (f"({len(missing)} in English)" if missing else ""))
+for pid, built in report.items():
+    print(f"{pid:26} {' '.join(built)}")
+print("stars:", f'{RATING["ratingValue"]} from {RATING["ratingCount"]} ratings' if RATING else "left out")
 
-sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-sitemap += [f'  <url><loc>{SITE}{langs[c]["_path"]}</loc></url>' for c in ORDER]
-sitemap += [f"  <url><loc>{SITE}/privacy/</loc></url>", "</urlset>", ""]
-(ROOT / "sitemap.xml").write_text("\n".join(sitemap), encoding="utf-8")
+# sitemap: every page in every language it exists in, each listing its other languages
+lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+for pid, *_ in PAGES:
+    langs_here = [l for l in LANGS if has(l, pid)]
+    for lang in langs_here:
+        lines.append(f"  <url><loc>{url(lang, pid)}</loc><lastmod>{TODAY}</lastmod>")
+        for l in langs_here:
+            lines.append(f'    <xhtml:link rel="alternate" hreflang="{common[l]["_html_lang"]}" href="{url(l, pid)}"/>')
+        lines.append("  </url>")
+lines += [f"  <url><loc>{SITE}/privacy/</loc><lastmod>{TODAY}</lastmod></url>", "</urlset>", ""]
+(ROOT / "sitemap.xml").write_text("\n".join(lines), encoding="utf-8")

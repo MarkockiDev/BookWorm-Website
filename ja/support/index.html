@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BookWorm サポート：ヘルプ、同期、お問い合わせ</title>
+<meta name="description" content="iCloud 同期、新しい iPhone への移行、リマインダー、ウィジェット、蔵書のエクスポートなどへの答え。BookWorm の作り手に直接メールもできます。">
+<link rel="canonical" href="https://ilovebookworm.com/ja/support/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/support/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/support/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/support/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/support/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/support/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/support/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/support/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/support/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/support/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/support/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/ja/support/">
+<meta property="og:title" content="BookWorm サポート：ヘルプ、同期、お問い合わせ">
+<meta property="og:description" content="iCloud 同期、新しい iPhone への移行、リマインダー、ウィジェット、蔵書のエクスポートなどへの答え。BookWorm の作り手に直接メールもできます。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookWorm サポート：ヘルプ、同期、お問い合わせ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BookWorm サポート：ヘルプ、同期、お問い合わせ">
+<meta name="twitter:description" content="iCloud 同期、新しい iPhone への移行、リマインダー、ウィジェット、蔵書のエクスポートなどへの答え。BookWorm の作り手に直接メールもできます。">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="BookWorm サポート：ヘルプ、同期、お問い合わせ">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/support/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://ilovebookworm.com/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "サポート",
+          "item": "https://ilovebookworm.com/ja/support/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "ja",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "iPhone と iPad のあいだで本を同期するには？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "両方のデバイスで同じ Apple アカウントにサインインし、iCloud をオンにしてください。BookWorm は蔵書、読書日、目標、連続記録を、あなた自身の iCloud を通じて同期します。すぐに同期したいときは、BookWorm の「設定」を開き、「iCloud同期」の「今すぐ同期」をタップします。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "新しい iPhone にしました。蔵書を戻すには？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "同じ Apple アカウントでサインインし、BookWorm をインストールして開いてください。iCloud にある蔵書を見つけて、設定を始める前に復元を提案します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "リマインダーが届きません。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ふたつのスイッチを確認してください。BookWorm の「設定」にある「通知」と、iPhone の「設定」>「通知」>「BookWorm」です。許可はデバイスごとなので、新しい iPhone ではもう一度許可が必要です。また、すでに目標を達成した日は、BookWorm は何も送りません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BookWorm のウィジェットを追加するには？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ホーム画面かロック画面の空いている場所を長押しし、「編集」またはプラスボタンをタップします。BookWorm を検索して、本または毎日の目標のウィジェットを選んでください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "読書データをエクスポートできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。「設定」の「データをエクスポート」で、本、読書日、目標、連続記録の履歴をファイルに保存できます。「データを読み込む」でそのファイルを読み込むと、今あるデータと統合されます。何も削除されません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "言語やテーマを変えるには？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BookWorm の「設定」を開いてください。「言語」でアプリ全体が一度に切り替わり、テーマはライト、ダーク、レトロ、余白メモから選べます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "効果音や触覚フィードバックをオフにできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。「効果音」と「触覚フィードバック」は、それぞれ「設定」に専用のスイッチがあります。BookWorm の効果音は iPhone のサイレントモードにも従い、音楽やオーディオブックを止めることはありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "アカウントは必要ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "いいえ。BookWorm はデバイスにすでにある Apple アカウントを使います。登録もパスワードも不要です。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/ja/#main" aria-label="BookWorm、ページの先頭へ">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="セクション">
+      <a href="/ja/#how">使いかた</a>
+      <a href="/ja/#looks">テーマ</a>
+      <a href="/ja/guides/">ガイド</a>
+      <a href="/ja/support/">サポート</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="テーマ">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="テーマ">
+        <p aria-hidden="true">テーマ</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>ライト<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>ダーク<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>レトロ<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>余白メモ<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="言語: 日本語">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">JA</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="言語">
+        <p aria-hidden="true">言語</p>
+        <a href="/support/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/support/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/support/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/support/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/support/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/support/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/support/" hreflang="ja" lang="ja" aria-current="page">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/support/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/support/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">アプリを入手</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="現在地"><ol><li><a href="https://ilovebookworm.com/ja/">ホーム</a></li><li aria-current="page">サポート</li></ol></nav>
+      <p class="eyebrow">サポート</p>
+      <h1>どうしましたか？</h1>
+      <p class="lede">答えのほとんどは下にあります。見つからなければ、メールをください。BookWorm を作っているのは私で、すべてのメッセージに目を通しています。</p>
+    </div>
+  </header>
+
+  <section aria-label="お問い合わせ">
+    <div class="wrap cards">
+      <a class="card" href="mailto:markockidev@icloud.com"><small>メール</small><h3>Adam にメールする</h3><p>質問、不具合、あたたかいひとことも。たいてい数日以内にお返事します。</p><span class="go">markockidev@icloud.com</span></a>
+      <a class="card" href="https://markockidev.canny.io/bookworm"><small>アイデア</small><h3>機能をリクエスト</h3><p>アイデアを投稿したり、ほかの人のアイデアに投票したり。いちばん求められているものから作ります。</p><span class="go">ボードを開く →</span></a>
+      <a class="card" href="/privacy/"><small>プライバシー</small><h3>あなたのデータ</h3><p>BookWorm が何を保存し、どこに置き、何を決して収集しないか。</p><span class="go">ポリシーを読む →</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">よくある質問</h2><p>よく聞かれることに、短くお答えします。</p></div>
+      <details class="reveal"><summary>iPhone と iPad のあいだで本を同期するには？<i aria-hidden="true"></i></summary><div class="answer"><p>両方のデバイスで同じ Apple アカウントにサインインし、iCloud をオンにしてください。BookWorm は蔵書、読書日、目標、連続記録を、あなた自身の iCloud を通じて同期します。すぐに同期したいときは、BookWorm の「設定」を開き、「iCloud同期」の「今すぐ同期」をタップします。</p></div></details>
+      <details class="reveal"><summary>新しい iPhone にしました。蔵書を戻すには？<i aria-hidden="true"></i></summary><div class="answer"><p>同じ Apple アカウントでサインインし、BookWorm をインストールして開いてください。iCloud にある蔵書を見つけて、設定を始める前に復元を提案します。</p></div></details>
+      <details class="reveal"><summary>リマインダーが届きません。<i aria-hidden="true"></i></summary><div class="answer"><p>ふたつのスイッチを確認してください。BookWorm の「設定」にある「通知」と、iPhone の「設定」>「通知」>「BookWorm」です。許可はデバイスごとなので、新しい iPhone ではもう一度許可が必要です。また、すでに目標を達成した日は、BookWorm は何も送りません。</p></div></details>
+      <details class="reveal"><summary>BookWorm のウィジェットを追加するには？<i aria-hidden="true"></i></summary><div class="answer"><p>ホーム画面かロック画面の空いている場所を長押しし、「編集」またはプラスボタンをタップします。BookWorm を検索して、本または毎日の目標のウィジェットを選んでください。</p></div></details>
+      <details class="reveal"><summary>読書データをエクスポートできますか？<i aria-hidden="true"></i></summary><div class="answer"><p>はい。「設定」の「データをエクスポート」で、本、読書日、目標、連続記録の履歴をファイルに保存できます。「データを読み込む」でそのファイルを読み込むと、今あるデータと統合されます。何も削除されません。</p></div></details>
+      <details class="reveal"><summary>言語やテーマを変えるには？<i aria-hidden="true"></i></summary><div class="answer"><p>BookWorm の「設定」を開いてください。「言語」でアプリ全体が一度に切り替わり、テーマはライト、ダーク、レトロ、余白メモから選べます。</p></div></details>
+      <details class="reveal"><summary>効果音や触覚フィードバックをオフにできますか？<i aria-hidden="true"></i></summary><div class="answer"><p>はい。「効果音」と「触覚フィードバック」は、それぞれ「設定」に専用のスイッチがあります。BookWorm の効果音は iPhone のサイレントモードにも従い、音楽やオーディオブックを止めることはありません。</p></div></details>
+      <details class="reveal"><summary>アカウントは必要ですか？<i aria-hidden="true"></i></summary><div class="answer"><p>いいえ。BookWorm はデバイスにすでにある Apple アカウントを使います。登録もパスワードも不要です。</p></div></details>
+    </div>
+  </section>
+
+  <section class="cta-band band">
+    <div class="wrap">
+      <h2>あなたの iPhone にも。</h2>
+      <p>ページも、目標も、連続記録も。BookWorm がタップひとつで覚えておきます。</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/ja/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>紙の本、電子書籍、オーディオブックのための静かな読書記録アプリ。</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="アプリ">
+      <h2>アプリ</h2>
+      <a href="/ja/audiobook-tracker/">オーディオブック記録</a>
+      <a href="/ja/reading-habit-tracker/">読書習慣トラッカー</a>
+      <a href="/ja/reading-goal-calculator/">読書目標計算ツール</a>
+    </nav>
+    <nav aria-label="読みもの">
+      <h2>読みもの</h2>
+      <a href="/ja/guides/">ガイド一覧</a>
+      <a href="/ja/guides/how-many-pages-a-day/">1日何ページ読む？</a>
+      <a href="/ja/guides/build-a-reading-habit/">読書習慣をつくる</a>
+      <a href="/ja/guides/track-audiobooks/">オーディオブックを記録する</a>
+    </nav>
+    <nav aria-label="ヘルプ">
+      <h2>ヘルプ</h2>
+      <a href="/ja/support/">サポート</a>
+      <a href="/privacy/">プライバシー</a>
+      <a href="https://markockidev.canny.io/bookworm">機能をリクエスト</a>
+      <a href="mailto:markockidev@icloud.com">お問い合わせ</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

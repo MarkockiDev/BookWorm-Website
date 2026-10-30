@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>オーディオブック記録アプリ：聴いた時間を記録 | BookWorm</title>
+<meta name="description" content="オーディオブックを時間と分で記録。紙の本や電子書籍と同じ本棚に並べ、ロック画面の読書タイマーと、すべての形式に共通の毎日の目標で。">
+<link rel="canonical" href="https://ilovebookworm.com/ja/audiobook-tracker/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/audiobook-tracker/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/audiobook-tracker/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/audiobook-tracker/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/audiobook-tracker/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/audiobook-tracker/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/audiobook-tracker/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/audiobook-tracker/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/audiobook-tracker/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/audiobook-tracker/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/audiobook-tracker/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/ja/audiobook-tracker/">
+<meta property="og:title" content="聴くことも読書として数える、オーディオブック記録アプリ">
+<meta property="og:description" content="時間と分で記録、ロック画面のタイマー、オーディオブックも電子書籍も紙の本もひとつの毎日の目標で。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="聴くことも読書として数える、オーディオブック記録アプリ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="聴くことも読書として数える、オーディオブック記録アプリ">
+<meta name="twitter:description" content="時間と分で記録、ロック画面のタイマー、オーディオブックも電子書籍も紙の本もひとつの毎日の目標で。">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="聴くことも読書として数える、オーディオブック記録アプリ">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/audiobook-tracker/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://ilovebookworm.com/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "オーディオブック記録",
+          "item": "https://ilovebookworm.com/ja/audiobook-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "ja",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "オーディオブックを聴くと、読書目標にカウントされますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。BookWorm は聴いた分数と読んだページ数を同じ毎日の目標に数えるので、どの形式でも連続記録が続きます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "オーディオブックと紙の本を同時に記録できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。読書中の本は形式に関係なくすべてホームに並び、1冊ずつ更新できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BookWorm はオーディオブックの長さをどうやって知るのですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "検索から追加すると、本のページ数から長さを推定します。オーディオブックアプリに表示される正確な長さを入力することもできます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BookWorm でオーディオブックを再生・ダウンロードできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "いいえ。いつものアプリで聴き続けてください。BookWorm はその記録をつける場所です。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/ja/#main" aria-label="BookWorm、ページの先頭へ">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="セクション">
+      <a href="/ja/#how">使いかた</a>
+      <a href="/ja/#looks">テーマ</a>
+      <a href="/ja/guides/">ガイド</a>
+      <a href="/ja/support/">サポート</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="テーマ">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="テーマ">
+        <p aria-hidden="true">テーマ</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>ライト<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>ダーク<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>レトロ<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>余白メモ<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="言語: 日本語">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">JA</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="言語">
+        <p aria-hidden="true">言語</p>
+        <a href="/audiobook-tracker/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/audiobook-tracker/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/audiobook-tracker/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/audiobook-tracker/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/audiobook-tracker/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/audiobook-tracker/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/audiobook-tracker/" hreflang="ja" lang="ja" aria-current="page">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/audiobook-tracker/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/audiobook-tracker/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">アプリを入手</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="現在地"><ol><li><a href="https://ilovebookworm.com/ja/">ホーム</a></li><li aria-current="page">オーディオブック記録</li></ol></nav>
+        <p class="eyebrow">オーディオブック記録</p>
+        <h1>聴くことも読書。だから、読書として記録する。</h1>
+        <p class="lede">BookWorm では、オーディオブックも紙の本と同じ本棚に。時間と分で記録して、同じ毎日の目標、同じ連続記録に数えます。</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="timer" data-w="420 720" sizes="380px" width="720" height="1207" alt="Phil Knight の Shoe Dog を計測中の BookWorm 読書タイマー。" fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">耳で読む本のために</h2><p>多くの読書記録アプリはページしか理解しません。BookWorm は、いまどこまで聴いたかを理解します。</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>ページではなく、時間と分で</h3><p>11時間35分のうち3時間30分と記録すれば、進捗バーもカレンダーも統計も、時間で表示されます。</p></article>
+        <article class="point reveal"><h3>すべての形式に、ひとつの目標</h3><p>毎日の目標は分でもページでも設定できます。読んでも聴いてもカウントされるので、通勤中のオーディオブックでも連続記録は途切れません。</p></article>
+        <article class="point reveal"><h3>聴くたびにタイマーを</h3><p>再生ボタンを押したらセッションを開始。ロック画面やダイナミックアイランドから一時停止・再開して、最後に聴いた位置を記録します。</p></article>
+        <article class="point reveal"><h3>オーディオの邪魔をしない</h3><p>BookWorm の効果音がオーディオブックを止めたり小さくしたりすることはありません。サイレントモードでは完全に消音されます。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>数秒で本を追加</h2>
+        <p>タイトルや著者で検索すると、表紙が自動で入ります。オーディオブックを選ぶと、BookWorm が本のページ数から長さを提案します。お手元の版に合わせて変更もできます。</p>
+        <p>紙、電子、オーディオの切り替えはいつでも自由に。その日に読んだ形式が日ごとに残るので、記録は正確なままです。</p>
+        <a class="more" href="/ja/guides/track-audiobooks/">オーディオブックの記録ガイドを読む</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="book" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="BookWorm の本のページ。進捗、読書を再開、進捗を更新。"></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">オーディオブックの記録についての質問</h2></div>
+      <details class="reveal"><summary>オーディオブックを聴くと、読書目標にカウントされますか？<i aria-hidden="true"></i></summary><div class="answer"><p>はい。BookWorm は聴いた分数と読んだページ数を同じ毎日の目標に数えるので、どの形式でも連続記録が続きます。</p></div></details>
+      <details class="reveal"><summary>オーディオブックと紙の本を同時に記録できますか？<i aria-hidden="true"></i></summary><div class="answer"><p>はい。読書中の本は形式に関係なくすべてホームに並び、1冊ずつ更新できます。</p></div></details>
+      <details class="reveal"><summary>BookWorm はオーディオブックの長さをどうやって知るのですか？<i aria-hidden="true"></i></summary><div class="answer"><p>検索から追加すると、本のページ数から長さを推定します。オーディオブックアプリに表示される正確な長さを入力することもできます。</p></div></details>
+      <details class="reveal"><summary>BookWorm でオーディオブックを再生・ダウンロードできますか？<i aria-hidden="true"></i></summary><div class="answer"><p>いいえ。いつものアプリで聴き続けてください。BookWorm はその記録をつける場所です。</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">続けて読む</h2></div>
+      <div class="cards">
+        <a class="card" href="/ja/reading-habit-tracker/"><small>アプリ</small><h3>読書習慣トラッカー</h3><p>毎日の目標、伸びていく連続記録、そして静かなリマインダーがひとつ。</p><span class="go">くわしく見る →</span></a>
+        <a class="card" href="/ja/reading-goal-calculator/"><small>ツール</small><h3>読書目標計算ツール</h3><p>年間目標や読み終えたい日を、1日のページ数に。</p><span class="go">計算してみる →</span></a>
+        <a class="card" href="/ja/guides/track-audiobooks/"><small>ガイド</small><h3>オーディオブックの記録のしかた</h3><p>聴くことも読書として数え、紙の本とあわせて記録する。</p><span class="go">ガイドを読む →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>あなたの iPhone にも。</h2>
+      <p>ページも、目標も、連続記録も。BookWorm がタップひとつで覚えておきます。</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/ja/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>紙の本、電子書籍、オーディオブックのための静かな読書記録アプリ。</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="アプリ">
+      <h2>アプリ</h2>
+      <a href="/ja/audiobook-tracker/">オーディオブック記録</a>
+      <a href="/ja/reading-habit-tracker/">読書習慣トラッカー</a>
+      <a href="/ja/reading-goal-calculator/">読書目標計算ツール</a>
+    </nav>
+    <nav aria-label="読みもの">
+      <h2>読みもの</h2>
+      <a href="/ja/guides/">ガイド一覧</a>
+      <a href="/ja/guides/how-many-pages-a-day/">1日何ページ読む？</a>
+      <a href="/ja/guides/build-a-reading-habit/">読書習慣をつくる</a>
+      <a href="/ja/guides/track-audiobooks/">オーディオブックを記録する</a>
+    </nav>
+    <nav aria-label="ヘルプ">
+      <h2>ヘルプ</h2>
+      <a href="/ja/support/">サポート</a>
+      <a href="/privacy/">プライバシー</a>
+      <a href="https://markockidev.canny.io/bookworm">機能をリクエスト</a>
+      <a href="mailto:markockidev@icloud.com">お問い合わせ</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

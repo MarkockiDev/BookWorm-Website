@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ऑडियोबुक ट्रैकर: iPhone पर सुनने का समय लॉग करें | BookWorm</title>
+<meta name="description" content="ऑडियोबुक को घंटों और मिनटों में ट्रैक करें, कागज़ की किताबों और ईबुक के साथ। लॉक स्क्रीन पर रीडिंग टाइमर, हर फ़ॉर्मैट के लिए एक दैनिक लक्ष्य।">
+<link rel="canonical" href="https://ilovebookworm.com/hi/audiobook-tracker/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/audiobook-tracker/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/audiobook-tracker/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/audiobook-tracker/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/audiobook-tracker/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/audiobook-tracker/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/audiobook-tracker/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/audiobook-tracker/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/audiobook-tracker/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/audiobook-tracker/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/audiobook-tracker/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/hi/audiobook-tracker/">
+<meta property="og:title" content="ऐसा ऑडियोबुक ट्रैकर जो सुनने को भी पढ़ना मानता है">
+<meta property="og:description" content="घंटे और मिनट, लॉक स्क्रीन टाइमर, और ऑडियोबुक, ईबुक व कागज़ की किताबों के लिए एक ही दैनिक लक्ष्य।">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ऐसा ऑडियोबुक ट्रैकर जो सुनने को भी पढ़ना मानता है">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ऐसा ऑडियोबुक ट्रैकर जो सुनने को भी पढ़ना मानता है">
+<meta name="twitter:description" content="घंटे और मिनट, लॉक स्क्रीन टाइमर, और ऑडियोबुक, ईबुक व कागज़ की किताबों के लिए एक ही दैनिक लक्ष्य।">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="ऐसा ऑडियोबुक ट्रैकर जो सुनने को भी पढ़ना मानता है">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/audiobook-tracker/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "होम",
+          "item": "https://ilovebookworm.com/hi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ऑडियोबुक ट्रैकर",
+          "item": "https://ilovebookworm.com/hi/audiobook-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "hi",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "क्या ऑडियोबुक सुनना मेरे रीडिंग लक्ष्य में गिना जाता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हाँ। BookWorm सुने गए मिनट और पढ़े गए पेज एक ही दैनिक लक्ष्य में गिनता है, इसलिए हर फ़ॉर्मैट आपकी स्ट्रीक जारी रखता है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या मैं एक ऑडियोबुक और एक कागज़ की किताब साथ-साथ ट्रैक कर सकता हूँ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हाँ। आप जो भी किताब पढ़ रहे हैं, फ़ॉर्मैट चाहे जो हो, वह होम पर रहती है, और आप हर एक को अलग से अपडेट करते हैं।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BookWorm को कैसे पता चलता है कि ऑडियोबुक कितनी लंबी है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "खोज से जोड़ने पर यह किताब के पेजों से अवधि का अंदाज़ा लगाता है। आप चाहें तो अपनी ऑडियोबुक ऐप से सटीक अवधि टाइप कर सकते हैं।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या BookWorm ऑडियोबुक चलाता या डाउनलोड करता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "नहीं। सुनना उसी ऐप में जारी रखें जो आप पहले से इस्तेमाल करते हैं। BookWorm वह जगह है जहाँ आप उसका हिसाब रखते हैं।"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">मुख्य सामग्री पर जाएँ</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/hi/#main" aria-label="BookWorm, ऊपर वापस जाएँ">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="सेक्शन">
+      <a href="/hi/#how">यह कैसे काम करता है</a>
+      <a href="/hi/#looks">थीम</a>
+      <a href="/hi/guides/">गाइड</a>
+      <a href="/hi/support/">सपोर्ट</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="थीम">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="थीम">
+        <p aria-hidden="true">थीम</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>लाइट<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>डार्क<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>रेट्रो<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>पृष्ठ-टिप्पणियाँ<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="भाषा: हिन्दी">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">HI</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="भाषा">
+        <p aria-hidden="true">भाषा</p>
+        <a href="/audiobook-tracker/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/audiobook-tracker/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/audiobook-tracker/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/audiobook-tracker/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/audiobook-tracker/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/audiobook-tracker/" hreflang="hi" lang="hi" aria-current="page">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/audiobook-tracker/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/audiobook-tracker/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/audiobook-tracker/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">ऐप पाएँ</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="ब्रेडक्रम्ब"><ol><li><a href="https://ilovebookworm.com/hi/">होम</a></li><li aria-current="page">ऑडियोबुक ट्रैकर</li></ol></nav>
+        <p class="eyebrow">ऑडियोबुक ट्रैकर</p>
+        <h1>सुनना भी पढ़ना है। इसे वैसे ही ट्रैक करें।</h1>
+        <p class="lede">BookWorm आपकी ऑडियोबुक को कागज़ की किताबों वाली शेल्फ़ पर ही रखता है। उन्हें घंटों और मिनटों में ट्रैक करता है, और उसी दैनिक लक्ष्य और उसी स्ट्रीक में गिनता है।</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/hi-black.svg" alt="App Store से BookWorm डाउनलोड करें" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="timer" data-w="420 720" sizes="380px" width="720" height="1207" alt="Phil Knight की Shoe Dog के लिए चलता हुआ BookWorm रीडिंग टाइमर।" fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">सुनी जाने वाली किताबों के लिए बना</h2><p>ज़्यादातर रीडिंग ट्रैकर सिर्फ़ पेज समझते हैं। BookWorm समझता है कि आप सुनते हुए कहाँ तक पहुँचे हैं।</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>पेज नहीं, घंटे और मिनट</h3><p>11 घं 35 मि में से 3 घं 30 मि दर्ज करें, और प्रगति बार, कैलेंडर और आँकड़े सब समय में बात करते हैं।</p></article>
+        <article class="point reveal"><h3>हर फ़ॉर्मैट के लिए एक लक्ष्य</h3><p>अपना दैनिक लक्ष्य मिनट या पेज में तय करें। सुनना और पढ़ना दोनों उसमें गिने जाते हैं, इसलिए ऑडियोबुक के साथ ऑफ़िस का सफ़र भी स्ट्रीक जारी रखता है।</p></article>
+        <article class="point reveal"><h3>हर बार सुनने के लिए टाइमर</h3><p>प्ले दबाते ही सेशन शुरू करें। लॉक स्क्रीन या Dynamic Island से उसे रोकें और फिर शुरू करें, फिर दर्ज करें कि कहाँ तक पहुँचे।</p></article>
+        <article class="point reveal"><h3>आपके ऑडियो के साथ शांत</h3><p>BookWorm की आवाज़ें आपकी ऑडियोबुक को कभी रोकती या धीमा नहीं करतीं, और साइलेंट स्विच उन्हें पूरी तरह बंद कर देता है।</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>कुछ ही सेकंड में किताब जोड़ें</h2>
+        <p>शीर्षक या लेखक से खोजें और कवर अपने आप आ जाता है। ऑडियोबुक चुनें, तो BookWorm किताब के पेजों से उसकी अवधि का अंदाज़ा सुझाता है, जिसे आप अपने संस्करण के हिसाब से बदल सकते हैं।</p>
+        <p>किसी किताब को कभी भी कागज़, ईबुक और ऑडियो के बीच बदलें। हर दिन उसी फ़ॉर्मैट में दर्ज रहता है जिसमें पढ़ा गया था, इसलिए आपका इतिहास सही रहता है।</p>
+        <a class="more" href="/hi/guides/track-audiobooks/">ऑडियोबुक ट्रैक करने की गाइड पढ़ें</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="book" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="BookWorm में एक किताब का पेज, प्रगति, पढ़ना जारी रखें और प्रगति अपडेट करें के साथ।"></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">ऑडियोबुक ट्रैक करने के बारे में सवाल</h2></div>
+      <details class="reveal"><summary>क्या ऑडियोबुक सुनना मेरे रीडिंग लक्ष्य में गिना जाता है?<i aria-hidden="true"></i></summary><div class="answer"><p>हाँ। BookWorm सुने गए मिनट और पढ़े गए पेज एक ही दैनिक लक्ष्य में गिनता है, इसलिए हर फ़ॉर्मैट आपकी स्ट्रीक जारी रखता है।</p></div></details>
+      <details class="reveal"><summary>क्या मैं एक ऑडियोबुक और एक कागज़ की किताब साथ-साथ ट्रैक कर सकता हूँ?<i aria-hidden="true"></i></summary><div class="answer"><p>हाँ। आप जो भी किताब पढ़ रहे हैं, फ़ॉर्मैट चाहे जो हो, वह होम पर रहती है, और आप हर एक को अलग से अपडेट करते हैं।</p></div></details>
+      <details class="reveal"><summary>BookWorm को कैसे पता चलता है कि ऑडियोबुक कितनी लंबी है?<i aria-hidden="true"></i></summary><div class="answer"><p>खोज से जोड़ने पर यह किताब के पेजों से अवधि का अंदाज़ा लगाता है। आप चाहें तो अपनी ऑडियोबुक ऐप से सटीक अवधि टाइप कर सकते हैं।</p></div></details>
+      <details class="reveal"><summary>क्या BookWorm ऑडियोबुक चलाता या डाउनलोड करता है?<i aria-hidden="true"></i></summary><div class="answer"><p>नहीं। सुनना उसी ऐप में जारी रखें जो आप पहले से इस्तेमाल करते हैं। BookWorm वह जगह है जहाँ आप उसका हिसाब रखते हैं।</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">आगे पढ़ें</h2></div>
+      <div class="cards">
+        <a class="card" href="/hi/reading-habit-tracker/"><small>ऐप</small><h3>रीडिंग हैबिट ट्रैकर</h3><p>एक दैनिक लक्ष्य, बढ़ती हुई स्ट्रीक, और एक शांत रिमाइंडर।</p><span class="go">देखें कैसे →</span></a>
+        <a class="card" href="/hi/reading-goal-calculator/"><small>टूल</small><h3>रीडिंग लक्ष्य कैलकुलेटर</h3><p>साल भर के लक्ष्य या किताब ख़त्म करने की तारीख़ को रोज़ के पेज में बदलें।</p><span class="go">हिसाब लगाएँ →</span></a>
+        <a class="card" href="/hi/guides/track-audiobooks/"><small>गाइड</small><h3>ऑडियोबुक कैसे ट्रैक करें</h3><p>सुनने को भी पढ़ना गिनें, और उसे कागज़ की किताबों के साथ मिलाएँ।</p><span class="go">गाइड पढ़ें →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>इसे अपने iPhone पर लाएँ।</h2>
+      <p>BookWorm आपका पेज, आपका लक्ष्य और आपकी स्ट्रीक संभालकर रखता है, बस एक टैप में।</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/hi-black.svg" alt="App Store से BookWorm डाउनलोड करें" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/hi/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>कागज़ की किताबों, ईबुक और ऑडियोबुक के लिए एक शांत रीडिंग ट्रैकर।</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/hi-black.svg" alt="App Store से BookWorm डाउनलोड करें" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="ऐप">
+      <h2>ऐप</h2>
+      <a href="/hi/audiobook-tracker/">ऑडियोबुक ट्रैकर</a>
+      <a href="/hi/reading-habit-tracker/">रीडिंग हैबिट ट्रैकर</a>
+      <a href="/hi/reading-goal-calculator/">रीडिंग लक्ष्य कैलकुलेटर</a>
+    </nav>
+    <nav aria-label="जानें">
+      <h2>जानें</h2>
+      <a href="/hi/guides/">सभी गाइड</a>
+      <a href="/hi/guides/how-many-pages-a-day/">रोज़ कितने पेज पढ़ें?</a>
+      <a href="/hi/guides/build-a-reading-habit/">पढ़ने की आदत बनाएँ</a>
+      <a href="/hi/guides/track-audiobooks/">ऑडियोबुक ट्रैक करें</a>
+    </nav>
+    <nav aria-label="मदद">
+      <h2>मदद</h2>
+      <a href="/hi/support/">सपोर्ट</a>
+      <a href="/privacy/">गोपनीयता</a>
+      <a href="https://markockidev.canny.io/bookworm">कोई फ़ीचर सुझाएँ</a>
+      <a href="mailto:markockidev@icloud.com">संपर्क करें</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

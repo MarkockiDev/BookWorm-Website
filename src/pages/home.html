@@ -1,0 +1,205 @@
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">{{hero_eyebrow}}</p>
+        <h1 id="hero-title">{{hero_title}}</h1>
+      </div>
+      <div class="hero-side">
+        <p class="lede">{{hero_lede}}</p>
+        <div class="cta-row">
+          <a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54"></a>
+          <p class="cta-note">{{hero_note}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="hero-art">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="/assets/shots/dark/hero-900.webp 900w, /assets/shots/dark/hero-1600.webp 1600w" sizes="(min-width: 1012px) 980px, 156vw">
+          <img class="art shot-img" data-shot="hero" data-w="900 1600" src="/assets/shots/light/hero-900.webp" srcset="/assets/shots/light/hero-900.webp 900w, /assets/shots/light/hero-1600.webp 1600w" sizes="(min-width: 1012px) 980px, 156vw" width="1600" height="1308" alt="{{hero_alt}}" fetchpriority="high">
+        </picture>
+        <img class="hero-worm" src="/assets/worm-reading.png" alt="" width="480" height="480">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">{{how_eyebrow}}</p>
+        <h2 id="how-title">{{how_title}}</h2>
+        <p>{{how_lede}}</p>
+      </div>
+      <div class="habit">
+        <div class="beats">
+          <article class="beat" data-step="0">
+            <p class="beat-num">{{b1_num}}</p>
+            <h3>{{b1_title}}</h3>
+            <p>{{b1_text}}</p>
+            <div class="shot"><img class="shot-img" data-shot="home" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="{{b1_alt}}"></div>
+          </article>
+          <article class="beat" data-step="1">
+            <p class="beat-num">{{b2_num}}</p>
+            <h3>{{b2_title}}</h3>
+            <p>{{b2_text}}</p>
+            <div class="worm" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i></div>
+            <p class="worm-label">{{b2_worm}}</p>
+            <a class="more" href="{{home}}reading-habit-tracker/">{{more_habit}}</a>
+            <div class="shot"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="{{b2_alt}}"></div>
+          </article>
+          <article class="beat" data-step="2">
+            <p class="beat-num">{{b3_num}}</p>
+            <h3>{{b3_title}}</h3>
+            <p>{{b3_text}}</p>
+            <a class="more" href="{{home}}reading-goal-calculator/">{{more_calc}}</a>
+            <div class="shelf" aria-hidden="true">
+              <b style="--i:0;--h:58px;--c:#7A9E7E"></b><b style="--i:1;--h:66px;--c:#B5654A"></b><b style="--i:2;--h:52px;--c:#4F6D8A"></b><b style="--i:3;--h:70px;--c:#D8B26E"></b><b style="--i:4;--h:60px;--c:#8C6A8F"></b><b style="--i:5;--h:64px;--c:#5E8C6A"></b><b style="--i:6;--h:54px;--c:#C27C55"></b><b style="--i:7;--h:72px" class="gold"></b>
+            </div>
+            <div class="shot"><img class="shot-img" data-shot="calendar" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="{{b3_alt}}"></div>
+          </article>
+        </div>
+        <div class="stage" aria-hidden="true">
+          <div class="shot active" data-for="0"><img class="shot-img" data-shot="home" data-w="720" sizes="420px" width="720" height="1207" loading="lazy" alt=""></div>
+          <div class="shot" data-for="1"><img class="shot-img" data-shot="quests" data-w="720" sizes="420px" width="720" height="1207" loading="lazy" alt=""></div>
+          <div class="shot" data-for="2"><img class="shot-img" data-shot="calendar" data-w="720" sizes="420px" width="720" height="1207" loading="lazy" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule-mark" aria-hidden="true">❦</div>
+
+  <section class="section" id="inside" aria-labelledby="inside-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">{{inside_eyebrow}}</p>
+        <h2 id="inside-title">{{inside_title}}</h2>
+      </div>
+      <div class="strip" role="list">
+        <figure role="listitem" class="reveal" style="--d:0s"><div class="shot"><img class="shot-img" data-shot="book" data-w="420 720" sizes="300px" width="720" height="1207" loading="lazy" alt="{{s_book_alt}}"></div><figcaption>{{s_book_t}}<span>{{s_book_d}}</span></figcaption></figure>
+        <figure role="listitem" class="reveal" style="--d:.06s"><div class="shot"><img class="shot-img" data-shot="timer" data-w="420 720" sizes="300px" width="720" height="1207" loading="lazy" alt="{{s_timer_alt}}"></div><figcaption>{{s_timer_t}}<span>{{s_timer_d}}</span></figcaption></figure>
+        <figure role="listitem" class="reveal" style="--d:.12s"><div class="shot"><img class="shot-img" data-shot="share" data-w="420 720" sizes="300px" width="720" height="1207" loading="lazy" alt="{{s_share_alt}}"></div><figcaption>{{s_share_t}}<span>{{s_share_d}}</span></figcaption></figure>
+        <figure role="listitem" class="reveal" style="--d:.18s"><div class="shot"><img class="shot-img" data-shot="bookshelf" data-w="420 720" sizes="300px" width="720" height="1207" loading="lazy" alt="{{s_shelf_alt}}"></div><figcaption>{{s_shelf_t}}<span>{{s_shelf_d}}</span></figcaption></figure>
+        <figure role="listitem" class="reveal" style="--d:.24s"><div class="shot"><img class="shot-img" data-shot="profile" data-w="420 720" sizes="300px" width="720" height="1207" loading="lazy" alt="{{s_profile_alt}}"></div><figcaption>{{s_profile_t}}<span>{{s_profile_d}}</span></figcaption></figure>
+      </div>
+      <div class="spread">
+        <article class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg><h3>{{f1_t}}</h3><p>{{f1_d}} <a class="more inline" href="{{home}}audiobook-tracker/">{{more_audio}}</a></p></article>
+        <article class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M10 2h4"/></svg><h3>{{f2_t}}</h3><p>{{f2_d}}</p></article>
+        <article class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z"/><path d="M9 12h6M9 16h4"/></svg><h3>{{f3_t}}</h3><p>{{f3_d}}</p></article>
+        <article class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.5-7.97A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/></svg><h3>{{f5_t}}</h3><p>{{f5_d}}</p></article>
+        <article class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg><h3>{{f4_t}}</h3><p>{{f4_d}}</p></article>
+        <article class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17"/></svg><h3>{{f6_t}}</h3><p>{{f6_d}}</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="glance" aria-labelledby="glance-title">
+    <div class="wrap glance">
+      <div class="reveal">
+        <p class="eyebrow">{{w_eyebrow}}</p>
+        <h2 id="glance-title">{{w_title}}</h2>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="16" height="7" rx="2"/></svg><span>{{w_b1}}</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 8 8"/></svg><span>{{w_b2}}</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10 6h4"/></svg><span>{{w_b3}}</span></li>
+        </ul>
+      </div>
+      <div class="screens" aria-hidden="true">
+        <div class="screen home reveal">
+          <div class="widgets">
+            <div class="w small">
+              <div class="w-top"><div class="book"></div><div class="mini-worm"><i></i><i></i><i></i><i></i><i></i></div></div>
+              <div class="w-title">The Infinity Machine</div>
+              <div class="w-sub">{{w_page}}</div>
+              <div class="w-rule"></div>
+            </div>
+            <div class="w small streak-w">
+              <div class="mini-worm"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <b>16</b>
+              <div class="w-sub">{{w_streak_short}}</div>
+              <div class="w-sub">{{w_best}}</div>
+            </div>
+            <div class="w medium">
+              <div class="ring" style="--p:100"><b>36<small>{{w_of}}</small></b></div>
+              <div>
+                <div class="w-cap">{{w_pages_today}}</div>
+                <div class="w-line">{{w_goal_met}}</div>
+                <div class="w-streak"><span class="mini-worm"><i></i><i></i><i></i><i></i><i></i></span>{{w_streak}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="screen-label">{{w_home}}</div>
+        </div>
+        <div class="screen lock reveal" style="--d:.1s">
+          <div class="island"><div class="book"></div><span class="tick-time">24:17</span></div>
+          <div class="clock"><small>{{w_date}}</small><b>9:41</b></div>
+          <div class="live">
+            <div class="book"></div>
+            <div>
+              <div class="live-state">{{w_reading}}</div>
+              <div class="live-time tick-time">24:17</div>
+              <div class="live-title">The Infinity Machine</div>
+            </div>
+            <div class="live-btn"><i></i></div>
+          </div>
+          <div class="screen-label">{{w_lock}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="looks" aria-labelledby="looks-title">
+    <div class="wrap looks">
+      <div>
+        <p class="eyebrow">{{looks_eyebrow}}</p>
+        <h2 id="looks-title">{{looks_title}}</h2>
+        <p class="look-desc" id="look-desc" aria-live="polite">{{look_light}}</p>
+        <div class="looks-tabs" role="radiogroup" aria-labelledby="looks-title">
+          <button class="look" role="radio" aria-checked="false" data-set-theme="light" data-desc="{{look_light}}"><span class="swatch sw-light"></span><b>{{theme_light}}</b><small>{{look_light_s}}</small></button>
+          <button class="look" role="radio" aria-checked="false" data-set-theme="dark" data-desc="{{look_dark}}"><span class="swatch sw-dark"></span><b>{{theme_dark}}</b><small>{{look_dark_s}}</small></button>
+          <button class="look" role="radio" aria-checked="false" data-set-theme="retro" data-desc="{{look_retro}}"><span class="swatch sw-retro"></span><b>{{theme_retro}}</b><small>{{look_retro_s}}</small></button>
+          <button class="look" role="radio" aria-checked="false" data-set-theme="marginalia" data-desc="{{look_marginalia}}"><span class="swatch sw-marginalia"></span><b>{{theme_marginalia}}</b><small>{{look_marginalia_s}}</small></button>
+        </div>
+      </div>
+      <div class="look-phones">
+        <div class="shot"><img class="shot-img" data-shot="home" data-w="420 720" sizes="(min-width: 960px) 300px, 45vw" width="720" height="1207" loading="lazy" alt="{{looks_alt_home}}"></div>
+        <div class="shot"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="(min-width: 960px) 300px, 45vw" width="720" height="1207" loading="lazy" alt="{{looks_alt_quests}}"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="maker-title">
+    <div class="wrap">
+      <h2 id="maker-title" class="sr-only">{{maker_title}}</h2>
+      <div class="maker reveal">
+        <img src="/assets/portrait.jpg" width="480" height="362" loading="lazy" alt="{{maker_alt}}">
+        <div>
+          <blockquote><p>{{maker_q1}}</p><p>{{maker_q2}}</p></blockquote>
+          <p class="signature">Adam</p>
+          <p class="tipline">{{maker_tip}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head reveal">
+        <p class="eyebrow">{{faq_eyebrow}}</p>
+        <h2 id="faq-title">{{faq_title}}</h2>
+      </div>
+      {{faq_items}}
+      <a class="more" href="{{home}}support/">{{more_support}}</a>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="wrap">
+      <img class="sleep reveal" src="/assets/worm-sleeping.png" width="480" height="480" loading="lazy" alt="">
+      <h2 id="closing-title" class="reveal">{{close_title}}</h2>
+      <p class="reveal">{{close_text}}</p>
+      <div class="cta-row reveal">
+        <a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54" loading="lazy"></a>
+      </div>
+    </div>
+  </section>

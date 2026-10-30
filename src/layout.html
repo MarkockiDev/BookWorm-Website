@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="{{html_lang}}" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{meta_title}}</title>
+<meta name="description" content="{{meta_desc}}">
+<link rel="canonical" href="{{canonical}}">
+{{hreflang}}
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:title" content="{{og_title}}">
+<meta property="og:description" content="{{og_desc}}">
+<meta property="og:locale" content="{{og_locale}}">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{og_title}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{og_title}}">
+<meta name="twitter:description" content="{{og_desc}}">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="{{og_title}}">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if ({{is_en}} && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/{{slug}}' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{{jsonld}}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v={{ver}}">
+</head>
+<body>
+<a class="skip" href="#main">{{skip}}</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="{{home}}#main" aria-label="{{brand_label}}">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="{{nav_label}}">
+      <a href="{{home}}#how">{{nav_how}}</a>
+      <a href="{{home}}#looks">{{nav_themes}}</a>
+      <a href="{{home}}guides/">{{nav_guides}}</a>
+      <a href="{{home}}support/">{{nav_support}}</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="{{nav_theme_label}}">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="{{nav_theme_label}}">
+        <p aria-hidden="true">{{nav_theme_label}}</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>{{theme_light}}<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>{{theme_dark}}<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>{{theme_retro}}<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>{{theme_marginalia}}<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="{{nav_lang_label}}: {{lang_native}}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">{{lang_short}}</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="{{nav_lang_label}}">
+        <p aria-hidden="true">{{nav_lang_label}}</p>
+        {{lang_menu}}
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">{{nav_get}}</a>
+  </div>
+</header>
+
+<main id="main">
+{{content}}
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="{{home}}"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>{{foot_tagline}}</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="{{badge}}" alt="{{badge_label}}" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="{{foot_app}}">
+      <h2>{{foot_app}}</h2>
+      <a href="{{home}}audiobook-tracker/">{{foot_audiobooks}}</a>
+      <a href="{{home}}reading-habit-tracker/">{{foot_habit}}</a>
+      <a href="{{home}}reading-goal-calculator/">{{foot_calculator}}</a>
+    </nav>
+    <nav aria-label="{{foot_learn}}">
+      <h2>{{foot_learn}}</h2>
+      <a href="{{home}}guides/">{{foot_guides}}</a>
+      <a href="{{home}}guides/how-many-pages-a-day/">{{g1_short}}</a>
+      <a href="{{home}}guides/build-a-reading-habit/">{{g2_short}}</a>
+      <a href="{{home}}guides/track-audiobooks/">{{g3_short}}</a>
+    </nav>
+    <nav aria-label="{{foot_help}}">
+      <h2>{{foot_help}}</h2>
+      <a href="{{home}}support/">{{foot_support}}</a>
+      <a href="/privacy/">{{foot_privacy}}</a>
+      <a href="https://markockidev.canny.io/bookworm">{{foot_feature}}</a>
+      <a href="mailto:markockidev@icloud.com">{{foot_contact}}</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v={{ver}}"></script>
+</body>
+</html>

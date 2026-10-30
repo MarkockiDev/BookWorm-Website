@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>阅读指南：目标、习惯与有声书 | BookWorm</title>
+<meta name="description" content="简短实用的阅读指南：每天读多少页、如何养成长久的阅读习惯，以及如何记录有声书。">
+<link rel="canonical" href="https://ilovebookworm.com/zh-hans/guides/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/guides/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/guides/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/guides/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/guides/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/guides/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/guides/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/guides/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/guides/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/guides/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/guides/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/zh-hans/guides/">
+<meta property="og:title" content="阅读指南：目标、习惯与有声书 | BookWorm">
+<meta property="og:description" content="简短实用的阅读指南：每天读多少页、如何养成长久的阅读习惯，以及如何记录有声书。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="阅读指南：目标、习惯与有声书 | BookWorm">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="阅读指南：目标、习惯与有声书 | BookWorm">
+<meta name="twitter:description" content="简短实用的阅读指南：每天读多少页、如何养成长久的阅读习惯，以及如何记录有声书。">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="阅读指南：目标、习惯与有声书 | BookWorm">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/guides/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ilovebookworm.com/zh-hans/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "指南",
+          "item": "https://ilovebookworm.com/zh-hans/guides/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/zh-hans/#main" aria-label="BookWorm，回到顶部">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="版块">
+      <a href="/zh-hans/#how">使用方式</a>
+      <a href="/zh-hans/#looks">主题</a>
+      <a href="/zh-hans/guides/">指南</a>
+      <a href="/zh-hans/support/">支持</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="主题">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="主题">
+        <p aria-hidden="true">主题</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>浅色<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>深色<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>复古<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>页边笔记<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="语言: 简体中文">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">ZH</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="语言">
+        <p aria-hidden="true">语言</p>
+        <a href="/guides/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/guides/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/guides/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/guides/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/guides/" hreflang="zh-hans" lang="zh-Hans" aria-current="page">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/guides/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/guides/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/guides/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/guides/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">获取 App</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="当前位置"><ol><li><a href="https://ilovebookworm.com/zh-hans/">首页</a></li><li aria-current="page">指南</li></ol></nav>
+      <p class="eyebrow">指南</p>
+      <h1>多读一点，不必有压力。</h1>
+      <p class="lede">简短实用的指南，写给每个想把开了头的书读完的人。</p>
+    </div>
+  </header>
+
+  <section aria-label="指南">
+    <div class="wrap cards">
+      <a class="card" href="/zh-hans/guides/how-many-pages-a-day/"><small>指南</small><h3>每天应该读多少页？</h3><p>一年读 12、24、52 本书，每天各要读多少页，以及怎么选。</p><span class="go">阅读指南 →</span></a>
+      <a class="card" href="/zh-hans/guides/build-a-reading-habit/"><small>指南</small><h3>如何养成长久的阅读习惯</h3><p>小目标、固定的时刻，还有不带愧疚的连续记录。</p><span class="go">阅读指南 →</span></a>
+      <a class="card" href="/zh-hans/guides/track-audiobooks/"><small>指南</small><h3>如何记录有声书</h3><p>把听书算作阅读，并和纸质书一起计算。</p><span class="go">阅读指南 →</span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>工具与功能</h2></div>
+      <div class="cards">
+        <a class="card" href="/zh-hans/reading-goal-calculator/"><small>工具</small><h3>阅读目标计算器</h3><p>把一年的目标或读完的日期，换算成每天的页数。</p><span class="go">算一算 →</span></a>
+        <a class="card" href="/zh-hans/reading-habit-tracker/"><small>App</small><h3>阅读习惯打卡</h3><p>一个每日目标，一条慢慢变长的连续记录，还有一条安静的提醒。</p><span class="go">看看怎么用 →</span></a>
+        <a class="card" href="/zh-hans/audiobook-tracker/"><small>App</small><h3>有声书记录</h3><p>按小时和分钟记录听书，和纸质书放在一起。</p><span class="go">看看怎么用 →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band band">
+    <div class="wrap">
+      <h2>把它带到你的 iPhone 上。</h2>
+      <p>BookWorm 帮你记住页码、目标和连续记录，轻点一下就好。</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/zh-hans-black.svg" alt="在 App Store 下载 BookWorm" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/zh-hans/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>一款安静的阅读记录 App，适用于纸质书、电子书和有声书。</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/zh-hans-black.svg" alt="在 App Store 下载 BookWorm" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="App">
+      <h2>App</h2>
+      <a href="/zh-hans/audiobook-tracker/">有声书记录</a>
+      <a href="/zh-hans/reading-habit-tracker/">阅读习惯打卡</a>
+      <a href="/zh-hans/reading-goal-calculator/">阅读目标计算器</a>
+    </nav>
+    <nav aria-label="了解">
+      <h2>了解</h2>
+      <a href="/zh-hans/guides/">全部指南</a>
+      <a href="/zh-hans/guides/how-many-pages-a-day/">每天该读多少页？</a>
+      <a href="/zh-hans/guides/build-a-reading-habit/">养成阅读习惯</a>
+      <a href="/zh-hans/guides/track-audiobooks/">记录有声书</a>
+    </nav>
+    <nav aria-label="帮助">
+      <h2>帮助</h2>
+      <a href="/zh-hans/support/">支持</a>
+      <a href="/privacy/">隐私</a>
+      <a href="https://markockidev.canny.io/bookworm">建议新功能</a>
+      <a href="mailto:markockidev@icloud.com">联系</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

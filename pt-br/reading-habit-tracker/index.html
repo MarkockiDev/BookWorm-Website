@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Controle de hábito de leitura com sequências e metas | BookWorm</title>
+<meta name="description" content="Crie o hábito de leitura com uma meta diária em páginas ou minutos, uma sequência que cresce, um calendário de leitura e um só lembrete por dia.">
+<link rel="canonical" href="https://ilovebookworm.com/pt-br/reading-habit-tracker/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/reading-habit-tracker/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/reading-habit-tracker/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/reading-habit-tracker/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/reading-habit-tracker/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/reading-habit-tracker/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/reading-habit-tracker/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/reading-habit-tracker/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/reading-habit-tracker/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/reading-habit-tracker/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/reading-habit-tracker/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/pt-br/reading-habit-tracker/">
+<meta property="og:title" content="Um app de hábito de leitura que é gentil com você">
+<meta property="og:description" content="Uma meta diária, uma sequência que cresce, um calendário dos dias de leitura e um único lembrete tranquilo por dia.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Um app de hábito de leitura que é gentil com você">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Um app de hábito de leitura que é gentil com você">
+<meta name="twitter:description" content="Uma meta diária, uma sequência que cresce, um calendário dos dias de leitura e um único lembrete tranquilo por dia.">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="Um app de hábito de leitura que é gentil com você">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/reading-habit-tracker/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://ilovebookworm.com/pt-br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Controle do hábito de leitura",
+          "item": "https://ilovebookworm.com/pt-br/reading-habit-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "pt-BR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que conta como um dia na minha sequência?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Qualquer dia em que você bate sua meta diária, em páginas ou minutos. Ler e ouvir contam."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que meta de leitura diária devo escolher?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uma que você cumpriria num dia corrido. Dez a vinte páginas, ou quinze minutos, é um bom começo, e você pode aumentar quando quiser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quantos lembretes vou receber?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No máximo um na hora do almoço e, só quando sua sequência estiver em risco, um à noite. Nenhum num dia em que você já bateu a meta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso ver minha sequência sem abrir o app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Os widgets da Tela de Início mostram a meta de hoje como um anel e sua sequência atual."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/pt-br/#main" aria-label="BookWorm, voltar ao topo">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="Seções">
+      <a href="/pt-br/#how">Como funciona</a>
+      <a href="/pt-br/#looks">Temas</a>
+      <a href="/pt-br/guides/">Guias</a>
+      <a href="/pt-br/support/">Suporte</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="Tema">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="Tema">
+        <p aria-hidden="true">Tema</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>Claro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>Escuro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>Retrô<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>Anotações à margem<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Idioma: Português">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">PT</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="Idioma">
+        <p aria-hidden="true">Idioma</p>
+        <a href="/reading-habit-tracker/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/reading-habit-tracker/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/reading-habit-tracker/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/reading-habit-tracker/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/reading-habit-tracker/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/reading-habit-tracker/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/reading-habit-tracker/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/reading-habit-tracker/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/reading-habit-tracker/" hreflang="pt-br" lang="pt-BR" aria-current="page">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">Baixar o app</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="Trilha de navegação"><ol><li><a href="https://ilovebookworm.com/pt-br/">Início</a></li><li aria-current="page">Controle do hábito de leitura</li></ol></nav>
+        <p class="eyebrow">Controle do hábito de leitura</p>
+        <h1>Um pouco todo dia vira muito.</h1>
+        <p class="lede">Escolha uma meta diária que você consiga manter. O BookWorm conta os dias em que você bate a meta, acende seu calendário e dá um toque uma vez por dia, com gentileza.</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/pt-br-black.svg" alt="Baixe o BookWorm na App Store" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="380px" width="720" height="1207" alt="Missões de leitura no BookWorm: 36 de 30 páginas hoje, meta batida e uma sequência de 16 dias." fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">Como o hábito pega</h2><p>Cada parte existe para deixar a leitura de amanhã um pouco mais provável que a de hoje.</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>Uma meta do tamanho da vida real</h3><p>Escolha páginas ou minutos por dia, a partir de 5. O BookWorm também mostra quantos livros isso rende no ano.</p></article>
+        <article class="point reveal"><h3>A minhoca da sequência</h3><p>A cada dia em que você bate a meta, a minhoca ganha um gomo. A cabeça dela se acende no momento em que o dia de hoje conta.</p></article>
+        <article class="point reveal"><h3>Um calendário dos dias de leitura</h3><p>Cada dia em que você lê ganha uma marca, e cada livro concluído ganha um anel dourado. Um mês num relance mostra o ritmo que você construiu.</p></article>
+        <article class="point reveal"><h3>Um único lembrete tranquilo</h3><p>Um lembrete na hora do almoço, escrito para o ponto em que você está, e um último aviso à noite só quando uma sequência está em jogo. Nada depois que a meta de hoje foi batida.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>Perdeu um dia? Recomece amanhã.</h2>
+        <p>A sequência incentiva, não julga. Se um dia escapar, a sequência recomeça e o dia seguinte é um novo começo, com um lembrete que diz exatamente isso.</p>
+        <p>Sua melhor sequência fica no seu perfil, e no primeiro dia de cada mês o BookWorm mostra um resumo do mês que você acabou de ler.</p>
+        <a class="more" href="/pt-br/guides/build-a-reading-habit/">Leia o guia para criar o hábito de leitura</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="calendar" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="O calendário de leitura do BookWorm com 18 dias de leitura e uma sequência de 16 dias."></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">Perguntas sobre sequências de leitura</h2></div>
+      <details class="reveal"><summary>O que conta como um dia na minha sequência?<i aria-hidden="true"></i></summary><div class="answer"><p>Qualquer dia em que você bate sua meta diária, em páginas ou minutos. Ler e ouvir contam.</p></div></details>
+      <details class="reveal"><summary>Que meta de leitura diária devo escolher?<i aria-hidden="true"></i></summary><div class="answer"><p>Uma que você cumpriria num dia corrido. Dez a vinte páginas, ou quinze minutos, é um bom começo, e você pode aumentar quando quiser.</p></div></details>
+      <details class="reveal"><summary>Quantos lembretes vou receber?<i aria-hidden="true"></i></summary><div class="answer"><p>No máximo um na hora do almoço e, só quando sua sequência estiver em risco, um à noite. Nenhum num dia em que você já bateu a meta.</p></div></details>
+      <details class="reveal"><summary>Posso ver minha sequência sem abrir o app?<i aria-hidden="true"></i></summary><div class="answer"><p>Sim. Os widgets da Tela de Início mostram a meta de hoje como um anel e sua sequência atual.</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">Continue lendo</h2></div>
+      <div class="cards">
+        <a class="card" href="/pt-br/audiobook-tracker/"><small>O app</small><h3>Controle de audiolivros</h3><p>Acompanhe o que você ouve em horas e minutos, ao lado dos seus livros impressos.</p><span class="go">Veja como →</span></a>
+        <a class="card" href="/pt-br/reading-goal-calculator/"><small>Ferramenta</small><h3>Calculadora de meta de leitura</h3><p>Transforme uma meta anual ou uma data final em páginas por dia.</p><span class="go">Fazer a conta →</span></a>
+        <a class="card" href="/pt-br/guides/build-a-reading-habit/"><small>Guia</small><h3>Como criar um hábito de leitura que dura</h3><p>Metas pequenas, um momento fixo e sequências sem culpa.</p><span class="go">Ler o guia →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Leve para o seu iPhone.</h2>
+      <p>O BookWorm guarda sua página, sua meta e sua sequência, um toque de cada vez.</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/pt-br-black.svg" alt="Baixe o BookWorm na App Store" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/pt-br/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>Um jeito tranquilo de acompanhar livros impressos, ebooks e audiolivros.</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/pt-br-black.svg" alt="Baixe o BookWorm na App Store" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="O app">
+      <h2>O app</h2>
+      <a href="/pt-br/audiobook-tracker/">Controle de audiolivros</a>
+      <a href="/pt-br/reading-habit-tracker/">Controle do hábito de leitura</a>
+      <a href="/pt-br/reading-goal-calculator/">Calculadora de meta de leitura</a>
+    </nav>
+    <nav aria-label="Aprenda">
+      <h2>Aprenda</h2>
+      <a href="/pt-br/guides/">Todos os guias</a>
+      <a href="/pt-br/guides/how-many-pages-a-day/">Quantas páginas por dia?</a>
+      <a href="/pt-br/guides/build-a-reading-habit/">Crie o hábito de leitura</a>
+      <a href="/pt-br/guides/track-audiobooks/">Acompanhe audiolivros</a>
+    </nav>
+    <nav aria-label="Ajuda">
+      <h2>Ajuda</h2>
+      <a href="/pt-br/support/">Suporte</a>
+      <a href="/privacy/">Privacidade</a>
+      <a href="https://markockidev.canny.io/bookworm">Sugerir um recurso</a>
+      <a href="mailto:markockidev@icloud.com">Contato</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

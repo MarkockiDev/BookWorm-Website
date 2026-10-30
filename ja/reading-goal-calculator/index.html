@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>読書目標計算ツール：1日何ページ読む？ | BookWorm</title>
+<meta name="description" content="年間の読書目標や、本を読み終えたい日から、1日に読むべきページ数を計算。iPhone の静かな読書記録アプリ BookWorm より。">
+<link rel="canonical" href="https://ilovebookworm.com/ja/reading-goal-calculator/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/reading-goal-calculator/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/reading-goal-calculator/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/reading-goal-calculator/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/reading-goal-calculator/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/reading-goal-calculator/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/reading-goal-calculator/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/reading-goal-calculator/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/reading-goal-calculator/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/reading-goal-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/reading-goal-calculator/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/ja/reading-goal-calculator/">
+<meta property="og:title" content="読書目標計算ツール：1日何ページ？">
+<meta property="og:description" content="年間の読書目標や読み終えたい日を、1日のページ数と分数に。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="読書目標計算ツール：1日何ページ？">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="読書目標計算ツール：1日何ページ？">
+<meta name="twitter:description" content="年間の読書目標や読み終えたい日を、1日のページ数と分数に。">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="読書目標計算ツール：1日何ページ？">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/reading-goal-calculator/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://ilovebookworm.com/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "読書目標計算ツール",
+          "item": "https://ilovebookworm.com/ja/reading-goal-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "ja",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "年に52冊読むには、1日何ページ？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1冊およそ300ページなら、52冊で15,600ページ。まる1年で1日43ページです。1ページ1分半なら、1日1時間ちょっとになります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "300ページの本を読むのにどれくらいかかる？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "本の内容や読む速さによりますが、たいていの人は5〜10時間。1日30ページなら10日で読み終えます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "オーディオブックも目標にカウントされますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BookWorm ではカウントされます。聴いた分は時間と分で記録され、毎日の目標は読んだ分と聴いた分を合わせて数えます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "遅れてしまったら？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "今日からもう一度計算しましょう。新しい数字は休んだ日の分も含んでいて、たいてい思っているより小さいはずです。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/ja/#main" aria-label="BookWorm、ページの先頭へ">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="セクション">
+      <a href="/ja/#how">使いかた</a>
+      <a href="/ja/#looks">テーマ</a>
+      <a href="/ja/guides/">ガイド</a>
+      <a href="/ja/support/">サポート</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="テーマ">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="テーマ">
+        <p aria-hidden="true">テーマ</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>ライト<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>ダーク<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>レトロ<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>余白メモ<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="言語: 日本語">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">JA</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="言語">
+        <p aria-hidden="true">言語</p>
+        <a href="/reading-goal-calculator/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/reading-goal-calculator/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/reading-goal-calculator/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/reading-goal-calculator/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/reading-goal-calculator/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/reading-goal-calculator/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/reading-goal-calculator/" hreflang="ja" lang="ja" aria-current="page">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/reading-goal-calculator/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/reading-goal-calculator/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">アプリを入手</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="現在地"><ol><li><a href="https://ilovebookworm.com/ja/">ホーム</a></li><li aria-current="page">読書目標計算ツール</li></ol></nav>
+      <p class="eyebrow">読書目標計算ツール</p>
+      <h1>1日に何ページ読めばいい？</h1>
+      <p class="lede">今年読みたい冊数か、手元の本を読み終えたい日を入れてください。今日から始めて、1日のページ数と分数に換算します。</p>
+    </div>
+  </header>
+
+  <section aria-label="読書目標計算ツール">
+    <div class="wrap">
+      <div class="calc" id="calc">
+        <div class="calc-tabs" role="tablist" aria-label="読書目標計算ツール">
+          <button role="tab" id="tab-year" aria-selected="true" aria-controls="panel-year">今年の冊数</button>
+          <button role="tab" id="tab-book" aria-selected="false" aria-controls="panel-book" tabindex="-1">1冊を読み終える</button>
+        </div>
+
+        <div role="tabpanel" id="panel-year" aria-labelledby="tab-year">
+          <div class="calc-fields">
+            <div><label for="y-books">読みたい冊数</label><input id="y-books" type="number" inputmode="numeric" min="1" max="500" value="24"></div>
+            <div><label for="y-pages">1冊の平均ページ数</label><input id="y-pages" type="number" inputmode="numeric" min="10" max="3000" value="300"></div>
+            <div class="wide"><label for="y-speed">1ページの分数</label><input id="y-speed" type="number" inputmode="decimal" min="0.3" max="10" step="0.1" value="1.5"></div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="panel-book" aria-labelledby="tab-book" hidden>
+          <div class="calc-fields">
+            <div><label for="b-total">本のページ数</label><input id="b-total" type="number" inputmode="numeric" min="1" max="5000" value="432"></div>
+            <div><label for="b-current">いま読んでいるページ</label><input id="b-current" type="number" inputmode="numeric" min="0" max="5000" value="120"></div>
+            <div><label for="b-date">読み終える日</label><input id="b-date" type="date"></div>
+            <div><label for="b-speed">1ページの分数</label><input id="b-speed" type="number" inputmode="decimal" min="0.3" max="10" step="0.1" value="1.5"></div>
+          </div>
+        </div>
+
+        <div class="calc-result" aria-live="polite">
+          <div class="calc-big"><span id="r-pages">0</span><small>ページ/日</small></div>
+          <p class="calc-sub" id="r-sub"></p>
+          <p class="calc-hint" id="r-goal"></p>
+        </div>
+
+        <span hidden id="t-year">今年の残り {days} 日、1日およそ {min} 分。</span>
+        <span hidden id="t-book">{days} 日で残り {left} ページ、1日およそ {min} 分。</span>
+        <span hidden id="t-goal">BookWorm の毎日の目標にするなら：{goal} ページ。</span>
+        <span hidden id="t-done">読み終えました。次の1冊を選びましょう。</span>
+        <span hidden id="t-date">今日より後の日付を選んでください。</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>計算のしくみ</h2>
+        <p>年間目標では、冊数に平均ページ数をかけ、そのページを今日から12月31日まで（今日を含む）の残り日数で割ります。1冊を読み終える場合は、残りのページを指定した日までの日数で割ります。</p>
+        <p>結果は常に切り上げます。いつも1ページ足りない目標より、達成できる目標のほうがいいからです。分数は目安です。文庫本1ページを読むのにかかるのは、たいてい1〜2分。自分に合わせて変えてください。</p>
+        <h2>まる1年で読む場合の1日のページ数</h2>
+        <p>1月1日に始めて、1冊の平均が300ページなら、それぞれの目標に必要なのはこれだけです。</p>
+        <table>
+          <thead><tr><th>年間の冊数</th><th>1日のページ数</th><th>1日の分数</th></tr></thead>
+          <tbody>
+            <tr><td>12</td><td>10</td><td>15</td></tr>
+            <tr><td>24</td><td>20</td><td>30</td></tr>
+            <tr><td>36</td><td>30</td><td>45</td></tr>
+            <tr><td>52</td><td>43</td><td>65</td></tr>
+            <tr><td>100</td><td>83</td><td>125</td></tr>
+          </tbody>
+        </table>
+        <p class="note">分数は1ページ1.5分で計算しています。年の途中から始めると1日の数字は増えます。そのための計算ツールが上にあります。</p>
+        <a class="more" href="/ja/guides/how-many-pages-a-day/">ガイドを読む：1日に何ページ読めばいい？</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head">
+        <h2 id="faq-title">読書目標についての質問</h2>
+      </div>
+      <details class="reveal"><summary>年に52冊読むには、1日何ページ？<i aria-hidden="true"></i></summary><div class="answer"><p>1冊およそ300ページなら、52冊で15,600ページ。まる1年で1日43ページです。1ページ1分半なら、1日1時間ちょっとになります。</p></div></details>
+      <details class="reveal"><summary>300ページの本を読むのにどれくらいかかる？<i aria-hidden="true"></i></summary><div class="answer"><p>本の内容や読む速さによりますが、たいていの人は5〜10時間。1日30ページなら10日で読み終えます。</p></div></details>
+      <details class="reveal"><summary>オーディオブックも目標にカウントされますか？<i aria-hidden="true"></i></summary><div class="answer"><p>BookWorm ではカウントされます。聴いた分は時間と分で記録され、毎日の目標は読んだ分と聴いた分を合わせて数えます。</p></div></details>
+      <details class="reveal"><summary>遅れてしまったら？<i aria-hidden="true"></i></summary><div class="answer"><p>今日からもう一度計算しましょう。新しい数字は休んだ日の分も含んでいて、たいてい思っているより小さいはずです。</p></div></details>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>あなたの iPhone にも。</h2>
+      <p>ページも、目標も、連続記録も。BookWorm がタップひとつで覚えておきます。</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+<script>
+/* Reading goal calculator. Rounds up, like the app's finish-line step: a goal you can meet beats one you can't. */
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var lang = document.documentElement.lang;
+  var nf = new Intl.NumberFormat(lang);
+  var fill = function (t, v) { return t.replace(/\{(\w+)\}/g, function (_, k) { return v[k]; }); };
+  var num = function (id, min) { var n = parseFloat($(id).value); return isFinite(n) && n >= min ? n : null; };
+  var DAY = 864e5;
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+
+  // default finish date: a month from today
+  // dates as the visitor's own calendar sees them (toISOString would use UTC and can land a day off)
+  var iso = function (d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
+  var plusDays = function (n) { var d = new Date(today); d.setDate(d.getDate() + n); return d; };
+  $('b-date').value = iso(plusDays(30));
+  $('b-date').min = iso(plusDays(1));
+
+  var mode = 'year';
+  function goal(pages) { return Math.min(500, Math.max(5, Math.ceil(pages / 5) * 5)); }
+  function show(pages, sub) {
+    $('r-pages').textContent = pages == null ? '–' : nf.format(pages);
+    $('r-sub').textContent = sub || '';
+    $('r-goal').textContent = pages ? fill($('t-goal').textContent, { goal: nf.format(goal(pages)) }) : '';
+  }
+  function calc() {
+    if (mode === 'year') {
+      var books = num('y-books', 1), avg = num('y-pages', 1), speed = num('y-speed', 0.1);
+      if (!books || !avg || !speed) return show(null);
+      var end = new Date(today.getFullYear(), 11, 31);
+      var days = Math.round((end - today) / DAY) + 1;            // today counts
+      var pages = Math.ceil(books * avg / days);
+      show(pages, fill($('t-year').textContent, { days: nf.format(days), min: nf.format(Math.ceil(pages * speed)) }));
+    } else {
+      var total = num('b-total', 1), current = num('b-current', 0), speed2 = num('b-speed', 0.1);
+      var date = $('b-date').value ? new Date($('b-date').value + 'T00:00:00') : null;
+      if (!total || current == null || !speed2) return show(null);
+      var left = total - current;
+      if (left <= 0) return show(0, $('t-done').textContent);
+      if (!date || date <= today) return show(null, $('t-date').textContent);
+      var d = Math.round((date - today) / DAY);
+      var p = Math.ceil(left / d);
+      show(p, fill($('t-book').textContent, { left: nf.format(left), days: nf.format(d), min: nf.format(Math.ceil(p * speed2)) }));
+    }
+  }
+  var tabs = [$('tab-year'), $('tab-book')];
+  function select(i, focus) {
+    mode = i ? 'book' : 'year';
+    tabs.forEach(function (t, j) { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+    $('panel-year').hidden = !!i; $('panel-book').hidden = !i;
+    if (focus) tabs[i].focus();
+    calc();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); select(1 - i, true); }
+    });
+  });
+  document.querySelectorAll('#calc input').forEach(function (el) { el.addEventListener('input', calc); });
+  calc();
+})();
+</script>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/ja/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>紙の本、電子書籍、オーディオブックのための静かな読書記録アプリ。</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/ja-black.svg" alt="App Store で BookWorm をダウンロード" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="アプリ">
+      <h2>アプリ</h2>
+      <a href="/ja/audiobook-tracker/">オーディオブック記録</a>
+      <a href="/ja/reading-habit-tracker/">読書習慣トラッカー</a>
+      <a href="/ja/reading-goal-calculator/">読書目標計算ツール</a>
+    </nav>
+    <nav aria-label="読みもの">
+      <h2>読みもの</h2>
+      <a href="/ja/guides/">ガイド一覧</a>
+      <a href="/ja/guides/how-many-pages-a-day/">1日何ページ読む？</a>
+      <a href="/ja/guides/build-a-reading-habit/">読書習慣をつくる</a>
+      <a href="/ja/guides/track-audiobooks/">オーディオブックを記録する</a>
+    </nav>
+    <nav aria-label="ヘルプ">
+      <h2>ヘルプ</h2>
+      <a href="/ja/support/">サポート</a>
+      <a href="/privacy/">プライバシー</a>
+      <a href="https://markockidev.canny.io/bookworm">機能をリクエスト</a>
+      <a href="mailto:markockidev@icloud.com">お問い合わせ</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

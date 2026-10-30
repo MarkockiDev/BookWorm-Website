@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BookWorm Support: Help, Sync and Contact</title>
+<meta name="description" content="Answers about iCloud sync, moving to a new iPhone, reminders, widgets, exporting your library and more. Or write to the person who makes BookWorm.">
+<link rel="canonical" href="https://ilovebookworm.com/support/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/support/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/support/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/support/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/support/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/support/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/support/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/support/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/support/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/support/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/support/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/support/">
+<meta property="og:title" content="BookWorm Support: Help, Sync and Contact">
+<meta property="og:description" content="Answers about iCloud sync, moving to a new iPhone, reminders, widgets, exporting your library and more. Or write to the person who makes BookWorm.">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookWorm Support: Help, Sync and Contact">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BookWorm Support: Help, Sync and Contact">
+<meta name="twitter:description" content="Answers about iCloud sync, moving to a new iPhone, reminders, widgets, exporting your library and more. Or write to the person who makes BookWorm.">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="BookWorm Support: Help, Sync and Contact">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (true && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/support/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ilovebookworm.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Support",
+          "item": "https://ilovebookworm.com/support/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I sync my books between iPhone and iPad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sign in to the same Apple Account with iCloud turned on, on both devices. BookWorm syncs your library, reading days, goal and streak through your own iCloud. To sync right away, open Settings in BookWorm and tap Sync Now under iCloud Sync."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I got a new iPhone. How do I get my library back?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sign in with the same Apple Account, install BookWorm and open it. It finds your library in iCloud and offers to restore it before you set anything up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why am I not getting reminders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check two switches: Notifications in BookWorm's Settings, and Settings, Notifications, BookWorm on your iPhone. Permission is per device, so a new phone needs it again. BookWorm also stays quiet on days you have already reached your goal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I add a BookWorm widget?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Touch and hold an empty spot on your Home Screen or Lock Screen, tap Edit or the plus button, search for BookWorm, and choose the book or daily goal widget."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export my reading data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. In Settings, Export My Data saves a file with your books, reading days, goals and streak history. Import Data reads that file back in and merges it with what you have, without deleting anything."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I change the language or theme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Settings in BookWorm. Language switches the whole app at once, and the theme changes between Light, Dark, Retro and Marginalia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I turn off sounds or haptics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Sound Effects and Haptics each have their own switch in Settings. BookWorm's sounds also follow your iPhone's Silent switch and never interrupt your music or audiobook."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. BookWorm uses the Apple Account already on your device. There is no sign-up and no password."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/#main" aria-label="BookWorm, back to top">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="/#how">How it works</a>
+      <a href="/#looks">Themes</a>
+      <a href="/guides/">Guides</a>
+      <a href="/support/">Support</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="Theme">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="Theme">
+        <p aria-hidden="true">Theme</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>Light<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>Dark<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>Retro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>Marginalia<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language: English">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">EN</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="Language">
+        <p aria-hidden="true">Language</p>
+        <a href="/support/" hreflang="en" lang="en" aria-current="page">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/support/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/support/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/support/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/support/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/support/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/support/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/support/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/support/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">Get the app</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="https://ilovebookworm.com/">Home</a></li><li aria-current="page">Support</li></ol></nav>
+      <p class="eyebrow">Support</p>
+      <h1>How can we help?</h1>
+      <p class="lede">Most answers are below. If yours isn't, write to me. I make BookWorm and I read every message.</p>
+    </div>
+  </header>
+
+  <section aria-label="Get in touch">
+    <div class="wrap cards">
+      <a class="card" href="mailto:markockidev@icloud.com"><small>Email</small><h3>Write to Adam</h3><p>Questions, problems, or a kind word. Replies usually within a couple of days.</p><span class="go">markockidev@icloud.com</span></a>
+      <a class="card" href="https://markockidev.canny.io/bookworm"><small>Ideas</small><h3>Suggest a feature</h3><p>Share an idea or vote for someone else's. The most wanted ones get built first.</p><span class="go">Open the board →</span></a>
+      <a class="card" href="/privacy/"><small>Privacy</small><h3>Your data</h3><p>What BookWorm keeps, where it lives, and what it never collects.</p><span class="go">Read the policy →</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">Frequently asked questions</h2><p>Short answers to what people ask most.</p></div>
+      <details class="reveal"><summary>How do I sync my books between iPhone and iPad?<i aria-hidden="true"></i></summary><div class="answer"><p>Sign in to the same Apple Account with iCloud turned on, on both devices. BookWorm syncs your library, reading days, goal and streak through your own iCloud. To sync right away, open Settings in BookWorm and tap Sync Now under iCloud Sync.</p></div></details>
+      <details class="reveal"><summary>I got a new iPhone. How do I get my library back?<i aria-hidden="true"></i></summary><div class="answer"><p>Sign in with the same Apple Account, install BookWorm and open it. It finds your library in iCloud and offers to restore it before you set anything up.</p></div></details>
+      <details class="reveal"><summary>Why am I not getting reminders?<i aria-hidden="true"></i></summary><div class="answer"><p>Check two switches: Notifications in BookWorm's Settings, and Settings, Notifications, BookWorm on your iPhone. Permission is per device, so a new phone needs it again. BookWorm also stays quiet on days you have already reached your goal.</p></div></details>
+      <details class="reveal"><summary>How do I add a BookWorm widget?<i aria-hidden="true"></i></summary><div class="answer"><p>Touch and hold an empty spot on your Home Screen or Lock Screen, tap Edit or the plus button, search for BookWorm, and choose the book or daily goal widget.</p></div></details>
+      <details class="reveal"><summary>Can I export my reading data?<i aria-hidden="true"></i></summary><div class="answer"><p>Yes. In Settings, Export My Data saves a file with your books, reading days, goals and streak history. Import Data reads that file back in and merges it with what you have, without deleting anything.</p></div></details>
+      <details class="reveal"><summary>How do I change the language or theme?<i aria-hidden="true"></i></summary><div class="answer"><p>Open Settings in BookWorm. Language switches the whole app at once, and the theme changes between Light, Dark, Retro and Marginalia.</p></div></details>
+      <details class="reveal"><summary>Can I turn off sounds or haptics?<i aria-hidden="true"></i></summary><div class="answer"><p>Yes, Sound Effects and Haptics each have their own switch in Settings. BookWorm's sounds also follow your iPhone's Silent switch and never interrupt your music or audiobook.</p></div></details>
+      <details class="reveal"><summary>Do I need an account?<i aria-hidden="true"></i></summary><div class="answer"><p>No. BookWorm uses the Apple Account already on your device. There is no sign-up and no password.</p></div></details>
+    </div>
+  </section>
+
+  <section class="cta-band band">
+    <div class="wrap">
+      <h2>Bring it to your iPhone.</h2>
+      <p>BookWorm keeps your page, your goal and your streak, one tap at a time.</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>A calm reading tracker for paper books, ebooks and audiobooks.</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="The app">
+      <h2>The app</h2>
+      <a href="/audiobook-tracker/">Audiobook tracker</a>
+      <a href="/reading-habit-tracker/">Reading habit tracker</a>
+      <a href="/reading-goal-calculator/">Reading goal calculator</a>
+    </nav>
+    <nav aria-label="Learn">
+      <h2>Learn</h2>
+      <a href="/guides/">All guides</a>
+      <a href="/guides/how-many-pages-a-day/">How many pages a day?</a>
+      <a href="/guides/build-a-reading-habit/">Build a reading habit</a>
+      <a href="/guides/track-audiobooks/">Track audiobooks</a>
+    </nav>
+    <nav aria-label="Help">
+      <h2>Help</h2>
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="https://markockidev.canny.io/bookworm">Suggest a feature</a>
+      <a href="mailto:markockidev@icloud.com">Contact</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

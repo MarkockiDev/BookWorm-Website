@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suivi de livres audio sur iPhone : notez votre écoute | BookWorm</title>
+<meta name="description" content="Suivez vos livres audio en heures et en minutes, à côté du papier et des ebooks. Un minuteur sur l’écran verrouillé et un seul objectif pour tous les formats.">
+<link rel="canonical" href="https://ilovebookworm.com/fr/audiobook-tracker/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/audiobook-tracker/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/audiobook-tracker/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/audiobook-tracker/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/audiobook-tracker/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/audiobook-tracker/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/audiobook-tracker/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/audiobook-tracker/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/audiobook-tracker/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/audiobook-tracker/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/audiobook-tracker/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/fr/audiobook-tracker/">
+<meta property="og:title" content="Un suivi de livres audio qui compte l’écoute comme de la lecture">
+<meta property="og:description" content="Des heures et des minutes, un minuteur sur l’écran verrouillé et un seul objectif quotidien pour les livres audio, les ebooks et le papier.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Un suivi de livres audio qui compte l’écoute comme de la lecture">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Un suivi de livres audio qui compte l’écoute comme de la lecture">
+<meta name="twitter:description" content="Des heures et des minutes, un minuteur sur l’écran verrouillé et un seul objectif quotidien pour les livres audio, les ebooks et le papier.">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="Un suivi de livres audio qui compte l’écoute comme de la lecture">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/audiobook-tracker/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://ilovebookworm.com/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Suivi des livres audio",
+          "item": "https://ilovebookworm.com/fr/audiobook-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "fr",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Écouter un livre audio compte-t-il dans mon objectif de lecture ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. BookWorm compte les minutes écoutées et les pages lues dans le même objectif quotidien : chaque format fait avancer votre série."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je suivre un livre audio et un livre papier en même temps ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Chaque livre en cours se trouve sur l’accueil, quel que soit son format, et vous mettez chacun à jour séparément."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment BookWorm connaît-il la durée d’un livre audio ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quand vous l’ajoutez depuis la recherche, il estime la durée à partir du nombre de pages du livre. Vous pouvez aussi saisir la durée exacte affichée par votre appli de livres audio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BookWorm lit-il ou télécharge-t-il des livres audio ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Continuez d’écouter dans l’appli que vous utilisez déjà. BookWorm est l’endroit où vous en gardez la trace."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/fr/#main" aria-label="BookWorm, retour en haut">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="/fr/#how">Comment ça marche</a>
+      <a href="/fr/#looks">Thèmes</a>
+      <a href="/fr/guides/">Guides</a>
+      <a href="/fr/support/">Assistance</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="Thème">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="Thème">
+        <p aria-hidden="true">Thème</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>Clair<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>Sombre<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>Rétro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>Marginalia<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Langue: Français">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">FR</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="Langue">
+        <p aria-hidden="true">Langue</p>
+        <a href="/audiobook-tracker/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/audiobook-tracker/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/audiobook-tracker/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/audiobook-tracker/" hreflang="fr" lang="fr" aria-current="page">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/audiobook-tracker/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/audiobook-tracker/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/audiobook-tracker/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/audiobook-tracker/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/audiobook-tracker/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">Obtenir l’app</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="https://ilovebookworm.com/fr/">Accueil</a></li><li aria-current="page">Suivi des livres audio</li></ol></nav>
+        <p class="eyebrow">Suivi des livres audio</p>
+        <h1>Écouter, c’est lire. Suivez-le comme tel.</h1>
+        <p class="lede">BookWorm range vos livres audio sur la même étagère que vos livres papier, suivis en heures et en minutes, et comptés dans le même objectif quotidien et la même série.</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/fr-black.svg" alt="Télécharger BookWorm sur l’App Store" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="timer" data-w="420 720" sizes="380px" width="720" height="1207" alt="Le minuteur de lecture de BookWorm en marche pour Shoe Dog de Phil Knight." fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">Pensé pour les livres qu’on écoute</h2><p>La plupart des applis de suivi de lecture ne comprennent que les pages. BookWorm sait où vous en êtes dans une écoute.</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>Des heures et des minutes, pas des pages</h3><p>Notez 3 h 30 sur 11 h 35 : la barre de progression, le calendrier et vos statistiques parlent tous en temps.</p></article>
+        <article class="point reveal"><h3>Un seul objectif pour tous les formats</h3><p>Fixez votre objectif quotidien en minutes ou en pages. La lecture et l’écoute y comptent toutes les deux : un trajet avec un livre audio suffit à garder la série en vie.</p></article>
+        <article class="point reveal"><h3>Un minuteur pour chaque écoute</h3><p>Lancez une séance quand vous appuyez sur lecture. Mettez-la en pause et reprenez-la depuis l’écran verrouillé ou la Dynamic Island, puis notez où vous en êtes.</p></article>
+        <article class="point reveal"><h3>Discret à côté de votre écoute</h3><p>Les sons de BookWorm ne mettent jamais votre livre audio en pause et ne baissent jamais son volume, et le mode Silence les coupe complètement.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>Ajoutez un livre en quelques secondes</h2>
+        <p>Cherchez par titre ou par auteur, et la couverture apparaît d’elle-même. Choisissez livre audio : BookWorm propose une durée à partir du nombre de pages, que vous pouvez ajuster à votre édition.</p>
+        <p>Passez un livre du papier à l’ebook ou à l’audio quand vous voulez. Chaque jour garde le format dans lequel il a été lu, pour un historique exact.</p>
+        <a class="more" href="/fr/guides/track-audiobooks/">Lire le guide pour suivre ses livres audio</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="book" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="La page d’un livre dans BookWorm, avec la progression, Reprendre la lecture et Mettre à jour."></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">Questions sur le suivi des livres audio</h2></div>
+      <details class="reveal"><summary>Écouter un livre audio compte-t-il dans mon objectif de lecture ?<i aria-hidden="true"></i></summary><div class="answer"><p>Oui. BookWorm compte les minutes écoutées et les pages lues dans le même objectif quotidien : chaque format fait avancer votre série.</p></div></details>
+      <details class="reveal"><summary>Puis-je suivre un livre audio et un livre papier en même temps ?<i aria-hidden="true"></i></summary><div class="answer"><p>Oui. Chaque livre en cours se trouve sur l’accueil, quel que soit son format, et vous mettez chacun à jour séparément.</p></div></details>
+      <details class="reveal"><summary>Comment BookWorm connaît-il la durée d’un livre audio ?<i aria-hidden="true"></i></summary><div class="answer"><p>Quand vous l’ajoutez depuis la recherche, il estime la durée à partir du nombre de pages du livre. Vous pouvez aussi saisir la durée exacte affichée par votre appli de livres audio.</p></div></details>
+      <details class="reveal"><summary>BookWorm lit-il ou télécharge-t-il des livres audio ?<i aria-hidden="true"></i></summary><div class="answer"><p>Non. Continuez d’écouter dans l’appli que vous utilisez déjà. BookWorm est l’endroit où vous en gardez la trace.</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">À lire aussi</h2></div>
+      <div class="cards">
+        <a class="card" href="/fr/reading-habit-tracker/"><small>L’app</small><h3>Suivi de l’habitude de lecture</h3><p>Un objectif quotidien, une série qui grandit et un seul rappel tout en douceur.</p><span class="go">Découvrir →</span></a>
+        <a class="card" href="/fr/reading-goal-calculator/"><small>Outil</small><h3>Calculateur d’objectif de lecture</h3><p>Transformez un objectif annuel ou une date de fin en pages par jour.</p><span class="go">Faire le calcul →</span></a>
+        <a class="card" href="/fr/guides/track-audiobooks/"><small>Guide</small><h3>Comment suivre ses livres audio</h3><p>Compter l’écoute comme de la lecture, et la mêler au papier.</p><span class="go">Lire le guide →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Emportez-le sur votre iPhone.</h2>
+      <p>BookWorm garde votre page, votre objectif et votre série, d’une simple touche.</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/fr-black.svg" alt="Télécharger BookWorm sur l’App Store" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/fr/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>Un suivi de lecture tout en douceur pour les livres papier, les ebooks et les livres audio.</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/fr-black.svg" alt="Télécharger BookWorm sur l’App Store" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="L’app">
+      <h2>L’app</h2>
+      <a href="/fr/audiobook-tracker/">Suivi des livres audio</a>
+      <a href="/fr/reading-habit-tracker/">Suivi de l’habitude de lecture</a>
+      <a href="/fr/reading-goal-calculator/">Calculateur d’objectif de lecture</a>
+    </nav>
+    <nav aria-label="Apprendre">
+      <h2>Apprendre</h2>
+      <a href="/fr/guides/">Tous les guides</a>
+      <a href="/fr/guides/how-many-pages-a-day/">Combien de pages par jour ?</a>
+      <a href="/fr/guides/build-a-reading-habit/">Prendre l’habitude de lire</a>
+      <a href="/fr/guides/track-audiobooks/">Suivre ses livres audio</a>
+    </nav>
+    <nav aria-label="Aide">
+      <h2>Aide</h2>
+      <a href="/fr/support/">Assistance</a>
+      <a href="/privacy/">Confidentialité</a>
+      <a href="https://markockidev.canny.io/bookworm">Suggérer une fonction</a>
+      <a href="mailto:markockidev@icloud.com">Contact</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>

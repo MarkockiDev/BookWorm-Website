@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>阅读习惯打卡：连续记录与每日目标 | BookWorm</title>
+<meta name="description" content="用每日页数或分钟目标养成阅读习惯。每达成一天，连续记录就长一点，还有阅读日历和每天一条安静的提醒。适用于 iPhone 和 iPad。">
+<link rel="canonical" href="https://ilovebookworm.com/zh-hans/reading-habit-tracker/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/reading-habit-tracker/">
+<link rel="alternate" hreflang="pl" href="https://ilovebookworm.com/pl/reading-habit-tracker/">
+<link rel="alternate" hreflang="es" href="https://ilovebookworm.com/es/reading-habit-tracker/">
+<link rel="alternate" hreflang="fr" href="https://ilovebookworm.com/fr/reading-habit-tracker/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ilovebookworm.com/zh-hans/reading-habit-tracker/">
+<link rel="alternate" hreflang="hi" href="https://ilovebookworm.com/hi/reading-habit-tracker/">
+<link rel="alternate" hreflang="ja" href="https://ilovebookworm.com/ja/reading-habit-tracker/">
+<link rel="alternate" hreflang="ko" href="https://ilovebookworm.com/ko/reading-habit-tracker/">
+<link rel="alternate" hreflang="pt-BR" href="https://ilovebookworm.com/pt-br/reading-habit-tracker/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/reading-habit-tracker/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/zh-hans/reading-habit-tracker/">
+<meta property="og:title" content="一款对你温柔的阅读习惯记录 App">
+<meta property="og:description" content="每日目标、慢慢变长的连续记录、阅读日历，以及每天一条安静的提醒。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="一款对你温柔的阅读习惯记录 App">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="一款对你温柔的阅读习惯记录 App">
+<meta name="twitter:description" content="每日目标、慢慢变长的连续记录、阅读日历，以及每天一条安静的提醒。">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="一款对你温柔的阅读习惯记录 App">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (false && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/reading-habit-tracker/' + location.hash); break; }
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ilovebookworm.com/zh-hans/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "阅读习惯打卡",
+          "item": "https://ilovebookworm.com/zh-hans/reading-habit-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "zh-Hans",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "怎样才算连续记录里的一天？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只要当天达成每日目标就算，按页数或分钟都行。读书和听书都算数。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "每日阅读目标该定多少？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "定一个忙碌的日子也能达成的。十到二十页，或十五分钟，是很好的开始，之后随时可以提高。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "我会收到多少条提醒？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最多午饭时一条；只有连续记录有中断风险时，晚上再来一条。已经达成目标的日子一条都没有。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "不打开 App 也能看到连续记录吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。主屏幕小组件会用圆环显示今天的目标，并显示你当前的连续记录。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=bb84e3b7">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/zh-hans/#main" aria-label="BookWorm，回到顶部">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="版块">
+      <a href="/zh-hans/#how">使用方式</a>
+      <a href="/zh-hans/#looks">主题</a>
+      <a href="/zh-hans/guides/">指南</a>
+      <a href="/zh-hans/support/">支持</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="主题">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="主题">
+        <p aria-hidden="true">主题</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>浅色<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>深色<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>复古<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>页边笔记<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="语言: 简体中文">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">ZH</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="语言">
+        <p aria-hidden="true">语言</p>
+        <a href="/reading-habit-tracker/" hreflang="en" lang="en">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/reading-habit-tracker/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/reading-habit-tracker/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/reading-habit-tracker/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/reading-habit-tracker/" hreflang="zh-hans" lang="zh-Hans" aria-current="page">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/reading-habit-tracker/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/reading-habit-tracker/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/reading-habit-tracker/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/reading-habit-tracker/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/id6761390761">获取 App</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="当前位置"><ol><li><a href="https://ilovebookworm.com/zh-hans/">首页</a></li><li aria-current="page">阅读习惯打卡</li></ol></nav>
+        <p class="eyebrow">阅读习惯打卡</p>
+        <h1>每天一点点，积少成多。</h1>
+        <p class="lede">选一个你守得住的每日目标。BookWorm 会记下你达成的每一天，点亮你的日历，每天温柔地提醒你一次。</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/zh-hans-black.svg" alt="在 App Store 下载 BookWorm" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="380px" width="720" height="1207" alt="BookWorm 的阅读任务：今天已读 36 / 30 页，目标达成，连续 16 天。" fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">习惯是怎样扎根的</h2><p>每一个细节，都是为了让明天的阅读比今天更容易发生一点。</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>贴合真实生活的目标</h3><p>每天按页数或分钟设定，最少 5。BookWorm 还会把它换算成今年能读完多少本书。</p></article>
+        <article class="point reveal"><h3>连续记录的小书虫</h3><p>每达成一天目标，小书虫就长大一节。今天一算数，它的头就会亮起来。</p></article>
+        <article class="point reveal"><h3>阅读日历</h3><p>每个读书的日子都会留下标记，每读完一本书都会多一枚金色圆环。一个月看下来，你养成的节奏一目了然。</p></article>
+        <article class="point reveal"><h3>一条安静的提醒</h3><p>午饭时一条提醒，内容贴合你当下的状态；只有连续记录快要中断时，晚上才会再提醒一次。今天的目标一达成，就什么都不发。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>错过一天？明天重新开始。</h2>
+        <p>连续记录只是推你一把，不是评判你。如果哪天没读成，连续记录会重新开始，第二天就是新的开始，提醒也会这样告诉你。</p>
+        <p>你的最长连续记录会一直留在个人资料里。每个月的第一天，BookWorm 还会为你回顾刚读过的这个月。</p>
+        <a class="more" href="/zh-hans/guides/build-a-reading-habit/">阅读养成阅读习惯的指南</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="calendar" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="BookWorm 阅读日历：18 个阅读日，连续 16 天。"></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">关于连续阅读记录的问题</h2></div>
+      <details class="reveal"><summary>怎样才算连续记录里的一天？<i aria-hidden="true"></i></summary><div class="answer"><p>只要当天达成每日目标就算，按页数或分钟都行。读书和听书都算数。</p></div></details>
+      <details class="reveal"><summary>每日阅读目标该定多少？<i aria-hidden="true"></i></summary><div class="answer"><p>定一个忙碌的日子也能达成的。十到二十页，或十五分钟，是很好的开始，之后随时可以提高。</p></div></details>
+      <details class="reveal"><summary>我会收到多少条提醒？<i aria-hidden="true"></i></summary><div class="answer"><p>最多午饭时一条；只有连续记录有中断风险时，晚上再来一条。已经达成目标的日子一条都没有。</p></div></details>
+      <details class="reveal"><summary>不打开 App 也能看到连续记录吗？<i aria-hidden="true"></i></summary><div class="answer"><p>可以。主屏幕小组件会用圆环显示今天的目标，并显示你当前的连续记录。</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">继续阅读</h2></div>
+      <div class="cards">
+        <a class="card" href="/zh-hans/audiobook-tracker/"><small>App</small><h3>有声书记录</h3><p>按小时和分钟记录听书，和纸质书放在一起。</p><span class="go">看看怎么用 →</span></a>
+        <a class="card" href="/zh-hans/reading-goal-calculator/"><small>工具</small><h3>阅读目标计算器</h3><p>把一年的目标或读完的日期，换算成每天的页数。</p><span class="go">算一算 →</span></a>
+        <a class="card" href="/zh-hans/guides/build-a-reading-habit/"><small>指南</small><h3>如何养成长久的阅读习惯</h3><p>小目标、固定的时刻，还有不带愧疚的连续记录。</p><span class="go">阅读指南 →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>把它带到你的 iPhone 上。</h2>
+      <p>BookWorm 帮你记住页码、目标和连续记录，轻点一下就好。</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/zh-hans-black.svg" alt="在 App Store 下载 BookWorm" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/zh-hans/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>一款安静的阅读记录 App，适用于纸质书、电子书和有声书。</p>
+      <a class="badge small" href="https://apps.apple.com/app/id6761390761"><img src="/assets/badges/zh-hans-black.svg" alt="在 App Store 下载 BookWorm" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="App">
+      <h2>App</h2>
+      <a href="/zh-hans/audiobook-tracker/">有声书记录</a>
+      <a href="/zh-hans/reading-habit-tracker/">阅读习惯打卡</a>
+      <a href="/zh-hans/reading-goal-calculator/">阅读目标计算器</a>
+    </nav>
+    <nav aria-label="了解">
+      <h2>了解</h2>
+      <a href="/zh-hans/guides/">全部指南</a>
+      <a href="/zh-hans/guides/how-many-pages-a-day/">每天该读多少页？</a>
+      <a href="/zh-hans/guides/build-a-reading-habit/">养成阅读习惯</a>
+      <a href="/zh-hans/guides/track-audiobooks/">记录有声书</a>
+    </nav>
+    <nav aria-label="帮助">
+      <h2>帮助</h2>
+      <a href="/zh-hans/support/">支持</a>
+      <a href="/privacy/">隐私</a>
+      <a href="https://markockidev.canny.io/bookworm">建议新功能</a>
+      <a href="mailto:markockidev@icloud.com">联系</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=bb84e3b7"></script>
+</body>
+</html>
