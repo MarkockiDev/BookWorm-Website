@@ -2,5 +2,6 @@
   "_note": "Public PostHog project key: it can only send events, never read them. Safe to publish.",
   "posthog_key": "phc_zCVZ7oSoCiGgK4fNJKATcZubkkuYVdNw6i5iUNwRQaaJ",
   "posthog_host": "https://eu.i.posthog.com",
-  "posthog_ui": "https://eu.posthog.com"
+  "posthog_ui": "https://eu.posthog.com",
+  "app_store_pt": "128353732"
 }
