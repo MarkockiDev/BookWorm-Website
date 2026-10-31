@@ -51,11 +51,11 @@ Rebuild now and then so the rating in search results stays current.
 ## Website analytics (PostHog)
 
 The site sends to the **same PostHog project as the app** (EU cloud), cookieless: `persistence: 'memory'`,
-no person profiles, no autocapture, no session recording. The key in `src/site.json` is PostHog's public
+no person profiles, no autocapture, and session recording only for visitors who opt in. The key in `src/site.json` is PostHog's public
 *project* key: it can only send events. `build.py` refuses to write any page that contains a PostHog personal
 key (`phx_`), a RevenueCat key, or any other value from the app's private `BookWorm.xcconfig`.
 
-PostHog only loads on `ilovebookworm.com`. To test locally, open a page with `?ph=1`; those events carry
+PostHog only loads on `ilovebookworm.com`. Session replay is opt-in only (see below). To test locally, open a page with `?ph=1`; those events carry
 `env = preview`.
 
 Every website event carries `platform = web`, `site = ilovebookworm.com`, `env`, `page_id` (e.g. `home`,
@@ -71,6 +71,7 @@ Every website event carries `platform = web`, `site = ilovebookworm.com`, `env`,
 | `website_language_changed` | a language is picked in the menu | `to`, `from` |
 | `website_faq_opened` | a question is opened | `question` (its number on that page) |
 | `website_printable_downloaded` | a printable reading log PDF is downloaded | `size` (`a4` or `letter`) |
+| `website_replay_consent` | Allow or No thanks on the recording card | `choice` (`allow` or `decline`) |
 | `website_calculator_used` | once per mode per visit, after the visitor stops changing things | `mode` (`year` or `book`), `pages_per_day` (the number on screen), `year` (`this` or `next`, year mode only) |
 
 Event names never change once shipped (same rule as the app).
@@ -80,6 +81,16 @@ Event names never change once shipped (same rule as the app).
 Add `"app_store_pt": "<provider token>"` to `src/site.json` and rebuild. Every App Store link then becomes
 `apps.apple.com/app/apple-store/id6761390761?pt=<token>&ct=web-<page>&mt=8`, and App Store Connect →
 App Analytics → Acquisition → Campaigns shows downloads per page.
+
+## Session replay (opt-in)
+
+Replay runs only for visitors who tap **Allow** on the consent card (`#consent` in `layout.html`, logic at the end of
+`site.js`). The answer lives in `localStorage['bw-replay']` (`yes` / `no`); unanswered visitors are asked once per
+visit, ~6 s in or after a scroll, and only where PostHog runs. With `yes`, the head snippet starts PostHog with
+`localStorage+cookie` persistence and recording on (`maskAllInputs`); everyone else gets the cookieless setup.
+**Recording choices** in the footer reopens the card; saying no there stops recording, resets PostHog and clears its
+storage. Every event carries `replay = on|off`, and the choice itself is `website_replay_consent { choice }`.
+In PostHog: Session replay → **Record user sessions** on, and `https://ilovebookworm.com` under Authorized domains.
 
 ## Share pictures
 

@@ -589,6 +589,8 @@
     .menu-head { margin: var(--s-32) 0 var(--s-16); }
     .topbar .doc-label { display: none; }
   }
+  .replay-stop { appearance: none; cursor: pointer; font: inherit; font-weight: 600; padding: 10px 16px; min-height: 44px; border-radius: 12px; border: 1.5px solid currentColor; background: transparent; color: inherit; }
+  #replay-msg { display: block; margin-top: 8px; opacity: .8; }
 </style>
 </head>
 <body>
@@ -853,7 +855,28 @@
         </ul>
         <p>This data is <strong>not used for tracking</strong> and is never sold or shared for advertising.</p>
         <p>Analytics and crash reporting are part of how BookWorm works and <strong>there is no setting in the app to turn them off</strong>. We rely on our legitimate interest in keeping a free app stable and improving it, and we keep the data limited to what is described above. You can object at any time, or ask us to erase the analytics profile for your device, by contacting us using the details below.</p>
-        <p><strong>This website (ilovebookworm.com)</strong> also uses PostHog, in a cookieless mode: nothing is stored on your device for analytics, you are not identified, and no session is recorded. We count page views, the page you came from, your language and approximate country, how far you scroll, and anonymous clicks such as the App Store button, the theme you pick and whether you used the reading goal calculator. If a page breaks, a technical error report is sent so we can fix it. We never record what you type. The site remembers your chosen theme and language in your own browser so it looks the same next time; that stays on your device.</p>
+        <p><strong>This website (ilovebookworm.com)</strong> also uses PostHog. By default it runs in a cookieless mode: nothing is stored on your device for analytics, you are not identified, and no session is recorded. We count page views, the page you came from, your language and approximate country, how far you scroll, and anonymous clicks such as the App Store button, the theme you pick and whether you used the reading goal calculator. If a page breaks, a technical error report is sent so we can fix it. We never record what you type. The site remembers your chosen theme and language in your own browser so it looks the same next time; that stays on your device.</p>
+        <p><strong>Session recording on this website is optional and off unless you allow it.</strong> A small card asks whether you'd like to help improve the site. If you choose Allow, PostHog records how the pages are used during your visits (the page layout, scrolling, clicks and taps) so we can see where the site is confusing. Anything typed into a field is masked in your browser before it is sent, nothing personal is collected, and you are not identified. To link the pages of a visit, PostHog then stores a random identifier in your browser, in a cookie and in local storage (named <code>ph_…_posthog</code>); it contains no personal information. Recordings are stored by PostHog in the EU and deleted automatically after PostHog's retention period (30 days on our plan). The legal basis is your consent, and you can withdraw it at any time with <strong>Recording choices</strong> at the bottom of every page, or the button below: recording stops, the identifier is deleted from your browser, and the site goes back to cookieless mode. If you choose No thanks, nothing is recorded and you won't be asked again.</p>
+        <p id="replay-state"><button type="button" id="replay-stop" class="replay-stop">Stop recording and forget this browser</button> <span id="replay-msg" role="status"></span></p>
+        <script>
+        /* Withdraws session-replay consent from this page too: the same storage the site's footer button clears. */
+        (function () {
+          var b = document.getElementById('replay-stop'), m = document.getElementById('replay-msg');
+          var on = false; try { on = localStorage.getItem('bw-replay') === 'yes'; } catch (e) {}
+          m.textContent = on ? 'Recording is on for this browser.' : 'Recording is off for this browser.';
+          b.addEventListener('click', function () {
+            try {
+              localStorage.setItem('bw-replay', 'no');
+              Object.keys(localStorage).forEach(function (k) { if (/^ph_|posthog/.test(k)) localStorage.removeItem(k); });
+              document.cookie.split(';').forEach(function (c) {
+                var n = c.split('=')[0].trim();
+                if (/^ph_|posthog/.test(n)) { document.cookie = n + '=; Max-Age=0; path=/; domain=' + location.hostname; document.cookie = n + '=; Max-Age=0; path=/'; }
+              });
+            } catch (e) {}
+            m.textContent = 'Done. Recording is off and nothing about your visits is stored in this browser.';
+          });
+        })();
+        </script>
       </section>
 
       <!-- ================= WHO ELSE IS INVOLVED ================= -->

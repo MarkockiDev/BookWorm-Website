@@ -767,3 +767,29 @@ footer nav a:hover { color: var(--ink); text-decoration: underline; text-underli
 .prose .compare td:not(:first-child), .prose .compare th:not(:first-child) { text-align: left; font-variant-numeric: normal; }
 .prose .compare th:last-child, .prose .compare td:last-child { background: none; }
 @media (max-width: 520px) { .compare { font-size: .9rem; } .compare th, .compare td { padding: 12px 10px; } .compare thead th { font-size: .7rem; letter-spacing: .08em; } }
+
+/* ---------- session replay consent: a small card, never in the way of the page ---------- */
+.foot-btn { appearance: none; border: 0; background: none; padding: 0; cursor: pointer; font: inherit; text-align: left; color: var(--ink-2); display: inline-flex; min-height: 40px; align-items: center; }
+.foot-btn:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.consent { position: fixed; z-index: 60; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); display: flex; gap: 14px; align-items: flex-start;
+  padding: 18px 18px 16px; border-radius: 22px; background: var(--paper); color: var(--ink); box-shadow: 0 0 0 1px var(--rule), 0 24px 60px -18px rgba(40, 24, 12, .45);
+  transform: translateY(0); opacity: 1; transition: transform .45s var(--ease-out), opacity .3s var(--ease-out); }
+@media (min-width: 640px) { .consent { right: auto; left: 24px; bottom: 24px; max-width: 420px; } }
+.consent[hidden] { display: none; }
+.consent.enter { transform: translateY(24px); opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .consent { transition: none; } .consent.enter { transform: none; } }
+.consent img { width: 48px; height: 48px; flex: none; }
+.consent h2 { font: var(--display-weight) 1.15rem/1.25 var(--display); letter-spacing: var(--display-track); }
+.consent p { margin-top: 6px; font-size: .92rem; line-height: 1.5; color: var(--ink-2); }
+.consent p a { color: var(--ink); text-underline-offset: 3px; white-space: nowrap; }
+.consent-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.consent-actions button { appearance: none; border: 0; cursor: pointer; min-height: 44px; padding: 0 18px; border-radius: 14px; font: 600 .95rem/1 var(--sans); transition: transform .16s var(--ease-out); }
+.consent-actions button:active { transform: scale(.97); }
+.consent-allow { background: var(--accent); color: #fff; }
+[data-theme="dark"] .consent-allow { color: #0C0C0C; }
+.consent-no { background: var(--paper-2); color: var(--ink); }
+.consent-actions button:focus-visible, .foot-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+[data-theme="dark"] .consent { background: var(--paper-2); box-shadow: 0 0 0 1px var(--rule), 0 24px 60px -18px rgba(0, 0, 0, .9); }
+[data-theme="dark"] .consent-no { background: var(--paper-3); }
+[data-theme="retro"] .consent { box-shadow: 6px 6px 0 var(--ink); border: 2px solid var(--ink); border-radius: 12px; }
+[data-theme="retro"] .consent-actions button { border: 2px solid var(--ink); border-radius: 8px; }

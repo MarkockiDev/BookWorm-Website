@@ -115,5 +115,11 @@
   "c_best_go": "Read the guide",
   "foot_goodreads": "Goodreads alternative",
   "foot_storygraph": "StoryGraph alternative",
-  "g7_short": "Best reading tracker apps"
+  "g7_short": "Best reading tracker apps",
+  "rp_title": "Help improve this site?",
+  "rp_body": "With your OK, visits are recorded and a cookie is stored.",
+  "rp_allow": "Allow",
+  "rp_decline": "No thanks",
+  "rp_privacy": "Privacy policy",
+  "foot_recording": "Recording choices"
 }

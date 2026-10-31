@@ -70,5 +70,11 @@
   "c_g3_t": "Comment suivre ses livres audio",
   "c_g3_d": "Compter l’écoute comme de la lecture, et la mêler au papier.",
   "c_g3_go": "Lire le guide",
-  "nav_calculator": "Calculateur"
+  "nav_calculator": "Calculateur",
+  "rp_title": "Aider à améliorer ce site ?",
+  "rp_body": "Avec votre accord, les visites sont enregistrées et un cookie est déposé.",
+  "rp_allow": "Autoriser",
+  "rp_decline": "Non merci",
+  "rp_privacy": "Politique de confidentialité",
+  "foot_recording": "Choix d'enregistrement"
 }

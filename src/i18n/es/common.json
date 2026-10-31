@@ -70,5 +70,11 @@
   "c_g3_t": "Cómo registrar audiolibros",
   "c_g3_d": "Contar lo que escuchas como lectura y combinarlo con el papel.",
   "c_g3_go": "Leer la guía",
-  "nav_calculator": "Calculadora"
+  "nav_calculator": "Calculadora",
+  "rp_title": "¿Ayudas a mejorar esta web?",
+  "rp_body": "Con tu permiso, se graban las visitas y se guarda una cookie.",
+  "rp_allow": "Permitir",
+  "rp_decline": "No, gracias",
+  "rp_privacy": "Política de privacidad",
+  "foot_recording": "Preferencias de grabación"
 }

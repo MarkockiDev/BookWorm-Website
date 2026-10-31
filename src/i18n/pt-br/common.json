@@ -70,5 +70,11 @@
   "c_g3_t": "Como acompanhar audiolivros",
   "c_g3_d": "Contar o que você ouve como leitura, e misturar com o papel.",
   "c_g3_go": "Ler o guia",
-  "nav_calculator": "Calculadora"
+  "nav_calculator": "Calculadora",
+  "rp_title": "Ajuda a melhorar este site?",
+  "rp_body": "Com a sua permissão, as visitas são gravadas e um cookie é salvo.",
+  "rp_allow": "Permitir",
+  "rp_decline": "Não, obrigado",
+  "rp_privacy": "Política de privacidade",
+  "foot_recording": "Opções de gravação"
 }

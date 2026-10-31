@@ -188,4 +188,49 @@
       });
     }).observe(document.querySelector('.screen.lock'));
   }
+
+  /* ---- session replay, only with consent (README, "Session replay") ----
+     Unanswered: the card asks once per visit, a few seconds in. Allow: storage and recording start now,
+     and the snippet in the head starts recording on later visits. No thanks: never asked again.
+     "Recording choices" in the footer reopens the card; saying no there stops recording and forgets the session. */
+  var card = document.getElementById('consent');
+  var choices = document.getElementById('replay-choices');
+  var ph = function () { return window.posthog && window.posthog.__loaded ? window.posthog : null; };
+  function openCard() {
+    if (!card || !card.hidden) return;
+    card.hidden = false; card.classList.add('enter');
+    requestAnimationFrame(function () { requestAnimationFrame(function () { card.classList.remove('enter'); }); });
+  }
+  function closeCard() { if (card) card.hidden = true; }
+  function answer(yes) {
+    var was = saved('bw-replay');
+    store('bw-replay', yes ? 'yes' : 'no');
+    track('website_replay_consent', { choice: yes ? 'allow' : 'decline' });
+    closeCard();
+    var p = ph();
+    if (yes && p) {
+      p.set_config({ persistence: 'localStorage+cookie' });
+      p.register({ replay: 'on' });
+      p.startSessionRecording();
+    } else if (!yes && was === 'yes') {
+      // forget the session: stop recording, stop PostHog writing, and reload; the head snippet then
+      // clears whatever PostHog stored before it starts again, cookieless
+      if (p) { p.stopSessionRecording(); p.set_config({ persistence: 'memory' }); }
+      location.reload();
+    }
+  }
+  if (card) {
+    card.querySelectorAll('[data-replay]').forEach(function (b) {
+      b.addEventListener('click', function () { answer(b.getAttribute('data-replay') === 'yes'); });
+    });
+    card.addEventListener('keydown', function (e) { if (e.key === 'Escape') { answer(false); if (choices) choices.focus(); } });
+    if (choices) choices.addEventListener('click', function () { openCard(); card.querySelector('.consent-allow').focus(); });
+    // ask only where analytics actually runs, and only someone who hasn't answered
+    if (!saved('bw-replay') && (location.hostname === 'ilovebookworm.com' || /[?&]ph=1\b/.test(location.search))) {
+      var asked = false, ask = function () { if (asked) return; asked = true; window.removeEventListener('scroll', onFirstScroll); openCard(); };
+      var onFirstScroll = function () { if (window.scrollY > 200) ask(); };
+      setTimeout(ask, 6000);
+      window.addEventListener('scroll', onFirstScroll, { passive: true });
+    }
+  }
 })();

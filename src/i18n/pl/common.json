@@ -70,5 +70,11 @@
   "c_g3_t": "Jak śledzić audiobooki",
   "c_g3_d": "Słuchanie liczone jako czytanie, w parze z papierem.",
   "c_g3_go": "Przeczytaj poradnik",
-  "nav_calculator": "Kalkulator"
+  "nav_calculator": "Kalkulator",
+  "rp_title": "Pomożesz ulepszyć tę stronę?",
+  "rp_body": "Za Twoją zgodą wizyty są nagrywane, a w przeglądarce zapisuje się plik cookie.",
+  "rp_allow": "Zgadzam się",
+  "rp_decline": "Nie, dziękuję",
+  "rp_privacy": "Polityka prywatności",
+  "foot_recording": "Ustawienia nagrywania"
 }

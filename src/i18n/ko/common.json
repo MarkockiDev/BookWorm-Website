@@ -70,5 +70,11 @@
   "c_g3_t": "오디오북 기록하는 법",
   "c_g3_d": "듣기도 독서로 세고, 종이책과 함께 기록하기.",
   "c_g3_go": "가이드 읽기",
-  "nav_calculator": "계산기"
+  "nav_calculator": "계산기",
+  "rp_title": "사이트 개선을 도와주시겠어요?",
+  "rp_body": "허용하시면 방문 과정이 기록되고 쿠키가 저장돼요.",
+  "rp_allow": "허용",
+  "rp_decline": "괜찮아요",
+  "rp_privacy": "개인정보처리방침",
+  "foot_recording": "기록 설정"
 }

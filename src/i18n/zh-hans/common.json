@@ -70,5 +70,11 @@
   "c_g3_t": "如何记录有声书",
   "c_g3_d": "把听书算作阅读，并和纸质书一起计算。",
   "c_g3_go": "阅读指南",
-  "nav_calculator": "计算器"
+  "nav_calculator": "计算器",
+  "rp_title": "帮助改进这个网站？",
+  "rp_body": "经你同意，会记录访问过程并保存一个 Cookie。",
+  "rp_allow": "允许",
+  "rp_decline": "不用了",
+  "rp_privacy": "隐私政策",
+  "foot_recording": "录制选项"
 }
