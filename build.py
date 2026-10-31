@@ -171,7 +171,7 @@ def build(lang, pid):
             "image": SITE + "/assets/icon.png",
             "description": w["jsonld_desc"],
             "inLanguage": [common[l]["_html_lang"] for l in LANGS],
-            "author": {"@type": "Person", "name": "Adam Markocki"},
+            "author": {"@type": "Person", "name": "Adam Markocki", "url": "https://markockiadam.com"},
             "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
         }
         if RATING:
@@ -194,7 +194,7 @@ def build(lang, pid):
             "inLanguage": w["_html_lang"],
             "datePublished": w.get("_published", TODAY),
             "dateModified": w.get("_modified", w.get("_published", TODAY)),
-            "author": {"@type": "Person", "name": "Adam Markocki", "url": SITE + "/"},
+            "author": {"@type": "Person", "name": "Adam Markocki", "url": "https://markockiadam.com"},
             "publisher": {"@type": "Organization", "name": "BookWorm", "logo": {"@type": "ImageObject", "url": SITE + "/assets/icon.png"}},
             "image": SITE + "/assets/og-share-v2.jpg",
             "mainEntityOfPage": here,

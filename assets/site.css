@@ -439,6 +439,22 @@ section { position: relative; }
 [data-theme="retro"] .maker blockquote { font-size: clamp(1.15rem, 2.8vw, 1.45rem); letter-spacing: -.02em; }
 .maker blockquote p { margin: 0 0 .7em; }
 .signature { font: 400 2.2rem/1 "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive; color: var(--ink-2); margin: 6px 0 0; }
+.signed { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin-top: 6px; }
+.signed .signature { margin: 0; }
+/* a postscript to the signature: a fine rule leads out from the name to the domain in spaced small caps;
+   on hover a hairline underline draws in from the left and the arrow leans toward where it goes */
+.site-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--ink-2); text-decoration: none;
+  font: 600 .74rem/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; transition: color .25s var(--ease-out); }
+.site-link::before { content: ""; width: 24px; height: 1px; background: currentColor; opacity: .45; transform-origin: right; transition: transform .45s var(--ease-out), opacity .25s; }
+.site-link .label { padding: 4px 0; background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat; transition: background-size .45s var(--ease-out); }
+.site-link svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .3s var(--ease-out); }
+.site-link:hover, .site-link:focus-visible { color: var(--ink); }
+.site-link:hover::before, .site-link:focus-visible::before { transform: scaleX(1.35); opacity: .8; }
+.site-link:hover .label, .site-link:focus-visible .label { background-size: 100% 1px; }
+.site-link:hover svg, .site-link:focus-visible svg { transform: translate(2px, -2px); }
+.site-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+[data-theme="marginalia"] .site-link { font-family: inherit; letter-spacing: .12em; }
+@media (prefers-reduced-motion: reduce) { .site-link::before, .site-link .label, .site-link svg { transition: none; } }
 .tipline { margin: 20px 0 0; font-size: 1rem; color: var(--ink-2); }
 .tipline b { color: var(--ink); font-weight: 600; }
 @media (min-width: 760px) { .maker { grid-template-columns: 160px 1fr; gap: 48px; } .maker img { width: 160px; height: 160px; } }
