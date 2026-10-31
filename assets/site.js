@@ -63,6 +63,9 @@
     if (opts.save) store('bw-theme', theme);
   }
   setTheme(root.getAttribute('data-theme'), {});
+  // whatever changes the theme, the screenshots follow it, so a page can never show the app in the wrong look
+  new MutationObserver(function () { paintShots(root.getAttribute('data-theme'), true); })
+    .observe(root, { attributes: true, attributeFilter: ['data-theme'] });
   // until someone picks a look, follow the system's light or dark
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
     if (!saved('bw-theme')) setTheme(e.matches ? 'dark' : 'light', { animate: true });
