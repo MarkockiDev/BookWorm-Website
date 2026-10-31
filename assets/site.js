@@ -17,6 +17,11 @@
     var spot = a.getAttribute('data-placement') || ((a.closest('section, header, footer') || {}).id) || 'other';
     track('website_app_store_clicked', { placement: spot, theme: root.getAttribute('data-theme') });
   });
+  // printable reading log downloads
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-printable]');
+    if (a) track('website_printable_downloaded', { size: a.getAttribute('data-printable') });
+  });
   // which questions people open
   document.querySelectorAll('details').forEach(function (d, i) {
     d.addEventListener('toggle', function () { if (d.open) track('website_faq_opened', { question: i + 1 }); });

@@ -35,7 +35,10 @@
 <meta name="twitter:description" content="小时和分钟、锁定屏幕计时器，有声书、电子书和纸质书共用一个每日目标。">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="把听书也算作阅读的有声书记录 App">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -50,7 +53,7 @@
   if (false && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/audiobook-tracker/' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/audiobook-tracker/' + location.hash); break; }
   }
 })();
 </script>
@@ -139,7 +142,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=f358b647">
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
@@ -270,6 +273,9 @@
       <a href="/zh-hans/audiobook-tracker/">有声书记录</a>
       <a href="/zh-hans/reading-habit-tracker/">阅读习惯打卡</a>
       <a href="/zh-hans/reading-goal-calculator/">阅读目标计算器</a>
+      
+      
+      
     </nav>
     <nav aria-label="了解">
       <h2>了解</h2>
@@ -277,6 +283,9 @@
       <a href="/zh-hans/guides/how-many-pages-a-day/">每天该读多少页？</a>
       <a href="/zh-hans/guides/build-a-reading-habit/">养成阅读习惯</a>
       <a href="/zh-hans/guides/track-audiobooks/">记录有声书</a>
+      
+      
+      
     </nav>
     <nav aria-label="帮助">
       <h2>帮助</h2>
@@ -289,6 +298,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=f358b647"></script>
+<script src="/assets/site.js?v=e6523108"></script>
 </body>
 </html>

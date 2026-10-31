@@ -17,7 +17,13 @@ privacy/index.html             privacy policy (English only, not built)
 ```
 
 Pages: home, `reading-goal-calculator/`, `audiobook-tracker/`, `reading-habit-tracker/`, `support/`,
-`guides/` and three guides under it. Languages live under `/pl/`, `/es/`, `/fr/`, `/zh-hans/`, `/hi/`, `/ja/`,
+`guides/` and six guides under it, plus `reading-journal-app/`, `reading-log/` and `reading-challenge/`.
+The last three pages and the last three guides are **English only for now** (translate the ones Search Console
+shows working). Links to a page that may not exist in every language are wrapped in `<!--if:page-id-->…<!--/if-->`,
+which `build.py` keeps only where that page exists, so no language links to a missing page. The printable reading
+log is `src/printables/reading-log.html`, rendered to `assets/bookworm-reading-log-{a4,letter}.pdf` (see below).
+
+Languages live under `/pl/`, `/es/`, `/fr/`, `/zh-hans/`, `/hi/`, `/ja/`,
 `/ko/`, `/pt-br/` with the same slugs.
 
 ## Changing the site
@@ -60,11 +66,12 @@ Every website event carries `platform = web`, `site = ilovebookworm.com`, `env`,
 |---|---|---|
 | `$pageview` | every page load | PostHog's own: URL, referrer, UTM tags, country, device |
 | `$pageleave` | leaving a page | includes `$prev_pageview_max_scroll_percentage` (scroll depth) |
-| `website_app_store_clicked` | any App Store button or link | `placement` (`nav`, `hero`, `page-top`, `closing`, `footer`), `theme` |
+| `website_app_store_clicked` | any App Store button or link | `placement` (`nav`, `hero`, `page-top`, `calculator`, `closing`, `footer`), `theme` |
 | `website_theme_changed` | a different look is picked | `theme`, `from`, `source` (`nav` or `section`) |
 | `website_language_changed` | a language is picked in the menu | `to`, `from` |
 | `website_faq_opened` | a question is opened | `question` (its number on that page) |
-| `website_calculator_used` | once per mode per visit, after typing | `mode` (`year` or `book`), `pages_per_day` |
+| `website_printable_downloaded` | a printable reading log PDF is downloaded | `size` (`a4` or `letter`) |
+| `website_calculator_used` | once per mode per visit, after the visitor stops changing things | `mode` (`year` or `book`), `pages_per_day` (the number on screen), `year` (`this` or `next`, year mode only) |
 
 Event names never change once shipped (same rule as the app).
 
@@ -73,6 +80,14 @@ Event names never change once shipped (same rule as the app).
 Add `"app_store_pt": "<provider token>"` to `src/site.json` and rebuild. Every App Store link then becomes
 `apps.apple.com/app/apple-store/id6761390761?pt=<token>&ct=web-<page>&mt=8`, and App Store Connect →
 App Analytics → Acquisition → Campaigns shows downloads per page.
+
+## Printable reading log
+
+Edit `src/printables/reading-log.html`, then render both sizes with headless Chrome:
+
+```bash
+for s in a4 letter; do "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=3000 --print-to-pdf="assets/bookworm-reading-log-$s.pdf" "file://$PWD/src/printables/reading-log.html?size=$s"; done
+```
 
 ## Preview locally
 

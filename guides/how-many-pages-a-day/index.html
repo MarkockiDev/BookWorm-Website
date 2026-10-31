@@ -35,7 +35,10 @@
 <meta name="twitter:description" content="How many pages a day to read 12, 24 or 52 books a year, how to pick a daily reading goal you will actually keep, and what to do when you fall behind.">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="How Many Pages a Day Should You Read? (12, 24 or 52 Books) | BookWorm">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -50,7 +53,7 @@
   if (true && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/guides/how-many-pages-a-day/' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/guides/how-many-pages-a-day/' + location.hash); break; }
   }
 })();
 </script>
@@ -130,7 +133,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=f358b647">
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -276,6 +279,9 @@
       <a href="/audiobook-tracker/">Audiobook tracker</a>
       <a href="/reading-habit-tracker/">Reading habit tracker</a>
       <a href="/reading-goal-calculator/">Reading goal calculator</a>
+      <a href="/reading-journal-app/">Reading journal app</a>
+      <a href="/reading-log/">Reading log</a>
+      <a href="/reading-challenge/">Reading challenge</a>
     </nav>
     <nav aria-label="Learn">
       <h2>Learn</h2>
@@ -283,6 +289,9 @@
       <a href="/guides/how-many-pages-a-day/">How many pages a day?</a>
       <a href="/guides/build-a-reading-habit/">Build a reading habit</a>
       <a href="/guides/track-audiobooks/">Track audiobooks</a>
+      <a href="/guides/start-a-reading-journal/">Start a reading journal</a>
+      <a href="/guides/how-to-read-more-books/">How to read more books</a>
+      <a href="/guides/reading-challenge-ideas/">Reading challenge ideas</a>
     </nav>
     <nav aria-label="Help">
       <h2>Help</h2>
@@ -295,6 +304,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=f358b647"></script>
+<script src="/assets/site.js?v=e6523108"></script>
 </body>
 </html>

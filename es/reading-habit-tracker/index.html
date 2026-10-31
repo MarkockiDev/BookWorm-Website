@@ -35,7 +35,10 @@
 <meta name="twitter:description" content="Una meta diaria, una racha que crece, un calendario de días de lectura y un solo recordatorio tranquilo al día.">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="Un seguimiento del hábito de lectura que te trata con cariño">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -50,7 +53,7 @@
   if (false && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/reading-habit-tracker/' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/reading-habit-tracker/' + location.hash); break; }
   }
 })();
 </script>
@@ -139,7 +142,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=f358b647">
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -270,6 +273,9 @@
       <a href="/es/audiobook-tracker/">Seguimiento de audiolibros</a>
       <a href="/es/reading-habit-tracker/">Hábito de lectura</a>
       <a href="/es/reading-goal-calculator/">Calculadora de metas de lectura</a>
+      
+      
+      
     </nav>
     <nav aria-label="Aprende">
       <h2>Aprende</h2>
@@ -277,6 +283,9 @@
       <a href="/es/guides/how-many-pages-a-day/">¿Cuántas páginas al día?</a>
       <a href="/es/guides/build-a-reading-habit/">Crear un hábito de lectura</a>
       <a href="/es/guides/track-audiobooks/">Registrar audiolibros</a>
+      
+      
+      
     </nav>
     <nav aria-label="Ayuda">
       <h2>Ayuda</h2>
@@ -289,6 +298,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=f358b647"></script>
+<script src="/assets/site.js?v=e6523108"></script>
 </body>
 </html>

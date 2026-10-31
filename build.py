@@ -36,6 +36,13 @@ PAGES = [
     ("how-many-pages-a-day", "guides/how-many-pages-a-day/", "guides", "article"),
     ("build-a-reading-habit", "guides/build-a-reading-habit/", "guides", "article"),
     ("track-audiobooks", "guides/track-audiobooks/", "guides", "article"),
+    # English first; translated once Search Console shows they work
+    ("reading-journal-app", "reading-journal-app/", None, "page"),
+    ("reading-log", "reading-log/", None, "page"),
+    ("reading-challenge", "reading-challenge/", None, "page"),
+    ("start-a-reading-journal", "guides/start-a-reading-journal/", "guides", "article"),
+    ("how-to-read-more-books", "guides/how-to-read-more-books/", "guides", "article"),
+    ("reading-challenge-ideas", "guides/reading-challenge-ideas/", "guides", "article"),
 ]
 PAGES = [p for p in PAGES if (SRC / "pages" / f"{p[0]}.html").exists()]
 BY_ID = {p[0]: p for p in PAGES}
@@ -210,6 +217,7 @@ def build(lang, pid):
         "og_desc": w.get("og_desc", w["meta_desc"]),
         "is_en": "true" if lang == "en" else "false",
         "slug": slug,
+        "langs_here": json.dumps(langs_here),
         "jsonld": jsonld,
         "home": home,
         "lang_menu": menu,
@@ -236,13 +244,16 @@ def build(lang, pid):
 
     content = (SRC / "pages" / f"{pid}.html").read_text(encoding="utf-8")
     html = layout.replace("{{content}}", content)
+    # <!--if:page-id-->...<!--/if-->: kept only where that page exists in this language, so no link ever 404s
+    html = re.sub(r"<!--if:([\w-]+)-->(.*?)<!--/if-->", lambda m: m.group(2) if m.group(1) in BY_ID and has(lang, m.group(1)) else "", html, flags=re.S)
+    used = set(re.findall(r"\{\{(\w+)\}\}", html))
     html = re.sub(r"\{\{(\w+)\}\}", fill, html)
     html = re.sub(r"\{\{(\w+)\}\}", fill, html)  # a page's words may themselves carry {{home}} links
     leak_check(html, f"{lang}/{pid}")
     out = ROOT / home.strip("/") / slug / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
-    missing = sorted(k for k in {**common["en"], **words[("en", pid)]} if not k.startswith("_") and k not in {**common[lang], **words[(lang, pid)]})
+    missing = sorted(k for k in {**common["en"], **words[("en", pid)]} if not k.startswith("_") and k in used and k not in {**common[lang], **words[(lang, pid)]})
     return missing
 
 

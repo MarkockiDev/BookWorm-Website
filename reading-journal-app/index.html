@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-page="reading-journal-app">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reading Journal App for iPhone: Notes, Reading Log and Calendar | BookWorm</title>
+<meta name="description" content="A reading journal that keeps itself: notes pinned to the page you wrote them on, a calendar of every reading day, and a record of each book you finish. For iPhone and iPad.">
+<link rel="canonical" href="https://ilovebookworm.com/reading-journal-app/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/reading-journal-app/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/reading-journal-app/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/reading-journal-app/">
+<meta property="og:title" content="A reading journal that keeps itself">
+<meta property="og:description" content="Notes pinned to the page, a calendar of reading days, and every book you've finished.">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A reading journal that keeps itself">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A reading journal that keeps itself">
+<meta name="twitter:description" content="Notes pinned to the page, a calendar of reading days, and every book you've finished.">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="A reading journal that keeps itself">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (true && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/reading-journal-app/' + location.hash); break; }
+  }
+})();
+</script>
+<script>
+/* PostHog, cookieless: nothing is stored on the visitor's device and no one is identified.
+   The key below is PostHog's public "project key": it can only send events, never read them.
+   Runs only on ilovebookworm.com (add ?ph=1 to a local preview to test, tagged env=preview). */
+(function () {
+  var live = location.hostname === 'ilovebookworm.com', test = /[?&]ph=1\b/.test(location.search);
+  if (!live && !test) return;
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlag resetPersonPropertiesForFlag setGroupPropertiesForFlag resetGroupPropertiesForFlag reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_zCVZ7oSoCiGgK4fNJKATcZubkkuYVdNw6i5iUNwRQaaJ', {
+    api_host: 'https://eu.i.posthog.com',
+    ui_host: 'https://eu.posthog.com',
+    persistence: 'memory',              // no cookies, no localStorage: no consent banner needed
+    person_profiles: 'identified_only', // nobody is identified, so no person profiles are made
+    autocapture: false,                 // only the events named in site.js, never page text or input
+    capture_pageview: true,
+    capture_pageleave: true,            // carries how far down the page the visitor scrolled
+    disable_session_recording: true,
+    disable_surveys: true,
+    advanced_disable_feature_flags: true
+  });
+  posthog.register({ platform: 'web', site: 'ilovebookworm.com', env: live ? 'production' : 'preview', page_id: 'reading-journal-app', page_lang: 'en' });
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ilovebookworm.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reading journal app",
+          "item": "https://ilovebookworm.com/reading-journal-app/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is BookWorm a reading journal or a reading tracker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both. It tracks your page, your goal and your streak, and it keeps the journal side: notes on each book, the days you read, and when you started and finished."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I write notes on audiobooks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A note on an audiobook is pinned to the hour and minute you were at, the same way a note on a paper book is pinned to a page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I search my notes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Each book's notebook has a search field that looks through the text of your notes and their pages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get my journal out of the app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Settings has Export Data, which saves your whole library, reading history and notes as a file you keep. Import reads it back."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I like writing by hand. Is there a paper version?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There's a printable reading log on the reading log page, with a page for your books, a year of reading days and a page for notes."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/#main" aria-label="BookWorm, back to top">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="/#how">How it works</a>
+      <a href="/#looks">Themes</a>
+      <a href="/guides/">Guides</a>
+      <a href="/reading-goal-calculator/">Calculator</a>
+      <a href="/support/">Support</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="Theme">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="Theme">
+        <p aria-hidden="true">Theme</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>Light<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>Dark<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>Retro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>Marginalia<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language: English">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">EN</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="Language">
+        <p aria-hidden="true">Language</p>
+        <a href="/reading-journal-app/" hreflang="en" lang="en" aria-current="page">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-journal-app&mt=8" data-placement="nav">Get the app</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="https://ilovebookworm.com/">Home</a></li><li aria-current="page">Reading journal app</li></ol></nav>
+        <p class="eyebrow">Reading journal app</p>
+        <h1>A book journal that keeps itself.</h1>
+        <p class="lede">Write a thought on page 142 and it stays on page 142. BookWorm keeps your notes, your reading days and every book you finish, so the journal writes itself while you read.</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-journal-app&mt=8" data-placement="page-top"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="bookshelf" data-w="420 720" sizes="380px" width="720" height="1207" alt="My Bookshelf with Reading, To Read and Finished tabs." fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">What your journal holds</h2><p>Everything a paper book journal asks you to copy out by hand, kept as you go.</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>Notes pinned to the page</h3><p>Each note remembers the page, or the minute of an audiobook, where you wrote it. A book's notebook reads in page order, and you can search it.</p></article>
+        <article class="point reveal"><h3>A calendar of reading days</h3><p>Every day you read gets a mark and every book you finish gets a gold ring. Tap a day to see what you read.</p></article>
+        <article class="point reveal"><h3>Every book, with its dates</h3><p>Start and finish dates, pauses, re-reads, genres and favourites. Your shelf filters by year, format and genre, so last summer's books are one tap away.</p></article>
+        <article class="point reveal"><h3>A recap every month</h3><p>On the first of the month, BookWorm shows what you read the month before. Finished books can be shared as a vintage library checkout card.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>Write while you read, not after.</h2>
+        <p>The best line in a book is easiest to keep in the moment you read it. Start a reading session, and a note is one tap away without leaving the timer. Close the session without logging pages and your notes still stay.</p>
+        <p>Your journal is yours: it syncs through your own iCloud account, and you can export the whole library, notes included, from Settings at any time.</p>
+        <a class="more" href="/guides/start-a-reading-journal/">Read the guide to starting a reading journal</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="calendar" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="The BookWorm reading calendar with 18 reading days and a 16-day streak."></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">Questions about the reading journal</h2></div>
+      <details class="reveal"><summary>Is BookWorm a reading journal or a reading tracker?<i aria-hidden="true"></i></summary><div class="answer"><p>Both. It tracks your page, your goal and your streak, and it keeps the journal side: notes on each book, the days you read, and when you started and finished.</p></div></details>
+      <details class="reveal"><summary>Can I write notes on audiobooks?<i aria-hidden="true"></i></summary><div class="answer"><p>Yes. A note on an audiobook is pinned to the hour and minute you were at, the same way a note on a paper book is pinned to a page.</p></div></details>
+      <details class="reveal"><summary>Can I search my notes?<i aria-hidden="true"></i></summary><div class="answer"><p>Yes. Each book's notebook has a search field that looks through the text of your notes and their pages.</p></div></details>
+      <details class="reveal"><summary>Can I get my journal out of the app?<i aria-hidden="true"></i></summary><div class="answer"><p>Yes. Settings has Export Data, which saves your whole library, reading history and notes as a file you keep. Import reads it back.</p></div></details>
+      <details class="reveal"><summary>I like writing by hand. Is there a paper version?<i aria-hidden="true"></i></summary><div class="answer"><p>There's a printable reading log on the <a href="/reading-log/">reading log page</a>, with a page for your books, a year of reading days and a page for notes.</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">Keep reading</h2></div>
+      <div class="cards">
+        <a class="card" href="/reading-log/"><small>Printable</small><h3>Reading log</h3><p>A printable log for paper, and one that fills itself in on your iPhone.</p><span class="go">Get the log →</span></a>
+        <a class="card" href="/guides/start-a-reading-journal/"><small>Guide</small><h3>How to start a reading journal</h3><p>What to write, how often, and how to keep it going past February.</p><span class="go">Read the guide →</span></a>
+        <a class="card" href="/reading-habit-tracker/"><small>The app</small><h3>Reading habit tracker</h3><p>A daily goal, a streak that grows, and one calm reminder.</p><span class="go">See how →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Bring it to your iPhone.</h2>
+      <p>BookWorm keeps your page, your goal and your streak, one tap at a time.</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-journal-app&mt=8" data-placement="closing"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>A calm reading tracker for paper books, ebooks and audiobooks.</p>
+      <a class="badge small" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-journal-app&mt=8" data-placement="footer"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="The app">
+      <h2>The app</h2>
+      <a href="/audiobook-tracker/">Audiobook tracker</a>
+      <a href="/reading-habit-tracker/">Reading habit tracker</a>
+      <a href="/reading-goal-calculator/">Reading goal calculator</a>
+      <a href="/reading-journal-app/">Reading journal app</a>
+      <a href="/reading-log/">Reading log</a>
+      <a href="/reading-challenge/">Reading challenge</a>
+    </nav>
+    <nav aria-label="Learn">
+      <h2>Learn</h2>
+      <a href="/guides/">All guides</a>
+      <a href="/guides/how-many-pages-a-day/">How many pages a day?</a>
+      <a href="/guides/build-a-reading-habit/">Build a reading habit</a>
+      <a href="/guides/track-audiobooks/">Track audiobooks</a>
+      <a href="/guides/start-a-reading-journal/">Start a reading journal</a>
+      <a href="/guides/how-to-read-more-books/">How to read more books</a>
+      <a href="/guides/reading-challenge-ideas/">Reading challenge ideas</a>
+    </nav>
+    <nav aria-label="Help">
+      <h2>Help</h2>
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="https://markockidev.canny.io/bookworm">Suggest a feature</a>
+      <a href="mailto:markockidev@icloud.com">Contact</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=e6523108"></script>
+</body>
+</html>

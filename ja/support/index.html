@@ -35,7 +35,10 @@
 <meta name="twitter:description" content="iCloud 同期、新しい iPhone への移行、リマインダー、ウィジェット、蔵書のエクスポートなどへの答え。BookWorm の作り手に直接メールもできます。">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="BookWorm サポート：ヘルプ、同期、お問い合わせ">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -50,7 +53,7 @@
   if (false && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/support/' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/support/' + location.hash); break; }
   }
 })();
 </script>
@@ -171,7 +174,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=f358b647">
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
@@ -275,6 +278,9 @@
       <a href="/ja/audiobook-tracker/">オーディオブック記録</a>
       <a href="/ja/reading-habit-tracker/">読書習慣トラッカー</a>
       <a href="/ja/reading-goal-calculator/">読書目標計算ツール</a>
+      
+      
+      
     </nav>
     <nav aria-label="読みもの">
       <h2>読みもの</h2>
@@ -282,6 +288,9 @@
       <a href="/ja/guides/how-many-pages-a-day/">1日何ページ読む？</a>
       <a href="/ja/guides/build-a-reading-habit/">読書習慣をつくる</a>
       <a href="/ja/guides/track-audiobooks/">オーディオブックを記録する</a>
+      
+      
+      
     </nav>
     <nav aria-label="ヘルプ">
       <h2>ヘルプ</h2>
@@ -294,6 +303,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=f358b647"></script>
+<script src="/assets/site.js?v=e6523108"></script>
 </body>
 </html>

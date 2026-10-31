@@ -35,7 +35,10 @@
 <meta name="twitter:description" content="매일 책 읽는 습관을 만드는 현실적인 방법. 작은 목표, 정해진 순간, 가벼운 기록, 탓하지 않는 연속 기록. 첫 주 계획까지 담았어요.">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="독서 습관 만드는 법: 오래가는 7가지 방법 | BookWorm">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -50,7 +53,7 @@
   if (false && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/guides/build-a-reading-habit/' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/guides/build-a-reading-habit/' + location.hash); break; }
   }
 })();
 </script>
@@ -130,7 +133,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=f358b647">
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -271,6 +274,9 @@
       <a href="/ko/audiobook-tracker/">오디오북 기록</a>
       <a href="/ko/reading-habit-tracker/">독서 습관 기록</a>
       <a href="/ko/reading-goal-calculator/">독서 목표 계산기</a>
+      
+      
+      
     </nav>
     <nav aria-label="알아보기">
       <h2>알아보기</h2>
@@ -278,6 +284,9 @@
       <a href="/ko/guides/how-many-pages-a-day/">하루 몇 페이지 읽을까?</a>
       <a href="/ko/guides/build-a-reading-habit/">독서 습관 만들기</a>
       <a href="/ko/guides/track-audiobooks/">오디오북 기록하기</a>
+      
+      
+      
     </nav>
     <nav aria-label="도움말">
       <h2>도움말</h2>
@@ -290,6 +299,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=f358b647"></script>
+<script src="/assets/site.js?v=e6523108"></script>
 </body>
 </html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BookWorm Reading Log</title>
+<!-- Printed to assets/bookworm-reading-log-{a4,letter}.pdf by headless Chrome (see README). ?size=letter picks US Letter. -->
+<style id="page">@page { size: A4; margin: 0; } :root { --w: 210mm; --h: 297mm; }</style>
+<script>
+if (/size=letter/.test(location.search)) document.getElementById('page').textContent = '@page { size: letter; margin: 0; } :root { --w: 8.5in; --h: 11in; }';
+</script>
+<style>
+  :root { --ink: #2C1810; --ink-2: #6B4E3D; --rule: #D9CBB8; --faint: #EFE6D8; --ember: #BF360C; --gold: #C9A84C; --green: #2F5D4A; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; color: var(--ink); font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sheet { width: var(--w); height: var(--h); padding: 15mm 15mm 12mm; display: flex; flex-direction: column; page-break-after: always; overflow: hidden; }
+  .sheet:last-child { page-break-after: auto; }
+  header { display: flex; align-items: flex-end; justify-content: space-between; gap: 10mm; border-bottom: 1.4pt solid var(--ink); padding-bottom: 4mm; }
+  .eyebrow { font-size: 7.5pt; letter-spacing: .2em; text-transform: uppercase; color: var(--ember); font-weight: 700; }
+  h1 { font-family: "New York", ui-serif, Georgia, serif; font-size: 26pt; line-height: 1.05; font-weight: 700; letter-spacing: -.01em; margin-top: 2mm; }
+  .blank { font-size: 9pt; color: var(--ink-2); white-space: nowrap; }
+  .blank span { display: inline-block; width: 28mm; border-bottom: .8pt solid var(--ink-2); margin-left: 2mm; }
+  .lede { font-size: 9pt; color: var(--ink-2); margin-top: 3mm; }
+  footer { margin-top: auto; padding-top: 4mm; display: flex; justify-content: space-between; align-items: center; font-size: 7.5pt; color: var(--ink-2); }
+  footer b { color: var(--ink); font-family: "New York", ui-serif, Georgia, serif; font-size: 9pt; }
+  footer img { width: 5mm; height: 5mm; border-radius: 1.2mm; vertical-align: -1.4mm; margin-right: 1.5mm; }
+
+  /* page 1: books */
+  table { width: 100%; border-collapse: collapse; margin-top: 5mm; table-layout: fixed; }
+  th { font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; text-align: left; padding: 0 1.5mm 2mm; }
+  td { border-bottom: .6pt solid var(--rule); height: 10.6mm; padding: 0 1.5mm; font-size: 8pt; color: var(--rule); vertical-align: bottom; }
+  td.n { color: var(--ink-2); font-family: "New York", ui-serif, Georgia, serif; font-size: 9pt; padding-bottom: 1.6mm; }
+  td.fmt, td.stars { white-space: nowrap; padding-bottom: 1.8mm; color: var(--ink-2); font-size: 6.5pt; letter-spacing: .04em; }
+  .o { display: inline-block; width: 2.6mm; height: 2.6mm; border: .7pt solid var(--ink-2); border-radius: 50%; vertical-align: -.5mm; margin: 0 .6mm 0 1.4mm; }
+  .o:first-child { margin-left: 0; }
+  .star { display: inline-block; width: 3.4mm; height: 3.4mm; margin-right: .5mm; background: var(--rule); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+
+  /* page 2: a year of reading days */
+  .year { margin-top: 6mm; display: grid; grid-template-columns: 10mm repeat(31, 1fr); grid-template-rows: 5mm repeat(12, 1fr); gap: 1.2mm 1mm; flex: 1; }
+  .year .d { font-size: 6pt; color: var(--ink-2); text-align: center; align-self: end; padding-bottom: .5mm; }
+  .year .m { font-size: 7pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); align-self: center; }
+  .year .c { border: .6pt solid var(--rule); border-radius: 1mm; }
+  
+  .key { display: flex; gap: 8mm; margin-top: 6mm; font-size: 8pt; color: var(--ink-2); align-items: center; flex-wrap: wrap; }
+  .key i { display: inline-block; width: 4mm; height: 4mm; border-radius: 1mm; vertical-align: -1mm; margin-right: 2mm; border: .6pt solid var(--rule); }
+  .key .read { background: var(--green); border-color: var(--green); }
+  .key .goal { background: var(--ember); border-color: var(--ember); }
+  .key .fin { border: 1.4pt solid var(--gold); border-radius: 50%; }
+  .tally { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; margin-top: 6mm; }
+  .tally div { border-top: .8pt solid var(--ink); padding-top: 2mm; font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; height: 16mm; }
+
+  /* page 3: notes on a book */
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 8mm; margin-top: 6mm; }
+  .field { font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; border-bottom: .8pt solid var(--ink-2); padding-bottom: 6mm; }
+  .field.wide { grid-column: 1 / -1; }
+  .quote { margin-top: 7mm; border: .8pt solid var(--rule); border-left: 2.4pt solid var(--gold); border-radius: 2mm; padding: 3mm 4mm; height: 30mm; position: relative; }
+  .quote::before { content: "\201C"; position: absolute; right: 4mm; top: -2mm; font-family: Georgia, serif; font-size: 40pt; color: var(--faint); }
+  h2 { font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; margin-top: 7mm; }
+  .quote h2 { margin-top: 0; }
+  .lines { flex: 1; margin-top: 2mm; background-image: linear-gradient(transparent calc(9mm - .6pt), var(--rule) calc(9mm - .6pt), var(--rule) 9mm); background-size: 100% 9mm; min-height: 60mm; }
+  .end { display: grid; grid-template-columns: 1.4fr 1fr; gap: 8mm; margin-top: 5mm; align-items: end; }
+  .end .stars .star { width: 5mm; height: 5mm; margin-right: 1.5mm; }
+</style>
+</head>
+<body>
+
+<section class="sheet">
+  <header>
+    <div><p class="eyebrow">Reading log</p><h1>Books I've read</h1></div>
+    <p class="blank">Year<span></span></p>
+  </header>
+  <table>
+    <colgroup><col style="width:10mm"><col style="width:38%"><col style="width:23%"><col style="width:23mm"><col style="width:15mm"><col style="width:15mm"><col style="width:23mm"></colgroup>
+    <thead><tr><th>No.</th><th>Title</th><th>Author</th><th>Format</th><th>Started</th><th>Finished</th><th>Rating</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <footer><span><img src="../../assets/icon-180.png" alt=""><b>BookWorm</b> &nbsp;Format: P paper · E ebook · A audiobook</span><span>ilovebookworm.com</span></footer>
+</section>
+
+<section class="sheet">
+  <header>
+    <div><p class="eyebrow">Reading log</p><h1>A year of reading days</h1></div>
+    <p class="blank">Year<span></span></p>
+  </header>
+  <p class="lede">Colour in a box for every day you read. Even five pages counts.</p>
+  <div class="year" id="year"></div>
+  <div class="key"><span><i class="read"></i>I read today</span><span><i class="goal"></i>I reached my goal</span><span><i class="fin"></i>I finished a book</span></div>
+  <div class="tally"><div>Days I read</div><div>Longest run of days</div><div>Books finished</div></div>
+  <footer><span><img src="../../assets/icon-180.png" alt=""><b>BookWorm</b> &nbsp;keeps this calendar for you on iPhone</span><span>ilovebookworm.com</span></footer>
+</section>
+
+<section class="sheet">
+  <header>
+    <div><p class="eyebrow">Reading journal</p><h1>Notes on a book</h1></div>
+  </header>
+  <div class="facts">
+    <div class="field wide">Title</div>
+    <div class="field">Author</div>
+    <div class="field">Format · pages or hours</div>
+    <div class="field">Started</div>
+    <div class="field">Finished</div>
+    <div class="field wide">Why I picked it up</div>
+  </div>
+  <div class="quote"><h2>A line I want to keep · page</h2></div>
+  <h2>What stayed with me</h2>
+  <div class="lines"></div>
+  <div class="end">
+    <div class="field">I'd give it to</div>
+    <div><h2 style="margin-top:0">Rating</h2><div class="stars" style="margin-top:3mm"><i class="star"></i><i class="star"></i><i class="star"></i><i class="star"></i><i class="star"></i></div></div>
+  </div>
+  <footer><span><img src="../../assets/icon-180.png" alt=""><b>BookWorm</b> &nbsp;keeps notes pinned to the page on iPhone</span><span>ilovebookworm.com</span></footer>
+</section>
+
+<script>
+  var rows = '', i;
+  var fmt = '<span class="o"></span>P<span class="o"></span>E<span class="o"></span>A';
+  var stars = '<i class="star"></i><i class="star"></i><i class="star"></i><i class="star"></i><i class="star"></i>';
+  for (i = 1; i <= 20; i++) rows += '<tr><td class="n">' + i + '</td><td></td><td></td><td class="fmt">' + fmt + '</td><td></td><td></td><td class="stars">' + stars + '</td></tr>';
+  document.getElementById('rows').innerHTML = rows;
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], len = [31,29,31,30,31,30,31,31,30,31,30,31];
+  var y = '<span></span>';
+  for (i = 1; i <= 31; i++) y += '<span class="d">' + i + '</span>';
+  months.forEach(function (m, k) {
+    y += '<span class="m">' + m + '</span>';
+    for (var d = 1; d <= 31; d++) y += d <= len[k] ? '<span class="c"></span>' : '<span class="x"></span>';
+  });
+  document.getElementById('year').innerHTML = y;
+</script>
+</body>
+</html>

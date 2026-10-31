@@ -35,7 +35,10 @@
 <meta name="twitter:description" content="Sua meta de livros do ano ou uma data final, transformada em páginas e minutos por dia.">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="Calculadora de meta de leitura: quantas páginas por dia?">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -50,7 +53,7 @@
   if (false && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/reading-goal-calculator/' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/reading-goal-calculator/' + location.hash); break; }
   }
 })();
 </script>
@@ -139,7 +142,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=f358b647">
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
 </head>
 <body>
 <a class="skip" href="#main">Pular para o conteúdo</a>
@@ -195,47 +198,82 @@
       <nav class="crumbs" aria-label="Trilha de navegação"><ol><li><a href="https://ilovebookworm.com/pt-br/">Início</a></li><li aria-current="page">Calculadora de meta de leitura</li></ol></nav>
       <p class="eyebrow">Calculadora de meta de leitura</p>
       <h1>Quantas páginas por dia você precisa ler?</h1>
-      <p class="lede">Diga quantos livros quer ler este ano, ou quando quer terminar o que está nas suas mãos. A calculadora transforma isso em páginas e minutos por dia, a partir de hoje.</p>
+      <p class="lede">Diga quantos livros você quer ler, ou quando quer terminar o que está nas suas mãos. Ele calcula as páginas por dia do mesmo jeito que o BookWorm faz quando você define sua meta.</p>
     </div>
   </header>
 
   <section aria-label="Calculadora de meta de leitura">
-    <div class="wrap">
-      <div class="calc" id="calc">
-        <div class="calc-tabs" role="tablist" aria-label="Calculadora de meta de leitura">
-          <button role="tab" id="tab-year" aria-selected="true" aria-controls="panel-year">Livros este ano</button>
-          <button role="tab" id="tab-book" aria-selected="false" aria-controls="panel-book" tabindex="-1">Terminar um livro</button>
-        </div>
+    <div class="wrap calc-stage">
+      <div class="iphone">
+        <div class="iphone-screen" id="calc">
+          <div class="status" aria-hidden="true"><span>9:41</span><i class="island"></i><span class="sig"><b></b><b></b><b></b><b></b></span></div>
 
-        <div role="tabpanel" id="panel-year" aria-labelledby="tab-year">
-          <div class="calc-fields">
-            <div><label for="y-books">Livros para ler</label><input id="y-books" type="number" inputmode="numeric" min="1" max="500" value="24"></div>
-            <div><label for="y-pages">Média de páginas por livro</label><input id="y-pages" type="number" inputmode="numeric" min="10" max="3000" value="300"></div>
-            <div class="wide"><label for="y-speed">Minutos por página</label><input id="y-speed" type="number" inputmode="decimal" min="0.3" max="10" step="0.1" value="1.5"></div>
+          <div class="seg" role="tablist" aria-label="Calculadora de meta de leitura">
+            <button role="tab" id="tab-year" aria-selected="true" aria-controls="panel-year">Meta anual</button>
+            <button role="tab" id="tab-book" aria-selected="false" aria-controls="panel-book" tabindex="-1">Terminar um livro</button>
           </div>
-        </div>
 
-        <div role="tabpanel" id="panel-book" aria-labelledby="tab-book" hidden>
-          <div class="calc-fields">
-            <div><label for="b-total">Páginas do livro</label><input id="b-total" type="number" inputmode="numeric" min="1" max="5000" value="432"></div>
-            <div><label for="b-current">Página em que você está</label><input id="b-current" type="number" inputmode="numeric" min="0" max="5000" value="120"></div>
-            <div><label for="b-date">Terminar até</label><input id="b-date" type="date"></div>
-            <div><label for="b-speed">Minutos por página</label><input id="b-speed" type="number" inputmode="decimal" min="0.3" max="10" step="0.1" value="1.5"></div>
+          <div role="tabpanel" id="panel-year" aria-labelledby="tab-year">
+            <h2 class="q" id="q-year">Quantos livros este ano?</h2>
+            <div class="chips two" id="when" role="radiogroup" aria-label="Quantos livros este ano?" hidden>
+              <button role="radio" aria-checked="false" data-when="this">Este ano</button>
+              <button role="radio" aria-checked="true" data-when="next" id="when-next"></button>
+            </div>
+            <p class="sentence">
+              <span></span>
+              <label class="field"><span class="sr">Livros para ler</span><input id="y-books" type="number" inputmode="numeric" min="1" max="500" value="24"></label>
+              <span>livros de umas</span>
+              <span class="pair"><label class="field wide"><span class="sr">Média de páginas por livro</span><input id="y-pages" type="number" inputmode="numeric" min="10" max="3000" value="300"></label>
+              <span>páginas</span></span>
+            </p>
           </div>
-        </div>
 
-        <div class="calc-result" aria-live="polite">
-          <div class="calc-big"><span id="r-pages">0</span><small>páginas por dia</small></div>
-          <p class="calc-sub" id="r-sub"></p>
-          <p class="calc-hint" id="r-goal"></p>
-        </div>
+          <div role="tabpanel" id="panel-book" aria-labelledby="tab-book" hidden>
+            <h2 class="q">Quando você quer terminar?</h2>
+            <p class="sentence">
+              <span>Página</span>
+              <label class="field wide"><span class="sr">Página em que você está</span><input id="b-current" type="number" inputmode="numeric" min="0" max="5000" value="120"></label>
+              <span class="pair"><span>de</span>
+              <label class="field wide"><span class="sr">Páginas do livro</span><input id="b-total" type="number" inputmode="numeric" min="1" max="5000" value="432"></label></span>
+            </p>
+            <div class="chips" role="radiogroup" aria-label="Quando você quer terminar?">
+              <button role="radio" aria-checked="false" data-days="14">Em 2 semanas</button>
+              <button role="radio" aria-checked="true" data-days="30">Em um mês</button>
+              <button role="radio" aria-checked="false" data-days="60">Em 2 meses</button>
+              <button role="radio" aria-checked="false" data-days="date">Escolher data</button>
+            </div>
+            <label class="date-row" id="date-row" hidden><span>Terminar até</span><input id="b-date" type="date"></label>
+          </div>
 
-        <span hidden id="t-year">Cerca de {min} minutos por dia, nos {days} dias que restam este ano.</span>
-        <span hidden id="t-book">Faltam {left} páginas em {days} dias, cerca de {min} minutos por dia.</span>
-        <span hidden id="t-goal">Como meta diária no BookWorm: {goal} páginas.</span>
-        <span hidden id="t-done">Você terminou. Hora de escolher o próximo.</span>
-        <span hidden id="t-date">Escolha uma data final depois de hoje.</span>
+          <div class="answer" aria-live="polite">
+            <p class="thats">Isso dá</p>
+            <div class="tune">
+              <button type="button" id="less" aria-label="Menos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg></button>
+              <span class="num" id="r-num">0</span>
+              <button type="button" id="more" aria-label="Mais"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12M12 6v12"/></svg></button>
+            </div>
+            <p class="unit">páginas por dia</p>
+            <div class="marks" id="marks" aria-hidden="true"></div>
+            <p class="sub" id="r-line"></p>
+            <p class="sub soft" id="r-min"></p>
+          </div>
+
+          <a class="set" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-goal-calculator&mt=8" data-placement="calculator">Defina esta meta no BookWorm →</a>
+        </div>
       </div>
+
+      <div class="calc-aside reveal">
+        <h2>Igual a definir sua meta no app.</h2>
+        <p>É assim que o BookWorm define sua meta diária: diga quando quer terminar e ajuste o número com − e +. No app, cada página registrada conta para ela, e sua sequência cresce a cada dia em que você a alcança.</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-goal-calculator&mt=8" data-placement="page-top"><img src="/assets/badges/pt-br-black.svg" alt="Baixe o BookWorm na App Store" width="160" height="54"></a></div>
+      </div>
+
+      <span hidden id="t-min">Cerca de {min} minutos por dia.</span>
+      <span hidden id="t-books">Cerca de {books} livros até {date}.</span>
+      <span hidden id="t-finish">Você vai terminar por volta de {date}.</span>
+      <span hidden id="t-done">Você terminou. Hora de escolher o próximo.</span>
+      <span hidden id="t-date">Escolha uma data final depois de hoje.</span>
+      <span hidden id="t-next">Quantos livros em {year}?</span>
     </div>
   </section>
 
@@ -243,8 +281,8 @@
     <div class="wrap">
       <div class="prose">
         <h2>Como a calculadora funciona</h2>
-        <p>Para uma meta anual, ela multiplica seus livros pelo tamanho médio deles e distribui essas páginas pelos dias que faltam até 31 de dezembro, contando hoje. Para terminar um livro, ela pega as páginas que faltam e distribui pelos dias até a sua data.</p>
-        <p>Ela sempre arredonda para cima, porque uma meta que você consegue cumprir é melhor que uma que você erra por uma página todo dia. Os minutos são uma estimativa: a maioria das pessoas lê uma página de livro de bolso em um a dois minutos, então ajuste esse número ao seu ritmo.</p>
+        <p>Para uma meta anual, ele multiplica seus livros pela extensão média e distribui essas páginas pelos dias que faltam até 31 de dezembro, contando hoje. No fim do ano, ele oferece o ano seguinte, para que o número continue possível. Para terminar um livro, distribui as páginas que faltam pelos dias até a sua data.</p>
+        <p>Como o app, arredonda para cima até o próximo múltiplo de cinco, porque uma meta que você cumpre é melhor do que uma que sempre fica a uma página. Os minutos consideram cerca de um minuto e meio por página de um livro de bolso.</p>
         <h2>Páginas por dia em um ano inteiro</h2>
         <p>Se você começar em 1º de janeiro e seus livros tiverem em média 300 páginas, é isto que cada meta pede.</p>
         <table>
@@ -284,77 +322,134 @@
   </section>
 
 <script>
-/* Reading goal calculator. Rounds up, like the app's finish-line step: a goal you can meet beats one you can't. */
+/* Reading goal calculator, drawn as BookWorm's own goal screen. Same rule as the app's finish-line step:
+   ceil(pages left / days), rounded up to the next 5, kept within 5 to 500, then tuned with - and +. */
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var lang = document.documentElement.lang;
   var nf = new Intl.NumberFormat(lang);
+  var df = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'long' });
+  var dfy = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'long', year: 'numeric' });
   var fill = function (t, v) { return t.replace(/\{(\w+)\}/g, function (_, k) { return v[k]; }); };
   var num = function (id, min) { var n = parseFloat($(id).value); return isFinite(n) && n >= min ? n : null; };
-  var DAY = 864e5;
+  var DAY = 864e5, MIN_PER_PAGE = 1.5;
   var today = new Date(); today.setHours(0, 0, 0, 0);
-
-  // default finish date: a month from today
-  // dates as the visitor's own calendar sees them (toISOString would use UTC and can land a day off)
+  var plus = function (n) { var d = new Date(today); d.setDate(d.getDate() + n); return d; };
   var iso = function (d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
-  var plusDays = function (n) { var d = new Date(today); d.setDate(d.getDate() + n); return d; };
-  $('b-date').value = iso(plusDays(30));
-  $('b-date').min = iso(plusDays(1));
+  var daysTo = function (d) { return Math.round((d - today) / DAY); };
+  var goalOf = function (perDay) { return Math.min(500, Math.max(5, Math.ceil(perDay / 5) * 5)); };
 
-  var mode = 'year';
-  function goal(pages) { return Math.min(500, Math.max(5, Math.ceil(pages / 5) * 5)); }
-  function show(pages, sub) {
-    $('r-pages').textContent = pages == null ? '–' : nf.format(pages);
-    $('r-sub').textContent = sub || '';
-    $('r-goal').textContent = pages ? fill($('t-goal').textContent, { goal: nf.format(goal(pages)) }) : '';
+  // Late in the year (under ~3 months left) a goal for "this year" asks for silly numbers, so offer next year and start there.
+  var year = today.getFullYear(), next = year + 1;
+  var leftThisYear = daysTo(new Date(year, 11, 31)) + 1;          // today counts
+  var late = leftThisYear < 92;
+  var when = late ? 'next' : 'this';
+  $('when-next').textContent = next;
+  $('when').hidden = !late;
+
+  $('b-date').value = iso(plus(30)); $('b-date').min = iso(plus(1));
+  var mode = 'year', windowDays = 30, target = null;   // target: the number on screen; null until computed
+
+  function span() {      // the days a yearly goal is spread over, and the day it ends
+    if (when === 'next') { var end = new Date(next, 11, 31); return { days: Math.round((end - new Date(next, 0, 1)) / DAY) + 1, end: end }; }
+    return { days: leftThisYear, end: new Date(year, 11, 31) };
   }
-  function calc() {
+  function bookDays() { return windowDays === 'date' ? ($('b-date').value ? daysTo(new Date($('b-date').value + 'T00:00:00')) : 0) : windowDays; }
+
+  function marks(n, kind) {   // spines for books, dots for days; past a point they are texture, the words say the rest
+    var cap = kind === 'book' ? 60 : 48, shown = Math.min(n, cap), h = '';
+    for (var i = 0; i < shown; i++) h += '<i class="' + kind + (i === shown - 1 ? ' last' : '') + '"></i>';
+    $('marks').className = 'marks ' + kind; $('marks').innerHTML = h;
+  }
+
+  // recompute: fresh=true sets the number from the inputs; false keeps a hand-tuned number and re-describes it
+  function calc(fresh) {
+    var line = '', min = '';
     if (mode === 'year') {
-      var books = num('y-books', 1), avg = num('y-pages', 1), speed = num('y-speed', 0.1);
-      if (!books || !avg || !speed) return show(null);
-      var end = new Date(today.getFullYear(), 11, 31);
-      var days = Math.round((end - today) / DAY) + 1;            // today counts
-      var pages = Math.ceil(books * avg / days);
-      show(pages, fill($('t-year').textContent, { days: nf.format(days), min: nf.format(Math.ceil(pages * speed)) }));
+      $('q-year').textContent = when === 'next' ? fill($('t-next').textContent, { year: next }) : $('q-year').getAttribute('data-this');
+      var books = num('y-books', 1), avg = num('y-pages', 1), s = span();
+      if (!books || !avg) return show(null);
+      if (fresh || target == null) target = goalOf(books * avg / s.days);
+      var reach = Math.floor(target * s.days / avg);
+      line = fill($('t-books').textContent, { books: nf.format(reach), date: dfy.format(s.end) });
+      marks(reach, 'spine');
     } else {
-      var total = num('b-total', 1), current = num('b-current', 0), speed2 = num('b-speed', 0.1);
-      var date = $('b-date').value ? new Date($('b-date').value + 'T00:00:00') : null;
-      if (!total || current == null || !speed2) return show(null);
+      var total = num('b-total', 1), current = num('b-current', 0), d = bookDays();
+      if (!total || current == null) return show(null);
       var left = total - current;
-      if (left <= 0) return show(0, $('t-done').textContent);
-      if (!date || date <= today) return show(null, $('t-date').textContent);
-      var d = Math.round((date - today) / DAY);
-      var p = Math.ceil(left / d);
-      show(p, fill($('t-book').textContent, { left: nf.format(left), days: nf.format(d), min: nf.format(Math.ceil(p * speed2)) }));
+      if (left <= 0) { target = null; marks(0, 'book'); return show(null, $('t-done').textContent); }
+      if (d < 1) return show(null, $('t-date').textContent);
+      if (fresh || target == null) target = goalOf(left / d);
+      var need = Math.ceil(left / target);
+      line = fill($('t-finish').textContent, { date: df.format(plus(need)) });
+      marks(need, 'book');
     }
+    min = fill($('t-min').textContent, { min: nf.format(Math.round(target * MIN_PER_PAGE)) });
+    show(target, line, min);
   }
+  function show(n, line, min) {
+    $('r-num').textContent = n == null ? '–' : nf.format(n);
+    $('r-line').textContent = line || ''; $('r-min').textContent = min || '';
+    $('less').disabled = n == null || n <= 5; $('more').disabled = n == null || n >= 500;
+    if (n == null) $('marks').innerHTML = '';
+    $('r-num').classList.remove('pop'); void $('r-num').offsetWidth; if (n != null) $('r-num').classList.add('pop');
+    report();
+  }
+  $('q-year').setAttribute('data-this', $('q-year').textContent);
+
+  // radio chips: one choice per group, arrow keys move within it
+  function radios(group, onPick) {
+    var items = Array.prototype.slice.call(group.querySelectorAll('[role=radio]'));
+    items.forEach(function (b, i) {
+      b.tabIndex = b.getAttribute('aria-checked') === 'true' ? 0 : -1;
+      b.addEventListener('click', function () { items.forEach(function (o) { o.setAttribute('aria-checked', String(o === b)); o.tabIndex = o === b ? 0 : -1; }); onPick(b); });
+      b.addEventListener('keydown', function (e) {
+        var d = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ? -1 : 0;
+        if (!d) return; e.preventDefault(); var n = items[(i + d + items.length) % items.length]; n.focus(); n.click();
+      });
+    });
+  }
+  radios($('when'), function (b) { when = b.getAttribute('data-when'); calc(true); });
+  radios(document.querySelector('#panel-book .chips'), function (b) {
+    var v = b.getAttribute('data-days'); windowDays = v === 'date' ? 'date' : +v;
+    $('date-row').hidden = v !== 'date'; calc(true);
+  });
+  // hand-tuning, like the app's - and +: the chips stop speaking and the line underneath says what the pace means
+  function tune(step) {
+    if (target == null) return;
+    target = Math.min(500, Math.max(5, target + step));
+    if (mode === 'book') document.querySelectorAll('#panel-book [role=radio]').forEach(function (o) { o.setAttribute('aria-checked', 'false'); });
+    calc(false);
+  }
+  $('less').addEventListener('click', function () { tune(-5); });
+  $('more').addEventListener('click', function () { tune(5); });
+
   var tabs = [$('tab-year'), $('tab-book')];
   function select(i, focus) {
     mode = i ? 'book' : 'year';
     tabs.forEach(function (t, j) { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
     $('panel-year').hidden = !!i; $('panel-book').hidden = !i;
     if (focus) tabs[i].focus();
-    calc();
+    calc(true);
   }
   tabs.forEach(function (t, i) {
     t.addEventListener('click', function () { select(i); });
-    t.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); select(1 - i, true); }
-    });
+    t.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); select(1 - i, true); } });
   });
-  // analytics: once per mode per visit, a few seconds after the visitor stops typing, with the answer they got
-  var reported = {}, timer = null;
+  document.querySelectorAll('#calc input').forEach(function (el) { el.addEventListener('input', function () { calc(true); }); });
+
+  // analytics: once per mode per visit, a few seconds after the visitor stops changing things, with the answer they got
+  var reported = {}, timer = null, ready = false;
   function report() {
+    if (!ready) return;
     clearTimeout(timer);
     timer = setTimeout(function () {
-      var pages = parseInt($('r-pages').textContent.replace(/\D/g, ''), 10);
-      if (reported[mode] || !isFinite(pages) || !window.bwTrack) return;
+      if (reported[mode] || target == null || !window.bwTrack) return;
       reported[mode] = true;
-      window.bwTrack('website_calculator_used', { mode: mode, pages_per_day: pages });
+      window.bwTrack('website_calculator_used', { mode: mode, pages_per_day: target, year: mode === 'year' ? when : undefined });
     }, 2500);
   }
-  document.querySelectorAll('#calc input').forEach(function (el) { el.addEventListener('input', function () { calc(); report(); }); });
-  calc();
+  calc(true); ready = true;
 })();
 </script>
 
@@ -372,6 +467,9 @@
       <a href="/pt-br/audiobook-tracker/">Controle de audiolivros</a>
       <a href="/pt-br/reading-habit-tracker/">Controle do hábito de leitura</a>
       <a href="/pt-br/reading-goal-calculator/">Calculadora de meta de leitura</a>
+      
+      
+      
     </nav>
     <nav aria-label="Aprenda">
       <h2>Aprenda</h2>
@@ -379,6 +477,9 @@
       <a href="/pt-br/guides/how-many-pages-a-day/">Quantas páginas por dia?</a>
       <a href="/pt-br/guides/build-a-reading-habit/">Crie o hábito de leitura</a>
       <a href="/pt-br/guides/track-audiobooks/">Acompanhe audiolivros</a>
+      
+      
+      
     </nav>
     <nav aria-label="Ajuda">
       <h2>Ajuda</h2>
@@ -391,6 +492,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=f358b647"></script>
+<script src="/assets/site.js?v=e6523108"></script>
 </body>
 </html>

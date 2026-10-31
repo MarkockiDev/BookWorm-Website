@@ -35,7 +35,10 @@
 <meta name="twitter:description" content="종이책, 전자책, 오디오북을 위한 차분한 독서 기록 앱. 목표, 연속 기록, 독서 타이머, 그리고 책장에 담기는 나의 한 해.">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="BookWorm: 매일, 조금 더 읽기.">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -50,7 +53,7 @@
   if (false && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/' + location.hash); break; }
   }
 })();
 </script>
@@ -206,7 +209,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=f358b647">
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -452,6 +455,10 @@
         <a class="tome reveal" style="--d:.06s" href="/ko/guides/how-many-pages-a-day/"><div class="stand"><div class="cover cloth-oxblood"><small>가이드</small><h3>하루에 몇 페이지를 읽어야 할까요?</h3><span class="rule" aria-hidden="true"></span><span class="go">가이드 읽기 →</span></div></div><p>한 해 12권, 24권, 52권을 위한 하루 페이지 수와 고르는 법.</p></a>
         <a class="tome reveal" style="--d:.12s" href="/ko/guides/build-a-reading-habit/"><div class="stand"><div class="cover cloth-navy"><small>가이드</small><h3>오래가는 독서 습관 만드는 법</h3><span class="rule" aria-hidden="true"></span><span class="go">가이드 읽기 →</span></div></div><p>작은 목표, 정해진 순간, 죄책감 없는 연속 기록.</p></a>
         <a class="tome reveal" style="--d:.18s" href="/ko/guides/track-audiobooks/"><div class="stand"><div class="cover cloth-ochre"><small>가이드</small><h3>오디오북 기록하는 법</h3><span class="rule" aria-hidden="true"></span><span class="go">가이드 읽기 →</span></div></div><p>듣기도 독서로 세고, 종이책과 함께 기록하기.</p></a>
+        
+        
+        
+        
       </div></div>
       <a class="more" href="/ko/guides/">모든 가이드</a>
     </div>
@@ -500,6 +507,9 @@
       <a href="/ko/audiobook-tracker/">오디오북 기록</a>
       <a href="/ko/reading-habit-tracker/">독서 습관 기록</a>
       <a href="/ko/reading-goal-calculator/">독서 목표 계산기</a>
+      
+      
+      
     </nav>
     <nav aria-label="알아보기">
       <h2>알아보기</h2>
@@ -507,6 +517,9 @@
       <a href="/ko/guides/how-many-pages-a-day/">하루 몇 페이지 읽을까?</a>
       <a href="/ko/guides/build-a-reading-habit/">독서 습관 만들기</a>
       <a href="/ko/guides/track-audiobooks/">오디오북 기록하기</a>
+      
+      
+      
     </nav>
     <nav aria-label="도움말">
       <h2>도움말</h2>
@@ -519,6 +532,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=f358b647"></script>
+<script src="/assets/site.js?v=e6523108"></script>
 </body>
 </html>

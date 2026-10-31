@@ -26,7 +26,10 @@
 <meta name="twitter:description" content="{{og_desc}}">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="{{og_title}}">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -41,7 +44,7 @@
   if ({{is_en}} && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/{{slug}}' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && {{langs_here}}.indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/{{slug}}' + location.hash); break; }
   }
 })();
 </script>
@@ -129,6 +132,9 @@
       <a href="{{home}}audiobook-tracker/">{{foot_audiobooks}}</a>
       <a href="{{home}}reading-habit-tracker/">{{foot_habit}}</a>
       <a href="{{home}}reading-goal-calculator/">{{foot_calculator}}</a>
+      <!--if:reading-journal-app--><a href="{{home}}reading-journal-app/">{{foot_journal}}</a><!--/if-->
+      <!--if:reading-log--><a href="{{home}}reading-log/">{{foot_log}}</a><!--/if-->
+      <!--if:reading-challenge--><a href="{{home}}reading-challenge/">{{foot_challenge}}</a><!--/if-->
     </nav>
     <nav aria-label="{{foot_learn}}">
       <h2>{{foot_learn}}</h2>
@@ -136,6 +142,9 @@
       <a href="{{home}}guides/how-many-pages-a-day/">{{g1_short}}</a>
       <a href="{{home}}guides/build-a-reading-habit/">{{g2_short}}</a>
       <a href="{{home}}guides/track-audiobooks/">{{g3_short}}</a>
+      <!--if:start-a-reading-journal--><a href="{{home}}guides/start-a-reading-journal/">{{g4_short}}</a><!--/if-->
+      <!--if:how-to-read-more-books--><a href="{{home}}guides/how-to-read-more-books/">{{g5_short}}</a><!--/if-->
+      <!--if:reading-challenge-ideas--><a href="{{home}}guides/reading-challenge-ideas/">{{g6_short}}</a><!--/if-->
     </nav>
     <nav aria-label="{{foot_help}}">
       <h2>{{foot_help}}</h2>

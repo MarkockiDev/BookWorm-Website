@@ -35,7 +35,10 @@
 <meta name="twitter:description" content="Guias curtos e práticos para ler mais: quantas páginas ler por dia, como criar um hábito de leitura que dura e como acompanhar audiolivros.">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="Guias de leitura: metas, hábito e audiolivros | BookWorm">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -50,7 +53,7 @@
   if (false && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/guides/' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/guides/' + location.hash); break; }
   }
 })();
 </script>
@@ -101,7 +104,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=f358b647">
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
 </head>
 <body>
 <a class="skip" href="#main">Pular para o conteúdo</a>
@@ -166,6 +169,9 @@
         <a class="tome reveal" href="/pt-br/guides/how-many-pages-a-day/"><div class="stand"><div class="cover cloth-oxblood"><small>Guia</small><h3>Quantas páginas ler por dia?</h3><span class="rule" aria-hidden="true"></span><span class="go">Ler o guia →</span></div></div><p>Páginas por dia para 12, 24 ou 52 livros por ano, e como escolher.</p></a>
         <a class="tome reveal" style="--d:.06s" href="/pt-br/guides/build-a-reading-habit/"><div class="stand"><div class="cover cloth-navy"><small>Guia</small><h3>Como criar um hábito de leitura que dura</h3><span class="rule" aria-hidden="true"></span><span class="go">Ler o guia →</span></div></div><p>Metas pequenas, um momento fixo e sequências sem culpa.</p></a>
         <a class="tome reveal" style="--d:.12s" href="/pt-br/guides/track-audiobooks/"><div class="stand"><div class="cover cloth-ochre"><small>Guia</small><h3>Como acompanhar audiolivros</h3><span class="rule" aria-hidden="true"></span><span class="go">Ler o guia →</span></div></div><p>Contar o que você ouve como leitura, e misturar com o papel.</p></a>
+        
+        
+        
     </div></div></div>
   </section>
 
@@ -176,6 +182,9 @@
         <a class="card" href="/pt-br/reading-goal-calculator/"><small>Ferramenta</small><h3>Calculadora de meta de leitura</h3><p>Transforme uma meta anual ou uma data final em páginas por dia.</p><span class="go">Fazer a conta →</span></a>
         <a class="card" href="/pt-br/reading-habit-tracker/"><small>O app</small><h3>Controle do hábito de leitura</h3><p>Uma meta diária, uma sequência que cresce e um único lembrete tranquilo.</p><span class="go">Veja como →</span></a>
         <a class="card" href="/pt-br/audiobook-tracker/"><small>O app</small><h3>Controle de audiolivros</h3><p>Acompanhe o que você ouve em horas e minutos, ao lado dos seus livros impressos.</p><span class="go">Veja como →</span></a>
+        
+        
+        
       </div>
     </div>
   </section>
@@ -202,6 +211,9 @@
       <a href="/pt-br/audiobook-tracker/">Controle de audiolivros</a>
       <a href="/pt-br/reading-habit-tracker/">Controle do hábito de leitura</a>
       <a href="/pt-br/reading-goal-calculator/">Calculadora de meta de leitura</a>
+      
+      
+      
     </nav>
     <nav aria-label="Aprenda">
       <h2>Aprenda</h2>
@@ -209,6 +221,9 @@
       <a href="/pt-br/guides/how-many-pages-a-day/">Quantas páginas por dia?</a>
       <a href="/pt-br/guides/build-a-reading-habit/">Crie o hábito de leitura</a>
       <a href="/pt-br/guides/track-audiobooks/">Acompanhe audiolivros</a>
+      
+      
+      
     </nav>
     <nav aria-label="Ajuda">
       <h2>Ajuda</h2>
@@ -221,6 +236,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=f358b647"></script>
+<script src="/assets/site.js?v=e6523108"></script>
 </body>
 </html>

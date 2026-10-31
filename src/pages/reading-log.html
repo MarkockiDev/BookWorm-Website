@@ -1,0 +1,63 @@
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        {{breadcrumb}}
+        <p class="eyebrow">{{eyebrow}}</p>
+        <h1>{{h1}}</h1>
+        <p class="lede">{{lede}}</p>
+        <div class="cta-row"><a class="badge" href="{{app_url}}" data-placement="page-top"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54"></a></div>
+        <div class="downloads"><a class="dl" href="/assets/bookworm-reading-log-a4.pdf" download data-printable="a4">{{dl_a4}}</a><a class="dl" href="/assets/bookworm-reading-log-letter.pdf" download data-printable="letter">{{dl_letter}}</a></div>
+        <p class="dl-note">{{dl_note}}</p>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="book" data-w="420 720" sizes="380px" width="720" height="1207" alt="{{shot_alt}}" fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">{{print_title}}</h2><p>{{print_lede}}</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>{{p1_t}}</h3><p>{{p1_d}}</p></article>
+        <article class="point reveal"><h3>{{p2_t}}</h3><p>{{p2_d}}</p></article>
+        <article class="point reveal"><h3>{{p3_t}}</h3><p>{{p3_d}}</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>{{deep_title}}</h2>
+        <p>{{deep_p1}}</p>
+        <p>{{deep_p2}}</p>
+        <a class="more" href="{{home}}{{deep_link_href}}">{{deep_link}}</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="profile" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="{{shot2_alt}}"></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">{{faq_title}}</h2></div>
+      {{faq_items}}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">{{related}}</h2></div>
+      <div class="cards">
+        <a class="card" href="{{home}}reading-journal-app/"><small>{{c_journal_k}}</small><h3>{{c_journal_t}}</h3><p>{{c_journal_d}}</p><span class="go">{{c_journal_go}} →</span></a>
+        <a class="card" href="{{home}}guides/start-a-reading-journal/"><small>{{c_g4_k}}</small><h3>{{c_g4_t}}</h3><p>{{c_g4_d}}</p><span class="go">{{c_g4_go}} →</span></a>
+        <a class="card" href="{{home}}reading-habit-tracker/"><small>{{c_habit_k}}</small><h3>{{c_habit_t}}</h3><p>{{c_habit_d}}</p><span class="go">{{c_habit_go}} →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>{{cta_title}}</h2>
+      <p>{{cta_text}}</p>
+      <div class="cta-row"><a class="badge" href="{{app_url}}" data-placement="closing"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>

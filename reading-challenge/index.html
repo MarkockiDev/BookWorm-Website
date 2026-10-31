@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-page="reading-challenge">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reading Challenge Tracker: Set a Yearly Book Goal | BookWorm</title>
+<meta name="description" content="Set a reading challenge for the year and watch every finished book land on a shelf. BookWorm turns a daily page or minute goal into books a year and shows whether you're on pace.">
+<link rel="canonical" href="https://ilovebookworm.com/reading-challenge/">
+<link rel="alternate" hreflang="en" href="https://ilovebookworm.com/reading-challenge/">
+<link rel="alternate" hreflang="x-default" href="https://ilovebookworm.com/reading-challenge/">
+<meta name="apple-itunes-app" content="app-id=6761390761">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ilovebookworm.com/reading-challenge/">
+<meta property="og:title" content="Your reading challenge, one book on the shelf at a time">
+<meta property="og:description" content="A yearly book goal built from a daily habit, with a shelf that fills as you finish.">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BookWorm">
+<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Your reading challenge, one book on the shelf at a time">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your reading challenge, one book on the shelf at a time">
+<meta name="twitter:description" content="A yearly book goal built from a daily habit, with a shelf that fills as you finish.">
+<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image:alt" content="Your reading challenge, one book on the shelf at a time">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script>
+/* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
+   so the page never flashes the wrong one. On an English page, send a first-time visitor
+   whose browser speaks one of our other languages to the same page in that language, once. */
+(function () {
+  var d = document.documentElement, t = null, l = null;
+  try { t = localStorage.getItem('bw-theme'); l = localStorage.getItem('bw-lang'); } catch (e) {}
+  if (!/^(light|dark|retro|marginalia)$/.test(t || '')) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  d.className = 'js';
+  if (true && !l) {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+    var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/reading-challenge/' + location.hash); break; }
+  }
+})();
+</script>
+<script>
+/* PostHog, cookieless: nothing is stored on the visitor's device and no one is identified.
+   The key below is PostHog's public "project key": it can only send events, never read them.
+   Runs only on ilovebookworm.com (add ?ph=1 to a local preview to test, tagged env=preview). */
+(function () {
+  var live = location.hostname === 'ilovebookworm.com', test = /[?&]ph=1\b/.test(location.search);
+  if (!live && !test) return;
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlag resetPersonPropertiesForFlag setGroupPropertiesForFlag resetGroupPropertiesForFlag reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_zCVZ7oSoCiGgK4fNJKATcZubkkuYVdNw6i5iUNwRQaaJ', {
+    api_host: 'https://eu.i.posthog.com',
+    ui_host: 'https://eu.posthog.com',
+    persistence: 'memory',              // no cookies, no localStorage: no consent banner needed
+    person_profiles: 'identified_only', // nobody is identified, so no person profiles are made
+    autocapture: false,                 // only the events named in site.js, never page text or input
+    capture_pageview: true,
+    capture_pageleave: true,            // carries how far down the page the visitor scrolled
+    disable_session_recording: true,
+    disable_surveys: true,
+    advanced_disable_feature_flags: true
+  });
+  posthog.register({ platform: 'web', site: 'ilovebookworm.com', env: live ? 'production' : 'preview', page_id: 'reading-challenge', page_lang: 'en' });
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ilovebookworm.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reading challenge",
+          "item": "https://ilovebookworm.com/reading-challenge/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many books should I aim for this year?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start from the time you have. Fifteen minutes a day is about a book a month for most readers. If last year was six books, twelve is a real stretch. The challenge ideas guide has more ways to choose."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I fall behind?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nothing breaks. The flag shows where your pace is, and the goal is yours to change. Plenty of readers catch up in summer or on holiday."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do audiobooks count toward a reading challenge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In BookWorm they do. Minutes of listening count toward the same daily goal as pages, and a finished audiobook takes its place on the shelf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I share my progress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can share each finished book as a library checkout card, and on the first of each month BookWorm shows a recap of the month you read."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="/#main" aria-label="BookWorm, back to top">
+      <img src="/assets/icon-180.png" alt="" width="34" height="34"><span>BookWorm</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="/#how">How it works</a>
+      <a href="/#looks">Themes</a>
+      <a href="/guides/">Guides</a>
+      <a href="/reading-goal-calculator/">Calculator</a>
+      <a href="/support/">Support</a>
+    </nav>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-label="Theme">
+        <span class="swatch sw-light" id="theme-swatch"></span>
+      </button>
+      <div class="menu" id="theme-menu" role="menu" aria-label="Theme">
+        <p aria-hidden="true">Theme</p>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="light"><span class="swatch sw-light"></span>Light<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="dark"><span class="swatch sw-dark"></span>Dark<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="retro"><span class="swatch sw-retro"></span>Retro<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+        <button role="menuitemradio" aria-checked="false" data-set-theme="marginalia"><span class="swatch sw-marginalia"></span>Marginalia<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <button class="nav-tool" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language: English">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="code" aria-hidden="true">EN</span>
+      </button>
+      <nav class="menu" id="lang-menu" aria-label="Language">
+        <p aria-hidden="true">Language</p>
+        <a href="/reading-challenge/" hreflang="en" lang="en" aria-current="page">English<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pl/" hreflang="pl" lang="pl">Polski<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/es/" hreflang="es" lang="es">Español<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/fr/" hreflang="fr" lang="fr">Français<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/zh-hans/" hreflang="zh-hans" lang="zh-Hans">简体中文<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/hi/" hreflang="hi" lang="hi">हिन्दी<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ja/" hreflang="ja" lang="ja">日本語<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/ko/" hreflang="ko" lang="ko">한국어<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+        <a href="/pt-br/" hreflang="pt-br" lang="pt-BR">Português<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></a>
+      </nav>
+    </div>
+    <a class="get" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-challenge&mt=8" data-placement="nav">Get the app</a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="https://ilovebookworm.com/">Home</a></li><li aria-current="page">Reading challenge</li></ol></nav>
+        <p class="eyebrow">Reading challenge tracker</p>
+        <h1>Your year in books, one spine at a time.</h1>
+        <p class="lede">A reading challenge works when it's built from days, not from a big number in January. Choose what you can read each day, and BookWorm shows the books it adds up to.</p>
+        <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-challenge&mt=8" data-placement="page-top"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="profile" data-w="420 720" sizes="380px" width="720" height="1207" alt="Profile with a 16-day current streak, an 18-day best and reading stats." fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="points-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="points-title">How the challenge works</h2><p>One daily habit underneath, one shelf on top.</p></div>
+      <div class="points">
+        <article class="point reveal"><h3>Start from a daily goal</h3><p>Pick pages or minutes a day. BookWorm turns it into a number of books for the year, so the target matches a day you can actually keep.</p></article>
+        <article class="point reveal"><h3>A shelf that fills</h3><p>Every book you finish this year stands on your shelf as a spine, next to empty places for the ones still to come.</p></article>
+        <article class="point reveal"><h3>Always know your pace</h3><p>A gold flag marks where today's pace says you should be. Ahead of it, behind it, or right on it, you see it at a glance.</p></article>
+        <article class="point reveal"><h3>Every format counts</h3><p>Paper books, ebooks and audiobooks all count toward the same challenge. Listening on a walk is reading.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap page-split">
+      <div class="prose reveal">
+        <h2>How many pages a day for your challenge</h2>
+        <p>For books of about 300 pages, read every day of the year:</p>
+        <table>
+          <thead><tr><th>Books a year</th><th>Pages a day</th><th>Minutes a day</th></tr></thead>
+          <tbody>
+            <tr><td>12</td><td>10</td><td>15</td></tr>
+            <tr><td>24</td><td>20</td><td>30</td></tr>
+            <tr><td>36</td><td>30</td><td>45</td></tr>
+            <tr><td>52</td><td>43</td><td>65</td></tr>
+          </tbody>
+        </table>
+        <p class="note">At about 1.5 minutes a page. Your numbers will differ: the calculator works them out for your own books and speed.</p>
+        <a class="more" href="/reading-goal-calculator/">Open the reading goal calculator</a>
+      </div>
+      <div class="shot reveal"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="380px" width="720" height="1207" loading="lazy" alt="Reading Quests in BookWorm: 36 of 30 pages today, goal reached, and a 16-day streak."></div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">Questions about reading challenges</h2></div>
+      <details class="reveal"><summary>How many books should I aim for this year?<i aria-hidden="true"></i></summary><div class="answer"><p>Start from the time you have. Fifteen minutes a day is about a book a month for most readers. If last year was six books, twelve is a real stretch. The <a href="/guides/reading-challenge-ideas/">challenge ideas guide</a> has more ways to choose.</p></div></details>
+      <details class="reveal"><summary>What if I fall behind?<i aria-hidden="true"></i></summary><div class="answer"><p>Nothing breaks. The flag shows where your pace is, and the goal is yours to change. Plenty of readers catch up in summer or on holiday.</p></div></details>
+      <details class="reveal"><summary>Do audiobooks count toward a reading challenge?<i aria-hidden="true"></i></summary><div class="answer"><p>In BookWorm they do. Minutes of listening count toward the same daily goal as pages, and a finished audiobook takes its place on the shelf.</p></div></details>
+      <details class="reveal"><summary>Can I share my progress?<i aria-hidden="true"></i></summary><div class="answer"><p>You can share each finished book as a library checkout card, and on the first of each month BookWorm shows a recap of the month you read.</p></div></details>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">Keep reading</h2></div>
+      <div class="cards">
+        <a class="card" href="/reading-goal-calculator/"><small>Tool</small><h3>Reading goal calculator</h3><p>Turn a yearly goal or a finish date into pages a day.</p><span class="go">Work it out →</span></a>
+        <a class="card" href="/guides/reading-challenge-ideas/"><small>Guide</small><h3>Reading challenge ideas for 2027</h3><p>Number goals, theme goals and gentle goals, and how to pick one.</p><span class="go">Read the guide →</span></a>
+        <a class="card" href="/guides/how-to-read-more-books/"><small>Guide</small><h3>How to read more books</h3><p>Twelve honest ways to find more reading time in an ordinary week.</p><span class="go">Read the guide →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Bring it to your iPhone.</h2>
+      <p>BookWorm keeps your page, your goal and your streak, one tap at a time.</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-challenge&mt=8" data-placement="closing"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a class="brand" href="/"><img src="/assets/icon-180.png" alt="" width="34" height="34" loading="lazy"><span>BookWorm</span></a>
+      <p>A calm reading tracker for paper books, ebooks and audiobooks.</p>
+      <a class="badge small" href="https://apps.apple.com/app/apple-store/id6761390761?pt=128353732&ct=web-reading-challenge&mt=8" data-placement="footer"><img src="/assets/badges/en-black.svg" alt="Download BookWorm on the App Store" width="120" height="40" loading="lazy"></a>
+    </div>
+    <nav aria-label="The app">
+      <h2>The app</h2>
+      <a href="/audiobook-tracker/">Audiobook tracker</a>
+      <a href="/reading-habit-tracker/">Reading habit tracker</a>
+      <a href="/reading-goal-calculator/">Reading goal calculator</a>
+      <a href="/reading-journal-app/">Reading journal app</a>
+      <a href="/reading-log/">Reading log</a>
+      <a href="/reading-challenge/">Reading challenge</a>
+    </nav>
+    <nav aria-label="Learn">
+      <h2>Learn</h2>
+      <a href="/guides/">All guides</a>
+      <a href="/guides/how-many-pages-a-day/">How many pages a day?</a>
+      <a href="/guides/build-a-reading-habit/">Build a reading habit</a>
+      <a href="/guides/track-audiobooks/">Track audiobooks</a>
+      <a href="/guides/start-a-reading-journal/">Start a reading journal</a>
+      <a href="/guides/how-to-read-more-books/">How to read more books</a>
+      <a href="/guides/reading-challenge-ideas/">Reading challenge ideas</a>
+    </nav>
+    <nav aria-label="Help">
+      <h2>Help</h2>
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="https://markockidev.canny.io/bookworm">Suggest a feature</a>
+      <a href="mailto:markockidev@icloud.com">Contact</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
+</footer>
+
+<script src="/assets/site.js?v=e6523108"></script>
+</body>
+</html>

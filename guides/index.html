@@ -35,7 +35,10 @@
 <meta name="twitter:description" content="Short, practical guides to reading more: how many pages a day to read, how to build a reading habit that lasts, and how to track audiobooks.">
 <meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
 <meta name="twitter:image:alt" content="Reading Guides: Goals, Habits and Audiobooks | BookWorm">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <script>
 /* Runs before the first paint: pick the theme (saved choice, else the system's light or dark)
@@ -50,7 +53,7 @@
   if (true && !l) {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     var map = [['pl','pl'],['es','es'],['fr','fr'],['zh-tw',''],['zh-hk',''],['zh-hant',''],['zh','zh-hans'],['hi','hi'],['ja','ja'],['ko','ko'],['pt','pt-br']];
-    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1]) location.replace('/' + map[i][1] + '/guides/' + location.hash); break; }
+    for (var i = 0; i < map.length; i++) if (n.indexOf(map[i][0]) === 0) { if (map[i][1] && ["en", "pl", "es", "fr", "zh-hans", "hi", "ja", "ko", "pt-br"].indexOf(map[i][1]) >= 0) location.replace('/' + map[i][1] + '/guides/' + location.hash); break; }
   }
 })();
 </script>
@@ -101,7 +104,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=f358b647">
+<link rel="stylesheet" href="/assets/site.css?v=e6523108">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -166,6 +169,9 @@
         <a class="tome reveal" href="/guides/how-many-pages-a-day/"><div class="stand"><div class="cover cloth-oxblood"><small>Guide</small><h3>How many pages a day should you read?</h3><span class="rule" aria-hidden="true"></span><span class="go">Read the guide →</span></div></div><p>Pages a day for 12, 24 and 52 books a year, and how to choose.</p></a>
         <a class="tome reveal" style="--d:.06s" href="/guides/build-a-reading-habit/"><div class="stand"><div class="cover cloth-navy"><small>Guide</small><h3>How to build a reading habit that lasts</h3><span class="rule" aria-hidden="true"></span><span class="go">Read the guide →</span></div></div><p>Small goals, a fixed moment, and streaks without guilt.</p></a>
         <a class="tome reveal" style="--d:.12s" href="/guides/track-audiobooks/"><div class="stand"><div class="cover cloth-ochre"><small>Guide</small><h3>How to track audiobooks</h3><span class="rule" aria-hidden="true"></span><span class="go">Read the guide →</span></div></div><p>Counting listening as reading, and mixing it with paper.</p></a>
+        <a class="tome reveal" style="--d:.18s" href="/guides/start-a-reading-journal/"><div class="stand"><div class="cover cloth-green"><small>Guide</small><h3>How to start a reading journal</h3><span class="rule" aria-hidden="true"></span><span class="go">Read the guide →</span></div></div><p>What to write, how often, and how to keep it going past February.</p></a>
+        <a class="tome reveal" style="--d:.24s" href="/guides/how-to-read-more-books/"><div class="stand"><div class="cover cloth-plum"><small>Guide</small><h3>How to read more books</h3><span class="rule" aria-hidden="true"></span><span class="go">Read the guide →</span></div></div><p>Twelve honest ways to find more reading time in an ordinary week.</p></a>
+        <a class="tome reveal" style="--d:.30s" href="/guides/reading-challenge-ideas/"><div class="stand"><div class="cover cloth-slate"><small>Guide</small><h3>Reading challenge ideas for 2027</h3><span class="rule" aria-hidden="true"></span><span class="go">Read the guide →</span></div></div><p>Number goals, theme goals and gentle goals, and how to pick one.</p></a>
     </div></div></div>
   </section>
 
@@ -176,6 +182,9 @@
         <a class="card" href="/reading-goal-calculator/"><small>Tool</small><h3>Reading goal calculator</h3><p>Turn a yearly goal or a finish date into pages a day.</p><span class="go">Work it out →</span></a>
         <a class="card" href="/reading-habit-tracker/"><small>The app</small><h3>Reading habit tracker</h3><p>A daily goal, a streak that grows, and one calm reminder.</p><span class="go">See how →</span></a>
         <a class="card" href="/audiobook-tracker/"><small>The app</small><h3>Audiobook tracker</h3><p>Track listening in hours and minutes, next to your paper books.</p><span class="go">See how →</span></a>
+        <a class="card" href="/reading-challenge/"><small>Challenge</small><h3>Your reading challenge</h3><p>Pick a number of books for the year and see each one land on your shelf.</p><span class="go">Set yours →</span></a>
+        <a class="card" href="/reading-log/"><small>Printable</small><h3>Reading log</h3><p>A printable log for paper, and one that fills itself in on your iPhone.</p><span class="go">Get the log →</span></a>
+        <a class="card" href="/reading-journal-app/"><small>The app</small><h3>A reading journal on your iPhone</h3><p>Notes pinned to the page, a calendar of reading days, every book you've finished.</p><span class="go">See how →</span></a>
       </div>
     </div>
   </section>
@@ -202,6 +211,9 @@
       <a href="/audiobook-tracker/">Audiobook tracker</a>
       <a href="/reading-habit-tracker/">Reading habit tracker</a>
       <a href="/reading-goal-calculator/">Reading goal calculator</a>
+      <a href="/reading-journal-app/">Reading journal app</a>
+      <a href="/reading-log/">Reading log</a>
+      <a href="/reading-challenge/">Reading challenge</a>
     </nav>
     <nav aria-label="Learn">
       <h2>Learn</h2>
@@ -209,6 +221,9 @@
       <a href="/guides/how-many-pages-a-day/">How many pages a day?</a>
       <a href="/guides/build-a-reading-habit/">Build a reading habit</a>
       <a href="/guides/track-audiobooks/">Track audiobooks</a>
+      <a href="/guides/start-a-reading-journal/">Start a reading journal</a>
+      <a href="/guides/how-to-read-more-books/">How to read more books</a>
+      <a href="/guides/reading-challenge-ideas/">Reading challenge ideas</a>
     </nav>
     <nav aria-label="Help">
       <h2>Help</h2>
@@ -221,6 +236,6 @@
   <div class="wrap foot-base"><span>© 2026 BookWorm · Adam Markocki</span></div>
 </footer>
 
-<script src="/assets/site.js?v=f358b647"></script>
+<script src="/assets/site.js?v=e6523108"></script>
 </body>
 </html>
