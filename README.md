@@ -17,8 +17,8 @@ privacy/index.html             privacy policy (English only, not built)
 ```
 
 Pages: home, `reading-goal-calculator/`, `audiobook-tracker/`, `reading-habit-tracker/`, `support/`,
-`guides/` and six guides under it, plus `reading-journal-app/`, `reading-log/` and `reading-challenge/`.
-The last three pages and the last three guides are **English only for now** (translate the ones Search Console
+`guides/` and seven guides under it, plus `reading-journal-app/`, `reading-log/`, `reading-challenge/`,
+`goodreads-alternative/` and `storygraph-alternative/`. Everything added after the first nine pages is **English only for now** (translate the ones Search Console
 shows working). Links to a page that may not exist in every language are wrapped in `<!--if:page-id-->…<!--/if-->`,
 which `build.py` keeps only where that page exists, so no language links to a missing page. The printable reading
 log is `src/printables/reading-log.html`, rendered to `assets/bookworm-reading-log-{a4,letter}.pdf` (see below).
@@ -80,6 +80,22 @@ Event names never change once shipped (same rule as the app).
 Add `"app_store_pt": "<provider token>"` to `src/site.json` and rebuild. Every App Store link then becomes
 `apps.apple.com/app/apple-store/id6761390761?pt=<token>&ct=web-<page>&mt=8`, and App Store Connect →
 App Analytics → Acquisition → Campaigns shows downloads per page.
+
+## Share pictures
+
+Every page has its own 1200×630 share picture in each language, at `assets/og/<lang>/<page>.jpg`, with that
+page's eyebrow and headline beside an app screenshot (or a cloth cover for a guide). The home page keeps
+`assets/og-share-v2.jpg`. After changing a headline or adding a page: `python3 og.py && python3 build.py`.
+
+## IndexNow (Bing, DuckDuckGo's source, Yandex, Naver)
+
+After a push has gone live, run `python3 indexnow.py`. It sends every URL in the sitemap. The key file at the root
+(`<key>.txt`) is public on purpose: it only proves the list comes from this site.
+
+## App Store custom product pages
+
+`src/site.json` → `product_pages` maps a page id to an App Store Connect custom product page id (`ppid`).
+Paste an id, rebuild, and that page's App Store buttons open its own App Store page.
 
 ## Printable reading log
 

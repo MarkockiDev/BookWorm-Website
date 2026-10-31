@@ -1,0 +1,57 @@
+  <header class="page-head">
+    <div class="wrap page-split">
+      <div>
+        {{breadcrumb}}
+        <p class="eyebrow">{{eyebrow}}</p>
+        <h1>{{h1}}</h1>
+        <p class="lede">{{lede}}</p>
+        <div class="cta-row"><a class="badge" href="{{app_url}}" data-placement="page-top"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54"></a></div>
+      </div>
+      <div class="shot"><img class="shot-img" data-shot="quests" data-w="420 720" sizes="380px" width="720" height="1207" alt="{{shot_alt}}" fetchpriority="high"></div>
+    </div>
+  </header>
+
+  <section class="section band" aria-labelledby="table-title">
+    <div class="wrap">
+      <div class="section-head reveal"><h2 id="table-title">{{table_title}}</h2></div>
+      {{table}}
+      <p class="compare-note">{{table_note}}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose reveal">
+        <h2>{{diff_title}}</h2>
+        {{diff_body}}
+        <h2>{{pick_title}}</h2>
+        {{pick_body}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <div class="section-head"><h2 id="faq-title">{{faq_title}}</h2></div>
+      {{faq_items}}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">{{related}}</h2></div>
+      <div class="cards">
+        <a class="card" href="{{home}}storygraph-alternative/"><small>{{c_sg_k}}</small><h3>{{c_sg_t}}</h3><p>{{c_sg_d}}</p><span class="go">{{c_sg_go}} →</span></a>
+        <a class="card" href="{{home}}guides/best-reading-tracker-apps/"><small>{{c_best_k}}</small><h3>{{c_best_t}}</h3><p>{{c_best_d}}</p><span class="go">{{c_best_go}} →</span></a>
+        <a class="card" href="{{home}}reading-challenge/"><small>{{c_challenge_k}}</small><h3>{{c_challenge_t}}</h3><p>{{c_challenge_d}}</p><span class="go">{{c_challenge_go}} →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>{{cta_title}}</h2>
+      <p>{{cta_text}}</p>
+      <div class="cta-row"><a class="badge" href="{{app_url}}" data-placement="closing"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>

@@ -3,5 +3,14 @@
   "posthog_key": "phc_zCVZ7oSoCiGgK4fNJKATcZubkkuYVdNw6i5iUNwRQaaJ",
   "posthog_host": "https://eu.i.posthog.com",
   "posthog_ui": "https://eu.posthog.com",
-  "app_store_pt": "128353732"
+  "app_store_pt": "128353732",
+  "product_pages": {
+    "audiobook-tracker": "",
+    "reading-habit-tracker": "",
+    "reading-goal-calculator": "",
+    "reading-challenge": "",
+    "reading-journal-app": "",
+    "reading-log": ""
+  },
+  "_product_pages_note": "Paste each App Store Connect custom product page ID (the ppid, a UUID) next to its page and rebuild."
 }

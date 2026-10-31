@@ -100,5 +100,20 @@
   "c_g6_k": "Guide",
   "c_g6_t": "Reading challenge ideas for 2027",
   "c_g6_d": "Number goals, theme goals and gentle goals, and how to pick one.",
-  "c_g6_go": "Read the guide"
+  "c_g6_go": "Read the guide",
+  "c_gr_k": "Compare",
+  "c_gr_t": "A Goodreads alternative",
+  "c_gr_d": "Goodreads and BookWorm side by side, and when each one fits.",
+  "c_gr_go": "Compare",
+  "c_sg_k": "Compare",
+  "c_sg_t": "StoryGraph or BookWorm?",
+  "c_sg_d": "Deep stats and mood picks, or a calm daily habit.",
+  "c_sg_go": "Compare",
+  "c_best_k": "Guide",
+  "c_best_t": "Best reading tracker apps for iPhone",
+  "c_best_d": "Five good apps, and which one suits which reader.",
+  "c_best_go": "Read the guide",
+  "foot_goodreads": "Goodreads alternative",
+  "foot_storygraph": "StoryGraph alternative",
+  "g7_short": "Best reading tracker apps"
 }

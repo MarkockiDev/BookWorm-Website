@@ -43,6 +43,9 @@ PAGES = [
     ("start-a-reading-journal", "guides/start-a-reading-journal/", "guides", "article"),
     ("how-to-read-more-books", "guides/how-to-read-more-books/", "guides", "article"),
     ("reading-challenge-ideas", "guides/reading-challenge-ideas/", "guides", "article"),
+    ("goodreads-alternative", "goodreads-alternative/", None, "page"),
+    ("storygraph-alternative", "storygraph-alternative/", None, "page"),
+    ("best-reading-tracker-apps", "guides/best-reading-tracker-apps/", "guides", "article"),
 ]
 PAGES = [p for p in PAGES if (SRC / "pages" / f"{p[0]}.html").exists()]
 BY_ID = {p[0]: p for p in PAGES}
@@ -51,6 +54,7 @@ layout = (SRC / "layout.html").read_text(encoding="utf-8")
 SITE_CONFIG = json.loads((SRC / "site.json").read_text(encoding="utf-8"))
 assert SITE_CONFIG["posthog_key"].startswith("phc_"), "site.json must hold PostHog's public project key (phc_...), nothing else"
 CAMPAIGN = SITE_CONFIG.get("app_store_pt", "").strip()  # App Store Connect campaign provider token, if set
+PRODUCT_PAGES = {k: v for k, v in SITE_CONFIG.get("product_pages", {}).items() if v}  # page id -> custom product page id
 ver = hashlib.sha1(b"".join((ROOT / "assets" / f).read_bytes() for f in ("site.css", "site.js"))).hexdigest()[:8]
 
 
@@ -196,7 +200,7 @@ def build(lang, pid):
             "dateModified": w.get("_modified", w.get("_published", TODAY)),
             "author": {"@type": "Person", "name": "Adam Markocki", "url": "https://markockiadam.com"},
             "publisher": {"@type": "Organization", "name": "BookWorm", "logo": {"@type": "ImageObject", "url": SITE + "/assets/icon.png"}},
-            "image": SITE + "/assets/og-share-v2.jpg",
+            "image": SITE + (f"/assets/og/{lang}/{pid}.jpg" if (ROOT / "assets/og" / lang / f"{pid}.jpg").exists() else "/assets/og-share-v2.jpg"),
             "mainEntityOfPage": here,
         })
     if pairs:
@@ -227,7 +231,11 @@ def build(lang, pid):
         "faq_items": faq,
         "breadcrumb": crumbs_html,
         # with a campaign token, App Store Connect counts downloads per page (ct=web-<page>)
-        "app_url": f"https://apps.apple.com/app/apple-store/id{APP_ID}?pt={CAMPAIGN}&ct=web-{pid}&mt=8" if CAMPAIGN else APP_URL,
+        # with a custom product page id for this page, its buttons open that App Store page (ppid)
+        "app_url": (f"https://apps.apple.com/app/apple-store/id{APP_ID}?pt={CAMPAIGN}&ct=web-{pid}&mt=8" if CAMPAIGN else APP_URL)
+                   + (("&" if CAMPAIGN else "?") + f"ppid={PRODUCT_PAGES[pid]}" if pid in PRODUCT_PAGES else ""),
+        # a share picture per page and language (made by og.py); the home page keeps the original
+        "og_image": SITE + (f"/assets/og/{lang}/{pid}.jpg" if (ROOT / "assets/og" / lang / f"{pid}.jpg").exists() else "/assets/og-share-v2.jpg"),
         "page_id": pid,
         "lang_code": lang,
         "posthog_key": SITE_CONFIG["posthog_key"],

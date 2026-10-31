@@ -749,3 +749,21 @@ footer nav a:hover { color: var(--ink); text-decoration: underline; text-underli
 .dl-note { margin-top: 10px; font-size: .92rem; color: var(--ink-2); max-width: 46ch; }
 .sentence > span:empty { display: none; }
 .sentence .pair { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+
+/* comparison tables: feature names left, one column per app, BookWorm last */
+.compare-wrap { overflow-x: auto; margin-top: 8px; border-radius: 20px; background: var(--paper); box-shadow: 0 0 0 1px var(--rule); }
+[data-theme="retro"] .compare-wrap { box-shadow: 0 0 0 2px var(--ink); border-radius: 10px; }
+.compare { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.compare th, .compare td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.compare tr:last-child td { border-bottom: 0; }
+.compare thead th { font: 600 .8rem/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+.compare td:first-child { color: var(--ink); font-weight: 600; }
+.compare td { color: var(--ink-2); }
+.compare th:last-child, .compare td:last-child { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.compare .yes { color: var(--accent); font-weight: 600; }
+.compare .no { color: var(--ink-3); }
+.compare-note { margin-top: 12px; font-size: .9rem; color: var(--ink-3); }
+.prose .compare-wrap { margin-top: 1.2em; }
+.prose .compare td:not(:first-child), .prose .compare th:not(:first-child) { text-align: left; font-variant-numeric: normal; }
+.prose .compare th:last-child, .prose .compare td:last-child { background: none; }
+@media (max-width: 520px) { .compare { font-size: .9rem; } .compare th, .compare td { padding: 12px 10px; } .compare thead th { font-size: .7rem; letter-spacing: .08em; } }

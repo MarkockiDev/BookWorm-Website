@@ -15,8 +15,8 @@
 <meta property="og:description" content="{{og_desc}}">
 <meta property="og:locale" content="{{og_locale}}">
 <meta property="og:site_name" content="BookWorm">
-<meta property="og:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
-<meta property="og:image:secure_url" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta property="og:image" content="{{og_image}}">
+<meta property="og:image:secure_url" content="{{og_image}}">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{og_title}}">
 <meta name="twitter:description" content="{{og_desc}}">
-<meta name="twitter:image" content="https://ilovebookworm.com/assets/og-share-v2.jpg">
+<meta name="twitter:image" content="{{og_image}}">
 <meta name="twitter:image:alt" content="{{og_title}}">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
@@ -135,6 +135,8 @@
       <!--if:reading-journal-app--><a href="{{home}}reading-journal-app/">{{foot_journal}}</a><!--/if-->
       <!--if:reading-log--><a href="{{home}}reading-log/">{{foot_log}}</a><!--/if-->
       <!--if:reading-challenge--><a href="{{home}}reading-challenge/">{{foot_challenge}}</a><!--/if-->
+      <!--if:goodreads-alternative--><a href="{{home}}goodreads-alternative/">{{foot_goodreads}}</a><!--/if-->
+      <!--if:storygraph-alternative--><a href="{{home}}storygraph-alternative/">{{foot_storygraph}}</a><!--/if-->
     </nav>
     <nav aria-label="{{foot_learn}}">
       <h2>{{foot_learn}}</h2>
@@ -145,6 +147,7 @@
       <!--if:start-a-reading-journal--><a href="{{home}}guides/start-a-reading-journal/">{{g4_short}}</a><!--/if-->
       <!--if:how-to-read-more-books--><a href="{{home}}guides/how-to-read-more-books/">{{g5_short}}</a><!--/if-->
       <!--if:reading-challenge-ideas--><a href="{{home}}guides/reading-challenge-ideas/">{{g6_short}}</a><!--/if-->
+      <!--if:best-reading-tracker-apps--><a href="{{home}}guides/best-reading-tracker-apps/">{{g7_short}}</a><!--/if-->
     </nav>
     <nav aria-label="{{foot_help}}">
       <h2>{{foot_help}}</h2>

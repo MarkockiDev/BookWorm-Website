@@ -1,0 +1,35 @@
+  <article>
+    <header class="page-head">
+      <div class="wrap">
+        {{breadcrumb}}
+        <p class="eyebrow">{{eyebrow}}</p>
+        <h1>{{h1}}</h1>
+        <p class="lede">{{lede}}</p>
+        <p class="meta">{{by}} Adam Markocki · {{updated}} {{date_label}} · {{minutes}} {{min_read}}</p>
+      </div>
+    </header>
+    <div class="wrap">
+      <div class="prose">
+{{body}}
+      </div>
+    </div>
+  </article>
+
+  <section class="section" aria-labelledby="related-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="related-title">{{related}}</h2></div>
+      <div class="cards">
+        <a class="card" href="{{home}}goodreads-alternative/"><small>{{c_gr_k}}</small><h3>{{c_gr_t}}</h3><p>{{c_gr_d}}</p><span class="go">{{c_gr_go}} →</span></a>
+        <a class="card" href="{{home}}storygraph-alternative/"><small>{{c_sg_k}}</small><h3>{{c_sg_t}}</h3><p>{{c_sg_d}}</p><span class="go">{{c_sg_go}} →</span></a>
+        <a class="card" href="{{home}}reading-habit-tracker/"><small>{{c_habit_k}}</small><h3>{{c_habit_t}}</h3><p>{{c_habit_d}}</p><span class="go">{{c_habit_go}} →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band band">
+    <div class="wrap">
+      <h2>{{cta_title}}</h2>
+      <p>{{cta_text}}</p>
+      <div class="cta-row"><a class="badge" href="{{app_url}}" data-placement="closing"><img src="{{badge}}" alt="{{badge_label}}" width="160" height="54" loading="lazy"></a></div>
+    </div>
+  </section>
