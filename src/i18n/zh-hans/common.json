@@ -77,8 +77,9 @@
   "rp_decline": "不用了",
   "rp_privacy": "隐私政策",
   "foot_recording": "录制选项",
-  "ind_label": "波兰独立日",
-  "ind_text": "今天，波兰庆祝独立日。BookWorm 就在这里，一页一页地制作而成。",
-  "ind_link": "了解这个节日",
-  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)"
+  "ind_text": "BookWorm 就在这里，一页一页地制作而成。",
+  "ind_link": "11 月 11 日的故事",
+  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)",
+  "ind_eyebrow": "独立日",
+  "ind_title": "今天，波兰庆祝国家独立。"
 }

@@ -77,8 +77,9 @@
   "rp_decline": "今はしない",
   "rp_privacy": "プライバシーポリシー",
   "foot_recording": "記録の設定",
-  "ind_label": "ポーランド独立記念日",
-  "ind_text": "今日はポーランドの独立記念日。BookWorm はこの国で、1ページずつ作られています。",
-  "ind_link": "この日について",
-  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)"
+  "ind_text": "BookWorm はこの国で、1ページずつ作られています。",
+  "ind_link": "11月11日の物語",
+  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)",
+  "ind_eyebrow": "独立記念日",
+  "ind_title": "今日、ポーランドは独立を祝っています。"
 }

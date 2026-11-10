@@ -77,8 +77,9 @@
   "rp_decline": "नहीं, धन्यवाद",
   "rp_privacy": "गोपनीयता नीति",
   "foot_recording": "रिकॉर्डिंग विकल्प",
-  "ind_label": "पोलैंड का स्वतंत्रता दिवस",
-  "ind_text": "आज पोलैंड अपना स्वतंत्रता दिवस मना रहा है। BookWorm यहीं, पन्ना दर पन्ना, बनता है।",
-  "ind_link": "इस दिन के बारे में",
-  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)"
+  "ind_text": "BookWorm यहीं, पन्ना दर पन्ना, बनता है।",
+  "ind_link": "11 नवंबर की कहानी",
+  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)",
+  "ind_eyebrow": "स्वतंत्रता दिवस",
+  "ind_title": "आज पोलैंड अपनी स्वतंत्रता का जश्न मना रहा है।"
 }

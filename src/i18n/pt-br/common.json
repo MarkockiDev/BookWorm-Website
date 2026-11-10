@@ -77,8 +77,9 @@
   "rp_decline": "Não, obrigado",
   "rp_privacy": "Política de privacidade",
   "foot_recording": "Opções de gravação",
-  "ind_label": "Dia da Independência da Polônia",
-  "ind_text": "Hoje a Polônia celebra o Dia da Independência. O BookWorm é feito aqui, página por página.",
-  "ind_link": "Sobre o dia",
-  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)"
+  "ind_text": "O BookWorm é feito aqui, página por página.",
+  "ind_link": "A história do 11 de novembro",
+  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)",
+  "ind_eyebrow": "Dia da Independência",
+  "ind_title": "Hoje, a Polônia celebra sua independência."
 }

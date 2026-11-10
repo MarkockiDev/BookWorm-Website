@@ -189,7 +189,7 @@
     }).observe(document.querySelector('.screen.lock'));
   }
 
-  /* ---- 11 November: Poland's Independence Day note above the page's headline, that day only (visitor's own date).
+  /* ---- 11 November: Poland's Independence Day rosette above the page's headline, that day only (visitor's own date).
      ?nov11=1 shows it on any day, for review. */
   var holiday = document.getElementById('holiday');
   var now = new Date();
@@ -201,9 +201,10 @@
       when.textContent = new Intl.DateTimeFormat(root.lang, { day: 'numeric', month: 'long' }).format(new Date(now.getFullYear(), 10, 11));
       when.setAttribute('datetime', now.getFullYear() + '-11-11');
       top.insertBefore(row, top.firstElementChild);
-      var note = row.querySelector('.holiday');
+      var note = row.querySelector('.independence');
       note.classList.add('enter');
       requestAnimationFrame(function () { requestAnimationFrame(function () { note.classList.remove('enter'); }); });
+      setTimeout(function () { note.classList.add('landed'); }, 900);
     }
   }
 

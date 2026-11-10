@@ -122,8 +122,9 @@
   "rp_decline": "No thanks",
   "rp_privacy": "Privacy policy",
   "foot_recording": "Recording choices",
-  "ind_label": "Independence Day in Poland",
-  "ind_text": "Today Poland celebrates its Independence Day. BookWorm is made here, page by page.",
-  "ind_link": "About the day",
-  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)"
+  "ind_text": "BookWorm is made here, page by page.",
+  "ind_link": "The story of 11 November",
+  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)",
+  "ind_eyebrow": "Independence Day",
+  "ind_title": "Today, Poland celebrates its independence."
 }

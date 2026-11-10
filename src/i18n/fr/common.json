@@ -77,8 +77,9 @@
   "rp_decline": "Non merci",
   "rp_privacy": "Politique de confidentialité",
   "foot_recording": "Choix d'enregistrement",
-  "ind_label": "Fête de l'Indépendance en Pologne",
-  "ind_text": "Aujourd'hui, la Pologne fête son indépendance. BookWorm est fait ici, page après page.",
-  "ind_link": "À propos de ce jour",
-  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)"
+  "ind_text": "BookWorm est fait ici, page après page.",
+  "ind_link": "L'histoire du 11 novembre",
+  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)",
+  "ind_eyebrow": "Fête de l'Indépendance",
+  "ind_title": "Aujourd'hui, la Pologne célèbre son indépendance."
 }

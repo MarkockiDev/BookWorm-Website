@@ -794,21 +794,44 @@ footer nav a:hover { color: var(--ink); text-decoration: underline; text-underli
 [data-theme="retro"] .consent { box-shadow: 6px 6px 0 var(--ink); border: 2px solid var(--ink); border-radius: 12px; }
 [data-theme="retro"] .consent-actions button { border: 2px solid var(--ink); border-radius: 8px; }
 
-/* ---------- 11 November: Poland's Independence Day, shown that day only (site.js) ---------- */
-.holiday-row { margin-bottom: 22px; }
-.holiday { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; padding: 8px 18px 8px 8px; border-radius: 999px;
-  background: color-mix(in srgb, var(--paper-2) 85%, transparent); box-shadow: 0 0 0 1px var(--rule); color: var(--ink-2);
-  font-size: .95rem; line-height: 1.4; transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
-.holiday.enter { opacity: 0; transform: translateY(6px); }
-.holiday .kotylion { width: 30px; height: 30px; flex: none; filter: drop-shadow(0 1px 1.5px rgba(40, 24, 12, .25)); }
-.holiday p { margin: 0; }
-.holiday-date { font: italic 400 1.05rem/1 var(--display); color: var(--ink); margin-right: 4px; white-space: nowrap; }
-.holiday a { color: var(--pl-red); font-weight: 600; text-decoration: none; white-space: nowrap; margin-left: 2px; }
-.holiday a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.holiday a:focus-visible { outline: 2px solid var(--pl-red); outline-offset: 3px; border-radius: 4px; }
+/* ---------- 11 November: Poland's Independence Day, shown that day only (site.js) ----------
+   An award rosette: a pleated kotylion with white and red ribbon tails, like a book's ribbon bookmark;
+   the flag's white over red runs along the card's foot. */
 :root { --pl-red: #B30E29; }
 [data-theme="dark"] { --pl-red: #FF7A8A; }
-[data-theme="dark"] .holiday { background: var(--paper-2); }
-[data-theme="retro"] .holiday { box-shadow: 3px 3px 0 var(--ink); border: 2px solid var(--ink); background: var(--paper); }
-@media (max-width: 640px) { .holiday { border-radius: 20px; align-items: flex-start; padding: 10px 14px 10px 10px; font-size: .9rem; } }
-@media (prefers-reduced-motion: reduce) { .holiday { transition: opacity .3s; } .holiday.enter { transform: none; } }
+.independence-row { display: flex; justify-content: center; margin-bottom: 48px; }
+.independence { position: relative; width: min(100%, 760px); text-align: center; padding: 30px clamp(20px, 5vw, 56px) 40px; border-radius: 32px; overflow: hidden;
+  background: radial-gradient(90% 70% at 50% 0%, color-mix(in srgb, #C8102E 8%, transparent), transparent 70%), var(--paper);
+  box-shadow: 0 0 0 1px var(--rule), 0 34px 80px -46px rgba(140, 16, 36, .55); }
+.independence::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12px; background: linear-gradient(#FFFFFF 50%, #C8102E 50%); box-shadow: 0 -1px 0 var(--rule), inset 0 1px 0 rgba(44, 24, 16, .06); }
+[data-theme="dark"] .independence { background: radial-gradient(90% 70% at 50% 0%, rgba(200, 16, 46, .16), transparent 70%), var(--paper-2); }
+[data-theme="retro"] .independence { border: 2px solid var(--ink); border-radius: 16px; box-shadow: 6px 6px 0 var(--ink); }
+.independence .rosette { display: block; width: 128px; height: 160px; margin: 0 auto 4px; overflow: visible; }
+.independence .badge { transform-box: fill-box; transform-origin: 50% 50%; filter: drop-shadow(0 6px 8px rgba(80, 10, 20, .18)); }
+.independence .tails { transform-box: fill-box; transform-origin: 50% 0; }
+.ind-eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0; font: 700 .78rem/1.3 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--pl-red); }
+.ind-eyebrow::before, .ind-eyebrow::after { content: ""; width: 36px; height: 1px; background: currentColor; opacity: .45; }
+.ind-eyebrow .holiday-date { font: inherit; color: inherit; margin: 0; }
+.independence h2 { margin: 14px auto 0; max-width: 22ch; font: var(--display-weight) clamp(1.8rem, 5vw, 2.75rem)/1.1 var(--display); letter-spacing: var(--display-track); color: var(--ink); text-wrap: balance; }
+.ind-text { margin: 14px auto 0; max-width: 46ch; font-size: 1.08rem; line-height: 1.6; color: var(--ink-2); }
+.ind-text a { color: var(--pl-red); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.ind-text a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ind-text a:focus-visible { outline: 2px solid var(--pl-red); outline-offset: 3px; border-radius: 4px; }
+@media (max-width: 640px) { .independence { border-radius: 24px; padding-top: 22px; } .independence .rosette { width: 88px; height: 110px; } .ind-eyebrow::before, .ind-eyebrow::after { width: 18px; } }
+
+/* arrival: the rosette is pinned on (a small drop and turn that settles), the tails sway once, then the words rise in turn */
+.independence .badge, .independence .tails, .ind-eyebrow, .independence h2, .ind-text { transition: transform .9s cubic-bezier(.34, 1.36, .64, 1), opacity .45s var(--ease-out); }
+.independence.enter .badge { opacity: 0; transform: translateY(-14px) rotate(-18deg) scale(.92); }
+.independence.enter .tails { opacity: 0; transform: rotate(6deg) scaleY(.85); }
+.independence.enter .ind-eyebrow, .independence.enter h2, .independence.enter .ind-text { opacity: 0; transform: translateY(10px); }
+.independence .tails { transition-delay: .12s; }
+.ind-eyebrow { transition-delay: .2s; }
+.independence h2 { transition-delay: .28s; }
+.ind-text { transition-delay: .36s; }
+.independence.landed .tails { animation: ind-sway 1.8s cubic-bezier(.45, 0, .2, 1) both; }
+@keyframes ind-sway { 0% { transform: rotate(0); } 30% { transform: rotate(3deg); } 60% { transform: rotate(-1.5deg); } 100% { transform: rotate(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .independence .badge, .independence .tails, .ind-eyebrow, .independence h2, .ind-text { transition: opacity .4s ease; transition-delay: 0s; }
+  .independence.enter .badge, .independence.enter .tails, .independence.enter .ind-eyebrow, .independence.enter h2, .independence.enter .ind-text { transform: none; }
+  .independence.landed .tails { animation: none; }
+}
