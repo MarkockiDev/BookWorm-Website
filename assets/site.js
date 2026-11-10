@@ -189,6 +189,24 @@
     }).observe(document.querySelector('.screen.lock'));
   }
 
+  /* ---- 11 November: Poland's Independence Day note above the page's headline, that day only (visitor's own date).
+     ?nov11=1 shows it on any day, for review. */
+  var holiday = document.getElementById('holiday');
+  var now = new Date();
+  if (holiday && ((now.getMonth() === 10 && now.getDate() === 11) || /[?&]nov11=1\b/.test(location.search))) {
+    var top = document.querySelector('main > .hero, main > .page-head, main > article > .page-head');
+    if (top) {
+      var row = holiday.content.firstElementChild.cloneNode(true);
+      var when = row.querySelector('.holiday-date');
+      when.textContent = new Intl.DateTimeFormat(root.lang, { day: 'numeric', month: 'long' }).format(new Date(now.getFullYear(), 10, 11));
+      when.setAttribute('datetime', now.getFullYear() + '-11-11');
+      top.insertBefore(row, top.firstElementChild);
+      var note = row.querySelector('.holiday');
+      note.classList.add('enter');
+      requestAnimationFrame(function () { requestAnimationFrame(function () { note.classList.remove('enter'); }); });
+    }
+  }
+
   /* ---- session replay, only with consent (README, "Session replay") ----
      Unanswered: the card asks once per visit, a few seconds in. Allow: storage and recording start now,
      and the snippet in the head starts recording on later visits. No thanks: never asked again.

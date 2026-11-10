@@ -76,5 +76,9 @@
   "rp_allow": "अनुमति दें",
   "rp_decline": "नहीं, धन्यवाद",
   "rp_privacy": "गोपनीयता नीति",
-  "foot_recording": "रिकॉर्डिंग विकल्प"
+  "foot_recording": "रिकॉर्डिंग विकल्प",
+  "ind_label": "पोलैंड का स्वतंत्रता दिवस",
+  "ind_text": "आज पोलैंड अपना स्वतंत्रता दिवस मना रहा है। BookWorm यहीं, पन्ना दर पन्ना, बनता है।",
+  "ind_link": "इस दिन के बारे में",
+  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)"
 }

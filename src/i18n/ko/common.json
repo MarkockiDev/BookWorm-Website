@@ -76,5 +76,9 @@
   "rp_allow": "허용",
   "rp_decline": "괜찮아요",
   "rp_privacy": "개인정보처리방침",
-  "foot_recording": "기록 설정"
+  "foot_recording": "기록 설정",
+  "ind_label": "폴란드 독립기념일",
+  "ind_text": "오늘 폴란드는 독립기념일을 기념해요. BookWorm은 이곳에서 한 페이지씩 만들어져요.",
+  "ind_link": "이날에 대해",
+  "ind_wiki": "https://en.wikipedia.org/wiki/National_Independence_Day_(Poland)"
 }
