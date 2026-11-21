@@ -95,8 +95,8 @@ def app_rating():
 
 RATING = app_rating()
 
-PH_POST = "1133751"  # BookWorm's Product Hunt post
-PH_URL = "https://www.producthunt.com/products/bookworm-5/launches/bookworm-5?utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-bookworm-5"
+PH_POST = "1307738"  # BookWorm's Product Hunt post (the "BookWorm: Reading Tracker" launch)
+PH_URL = "https://www.producthunt.com/products/bookworm-5?utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-bookworm-reading-tracker"
 
 
 def product_hunt_badges():
