@@ -94,6 +94,32 @@ def app_rating():
 
 
 RATING = app_rating()
+
+PH_POST = "1133751"  # BookWorm's Product Hunt post
+PH_URL = "https://www.producthunt.com/products/bookworm-5/launches/bookworm-5?utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-bookworm-5"
+
+
+def product_hunt_badges():
+    """Saves Product Hunt's "Find us on" badge (with its vote count) as assets/badges/producthunt-<theme>.svg,
+    so visitors' browsers never contact producthunt.com. If the download fails, the last saved copy stays."""
+    for theme, ph_theme in (("light", "neutral"), ("dark", "dark")):
+        out = ROOT / "assets" / "badges" / f"producthunt-{theme}.svg"
+        try:
+            req = urllib.request.Request(f"https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id={PH_POST}&theme={ph_theme}",
+                                         headers={"User-Agent": "ilovebookworm.com build"})
+            with urllib.request.urlopen(req, timeout=10) as r:
+                svg = r.read()
+            if not re.match(rb"\s*(<\?xml[^>]*>\s*)?<svg", svg) or len(svg) > 200_000 or re.search(rb"<script|\bon\w+\s*=", svg, re.I):
+                raise ValueError("not a plain SVG")
+            if not out.exists() or out.read_bytes() != svg:
+                out.write_bytes(svg)
+        except Exception as error:
+            print(f"Product Hunt badge ({theme}) not refreshed ({error}); keeping the saved copy")
+        if not out.exists():
+            raise SystemExit(f"STOP: no Product Hunt badge at {out.relative_to(ROOT)} and it could not be downloaded.")
+
+
+product_hunt_badges()
 TODAY = datetime.date.today().isoformat()
 
 
@@ -228,6 +254,7 @@ def build(lang, pid):
         "lang_native": w["_native"],
         "lang_short": w["_short"],
         "badge": f'/assets/badges/{w["_badge"]}-black.svg',
+        "ph_url": PH_URL.replace("&", "&amp;"),
         "faq_items": faq,
         "breadcrumb": crumbs_html,
         # with a campaign token, App Store Connect counts downloads per page (ct=web-<page>)

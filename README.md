@@ -67,6 +67,7 @@ Every website event carries `platform = web`, `site = ilovebookworm.com`, `env`,
 | `$pageview` | every page load | PostHog's own: URL, referrer, UTM tags, country, device |
 | `$pageleave` | leaving a page | includes `$prev_pageview_max_scroll_percentage` (scroll depth) |
 | `website_app_store_clicked` | any App Store button or link | `placement` (`nav`, `hero`, `page-top`, `calculator`, `closing`, `footer`), `theme` |
+| `website_producthunt_clicked` | the Product Hunt badge | `placement` (`hero`, `footer`), `theme` |
 | `website_theme_changed` | a different look is picked | `theme`, `from`, `source` (`nav` or `section`) |
 | `website_language_changed` | a language is picked in the menu | `to`, `from` |
 | `website_faq_opened` | a question is opened | `question` (its number on that page) |
@@ -91,6 +92,12 @@ visit, ~6 s in or after a scroll, and only where PostHog runs. With `yes`, the h
 **Recording choices** in the footer reopens the card; saying no there stops recording, resets PostHog and clears its
 storage. Every event carries `replay = on|off`, and the choice itself is `website_replay_consent { choice }`.
 In PostHog: Session replay → **Record user sessions** on, and `https://ilovebookworm.com` under Authorized domains.
+
+## Product Hunt badge
+
+The "Find us on Product Hunt" badge sits beside the App Store badge in the home hero and the footer. `build.py` downloads it
+(light and dark, with the current vote count) into `assets/badges/producthunt-{light,dark}.svg` on every build, so visitors
+never load anything from producthunt.com. The count only changes when you rebuild; if the download fails the saved copy stays.
 
 ## Share pictures
 

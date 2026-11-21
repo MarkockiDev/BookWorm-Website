@@ -493,6 +493,14 @@ footer { border-top: 1px solid var(--rule); padding: 56px 0 calc(28px + env(safe
 .foot-brand p { margin: 12px 0 18px; max-width: 30ch; color: var(--ink-2); }
 .foot-brand .brand { display: inline-flex; }
 .badge.small img { height: 40px; }
+/* Product Hunt badge beside the App Store one; its dark version in the dark look only */
+.ph-badge { display: inline-block; border-radius: 10px; line-height: 0; transition: transform .16s var(--ease-out); }
+.ph-badge img { height: 54px; width: auto; }
+.ph-badge.small img { height: 40px; }
+.ph-badge:active { transform: scale(.97); }
+.ph-badge .ph-dark, [data-theme="dark"] .ph-badge .ph-light { display: none; }
+[data-theme="dark"] .ph-badge .ph-dark { display: inline; }
+.foot-brand .ph-badge { margin-left: 10px; vertical-align: top; }
 footer h2 { font: 600 .74rem/1.2 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px; }
 footer nav { display: flex; flex-direction: column; }
 footer nav a { text-decoration: none; display: inline-flex; min-height: 40px; align-items: center; color: var(--ink-2); }

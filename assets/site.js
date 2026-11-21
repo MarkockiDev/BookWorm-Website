@@ -17,6 +17,11 @@
     var spot = a.getAttribute('data-placement') || ((a.closest('section, header, footer') || {}).id) || 'other';
     track('website_app_store_clicked', { placement: spot, theme: root.getAttribute('data-theme') });
   });
+  // the Product Hunt badge (hero or footer)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-ph]');
+    if (a) track('website_producthunt_clicked', { placement: a.getAttribute('data-ph'), theme: root.getAttribute('data-theme') });
+  });
   // printable reading log downloads
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[data-printable]');
